@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Victor. All rights reserved.
 //
 
+//eric wang testings, please leave a name when you notice!
+
 import Foundation
 
 class Person {
