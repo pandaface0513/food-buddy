@@ -12,8 +12,16 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameInput: UITextField!
     @IBOutlet weak var passInput: UITextField!
+    
+    @IBOutlet weak var label1: UILabel!
+    let username:String = "admin"
+    let password:String = "admin2015"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        label1.text = ""
+        usernameInput.text = username
+        passInput.text = password
         
 //        checkUser()
         
@@ -25,12 +33,17 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-//    func checkUser() {
-//        if (usernameInput == "admin") {
-//            usernameInput.text ==
-//        }
-//    }
-    
+    @IBAction func loginBtn(sender: UIButton) {
+        if (usernameInput.text == username && passInput.text == password){
+            label1.text = "Logged In"
+            println("logged in")
+            self.performSegueWithIdentifier("loginSuccess", sender: self)
+            
+        }
+        else {
+            label1.text = "noob no account"
+        }
+    }
 
     /*
     // MARK: - Navigation

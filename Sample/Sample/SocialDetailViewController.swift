@@ -25,7 +25,7 @@ class SocialDetailViewController: UIViewController {
         var nURL = NSURL(string: imageURL!)
         var imageData = NSData(contentsOfURL: nURL!)
         
-        picture.image = UIImage(data: imageData!)
+        //picture.image = UIImage(data: imageData!)
         nameLabel.text = name!
         ageLabel.text = String(age!)
         

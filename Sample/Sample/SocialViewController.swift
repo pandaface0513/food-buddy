@@ -29,12 +29,15 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
+    // Creating fake data for testing purpose
     func setupPeople() {
-        personArr = [
-            Person(nameF: "Jennifer", nameL : "Lee", age: 22, image: "http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg"),
-            Person(nameF: "Zora", nameL: "Lee", age: 18, image: "http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg"),
-            Person(nameF: "Pika", nameL: "Chu", age: 99, image: "http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg")
-        ]
+        for (var x = 0; x < 15; x++){
+            var nameF = "henry" + String(x)
+            var nameL = "Lu"
+            var age = Int(arc4random_uniform(40))
+            var p = Person(nameF: nameF, nameL : nameL, age: age, image: "http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg")
+            personArr.append(p)
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -50,9 +53,9 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         
         cell.textLabel?.text = personArr[indexPath.row].nameF
         
-        var imageURL = NSURL(string: personArr[indexPath.row].img)
-        var imageData = NSData(contentsOfURL: imageURL!)
-        cell.imageView!.image = UIImage(data: imageData!)
+//        var imageURL = NSURL(string: personArr[indexPath.row].img)
+//        var imageData = NSData(contentsOfURL: imageURL!)
+//        cell.imageView!.image = UIImage(data: imageData!)
         
         return cell
     }
