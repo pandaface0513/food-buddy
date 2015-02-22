@@ -95,21 +95,21 @@
 		17BE0B2E1A8BD36A0025AFC4 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
-				17BE0B591A8BE5700025AFC4 /* Person.swift */,
-				17BE0B311A8BD36A0025AFC4 /* AppDelegate.swift */,
-				17BE0B551A8BD5700025AFC4 /* BumpViewController.swift */,
 				17BE0B371A8BD36A0025AFC4 /* Main.storyboard */,
 				17BE0B3A1A8BD36A0025AFC4 /* Images.xcassets */,
 				17BE0B3C1A8BD36A0025AFC4 /* LaunchScreen.xib */,
-				17BE0B2F1A8BD36A0025AFC4 /* Supporting Files */,
 				17562DA81A8C120700327F26 /* LoginViewController.swift */,
 				17EBF3051A8BE9C500B67B3D /* SocialViewController.swift */,
 				17562DAA1A8C208A00327F26 /* SocialDetailViewController.swift */,
 				1761AD871A9924D40090598D /* SocialTableViewCell.swift */,
+				17BE0B591A8BE5700025AFC4 /* Person.swift */,
 				17D725131A91403C00252120 /* NearMe.swift */,
 				17BE0B351A8BD36A0025AFC4 /* NearMeViewController.swift */,
 				17D725151A9141CD00252120 /* NearMeDetailViewController.swift */,
 				1761AD891A9952D10090598D /* NearMeTableViewCell.swift */,
+				17BE0B551A8BD5700025AFC4 /* BumpViewController.swift */,
+				17BE0B311A8BD36A0025AFC4 /* AppDelegate.swift */,
+				17BE0B2F1A8BD36A0025AFC4 /* Supporting Files */,
 			);
 			path = Sample;
 			sourceTree = "<group>";
