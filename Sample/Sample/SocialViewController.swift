@@ -35,7 +35,9 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
             var nameF = "henry" + String(x)
             var nameL = "Lu"
             var age = Int(arc4random_uniform(40))
-            var p = Person(nameF: nameF, nameL : nameL, age: age, image: "http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg")
+            var desc = "Lorem ipsum dolor sit amet"
+            
+            var p = Person(nameF: nameF, nameL : nameL, age: age, image: "http://lorempixel.com/320/320/food/"+String(x), desc: desc)
             personArr.append(p)
         }
     }
@@ -49,9 +51,10 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(self.identifier) as UITableViewCell
+        var cell: SocialTableViewCell = tableView.dequeueReusableCellWithIdentifier(self.identifier) as SocialTableViewCell
         
-        cell.textLabel?.text = personArr[indexPath.row].nameF
+        cell.loadItem(personArr[indexPath.row].nameF, feedphoto: personArr[indexPath.row].img, description: personArr[indexPath.row].desc)
+//        cell.textLabel?.text = personArr[indexPath.row].nameF
         
 //        var imageURL = NSURL(string: personArr[indexPath.row].img)
 //        var imageData = NSData(contentsOfURL: imageURL!)

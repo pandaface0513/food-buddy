@@ -28,12 +28,12 @@ class NearMeViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func setupNearMe() {
-        for (var x = 0; x < 15; x++){
-            var nameF = "henry" + String(x)
-            var nameL = "Lu"
-            var age = Int(arc4random_uniform(40))
-            var p = NearMe(nameF: nameF, nameL : nameL, age: age, image: "http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg")
-            arr.append(p)
+        for (var x = 0; x < 10; x++){
+            var name = "Bad Restaurant" + String(x)
+            var type = "Taste Bad"
+            var distance = Int(arc4random_uniform(40))
+            var n = NearMe(name: name, type: type, distance: distance, image: "http://lorempixel.com/320/320/nightlife/"+String(x))
+            arr.append(n)
         }
 
     }
@@ -47,9 +47,11 @@ class NearMeViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(self.identifier) as UITableViewCell
+        var cell:NearMeTableViewCell = tableView.dequeueReusableCellWithIdentifier(self.identifier) as NearMeTableViewCell
         
-        cell.textLabel?.text = arr[indexPath.row].nameF
+        var place = arr[indexPath.row]
+        
+        cell.loadItem(place.name, placephoto: place.img, placedist: place.distance, placetype: place.type)
         
         return cell
     }

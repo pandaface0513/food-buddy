@@ -6,21 +6,18 @@
 //  Copyright (c) 2015 Victor. All rights reserved.
 //
 
-//eric wang testings, please leave a name when you notice!
-//HENRY NOTICED!
-
 import Foundation
 
 class Person {
     
-    var nameF : String, nameL : String, age : Int, img : String
+    var nameF : String, nameL : String, age : Int, img : String, desc : String
     
-    init(nameF: String, nameL: String, age: Int, image : String) {
+    init(nameF: String, nameL: String, age: Int, image : String, desc : String) {
         self.nameF = nameF
         self.nameL = nameL
         self.age = age
         self.img = image
-        
+        self.desc = desc
     }
     
     

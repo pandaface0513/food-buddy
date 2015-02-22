@@ -9,21 +9,8 @@
 /* Begin PBXBuildFile section */
 		17562DA91A8C120700327F26 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17562DA81A8C120700327F26 /* LoginViewController.swift */; };
 		17562DAB1A8C208A00327F26 /* SocialDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17562DAA1A8C208A00327F26 /* SocialDetailViewController.swift */; };
-		179699601A916C2600693695 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1796994E1A916C2600693695 /* AFHTTPRequestOperation.m */; };
-		179699611A916C2600693695 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 179699501A916C2600693695 /* AFHTTPRequestOperationManager.m */; };
-		179699621A916C2600693695 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 179699521A916C2600693695 /* AFHTTPSessionManager.m */; };
-		179699631A916C2600693695 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 179699551A916C2600693695 /* AFNetworkReachabilityManager.m */; };
-		179699641A916C2600693695 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 179699571A916C2600693695 /* AFSecurityPolicy.m */; };
-		179699651A916C2600693695 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 179699591A916C2600693695 /* AFURLConnectionOperation.m */; };
-		179699661A916C2600693695 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1796995B1A916C2600693695 /* AFURLRequestSerialization.m */; };
-		179699671A916C2600693695 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1796995D1A916C2600693695 /* AFURLResponseSerialization.m */; };
-		179699681A916C2600693695 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1796995F1A916C2600693695 /* AFURLSessionManager.m */; };
-		179699751A916C3700693695 /* BDBOAuth1RequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1796996B1A916C3700693695 /* BDBOAuth1RequestOperationManager.m */; };
-		179699761A916C3700693695 /* BDBOAuth1RequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1796996D1A916C3700693695 /* BDBOAuth1RequestSerializer.m */; };
-		179699771A916C3700693695 /* BDBOAuth1SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1796996F1A916C3700693695 /* BDBOAuth1SessionManager.m */; };
-		179699781A916C3700693695 /* NSDictionary+BDBOAuth1Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 179699721A916C3700693695 /* NSDictionary+BDBOAuth1Manager.m */; };
-		179699791A916C3700693695 /* NSString+BDBOAuth1Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 179699741A916C3700693695 /* NSString+BDBOAuth1Manager.m */; };
-		179699881A916CB000693695 /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179699871A916CB000693695 /* YelpClient.swift */; };
+		1761AD881A9924D40090598D /* SocialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1761AD871A9924D40090598D /* SocialTableViewCell.swift */; };
+		1761AD8A1A9952D10090598D /* NearMeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1761AD891A9952D10090598D /* NearMeTableViewCell.swift */; };
 		17BE0B321A8BD36A0025AFC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BE0B311A8BD36A0025AFC4 /* AppDelegate.swift */; };
 		17BE0B361A8BD36A0025AFC4 /* NearMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BE0B351A8BD36A0025AFC4 /* NearMeViewController.swift */; };
 		17BE0B391A8BD36A0025AFC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17BE0B371A8BD36A0025AFC4 /* Main.storyboard */; };
@@ -38,20 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1796997F1A916C6A00693695 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1796997A1A916C6A00693695 /* Yelp.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 222D8A5519CCF9F900D2DB53;
-			remoteInfo = Yelp;
-		};
-		179699811A916C6A00693695 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1796997A1A916C6A00693695 /* Yelp.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 222D8A6A19CCF9F900D2DB53;
-			remoteInfo = YelpTests;
-		};
 		17BE0B441A8BD36A0025AFC4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 17BE0B241A8BD36A0025AFC4 /* Project object */;
@@ -64,38 +37,8 @@
 /* Begin PBXFileReference section */
 		17562DA81A8C120700327F26 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		17562DAA1A8C208A00327F26 /* SocialDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialDetailViewController.swift; sourceTree = "<group>"; };
-		1796994D1A916C2600693695 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
-		1796994E1A916C2600693695 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
-		1796994F1A916C2600693695 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
-		179699501A916C2600693695 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
-		179699511A916C2600693695 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
-		179699521A916C2600693695 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
-		179699531A916C2600693695 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
-		179699541A916C2600693695 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
-		179699551A916C2600693695 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
-		179699561A916C2600693695 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
-		179699571A916C2600693695 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
-		179699581A916C2600693695 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
-		179699591A916C2600693695 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
-		1796995A1A916C2600693695 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
-		1796995B1A916C2600693695 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
-		1796995C1A916C2600693695 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
-		1796995D1A916C2600693695 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
-		1796995E1A916C2600693695 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
-		1796995F1A916C2600693695 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		1796996A1A916C3700693695 /* BDBOAuth1RequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDBOAuth1RequestOperationManager.h; sourceTree = "<group>"; };
-		1796996B1A916C3700693695 /* BDBOAuth1RequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDBOAuth1RequestOperationManager.m; sourceTree = "<group>"; };
-		1796996C1A916C3700693695 /* BDBOAuth1RequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDBOAuth1RequestSerializer.h; sourceTree = "<group>"; };
-		1796996D1A916C3700693695 /* BDBOAuth1RequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDBOAuth1RequestSerializer.m; sourceTree = "<group>"; };
-		1796996E1A916C3700693695 /* BDBOAuth1SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDBOAuth1SessionManager.h; sourceTree = "<group>"; };
-		1796996F1A916C3700693695 /* BDBOAuth1SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDBOAuth1SessionManager.m; sourceTree = "<group>"; };
-		179699711A916C3700693695 /* NSDictionary+BDBOAuth1Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+BDBOAuth1Manager.h"; sourceTree = "<group>"; };
-		179699721A916C3700693695 /* NSDictionary+BDBOAuth1Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+BDBOAuth1Manager.m"; sourceTree = "<group>"; };
-		179699731A916C3700693695 /* NSString+BDBOAuth1Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BDBOAuth1Manager.h"; sourceTree = "<group>"; };
-		179699741A916C3700693695 /* NSString+BDBOAuth1Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BDBOAuth1Manager.m"; sourceTree = "<group>"; };
-		1796997A1A916C6A00693695 /* Yelp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Yelp.xcodeproj; path = ios_yelp_api/Yelp.xcodeproj; sourceTree = "<group>"; };
-		179699871A916CB000693695 /* YelpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpClient.swift; sourceTree = "<group>"; };
-		1796998B1A916D8600693695 /* Sample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sample-Bridging-Header.h"; sourceTree = "<group>"; };
+		1761AD871A9924D40090598D /* SocialTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialTableViewCell.swift; sourceTree = "<group>"; };
+		1761AD891A9952D10090598D /* NearMeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMeTableViewCell.swift; sourceTree = "<group>"; };
 		17BE0B2C1A8BD36A0025AFC4 /* Project Foodie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Foodie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17BE0B301A8BD36A0025AFC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17BE0B311A8BD36A0025AFC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,74 +74,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1796994C1A916C2600693695 /* AFNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				1796994D1A916C2600693695 /* AFHTTPRequestOperation.h */,
-				1796994E1A916C2600693695 /* AFHTTPRequestOperation.m */,
-				1796994F1A916C2600693695 /* AFHTTPRequestOperationManager.h */,
-				179699501A916C2600693695 /* AFHTTPRequestOperationManager.m */,
-				179699511A916C2600693695 /* AFHTTPSessionManager.h */,
-				179699521A916C2600693695 /* AFHTTPSessionManager.m */,
-				179699531A916C2600693695 /* AFNetworking.h */,
-				179699541A916C2600693695 /* AFNetworkReachabilityManager.h */,
-				179699551A916C2600693695 /* AFNetworkReachabilityManager.m */,
-				179699561A916C2600693695 /* AFSecurityPolicy.h */,
-				179699571A916C2600693695 /* AFSecurityPolicy.m */,
-				179699581A916C2600693695 /* AFURLConnectionOperation.h */,
-				179699591A916C2600693695 /* AFURLConnectionOperation.m */,
-				1796995A1A916C2600693695 /* AFURLRequestSerialization.h */,
-				1796995B1A916C2600693695 /* AFURLRequestSerialization.m */,
-				1796995C1A916C2600693695 /* AFURLResponseSerialization.h */,
-				1796995D1A916C2600693695 /* AFURLResponseSerialization.m */,
-				1796995E1A916C2600693695 /* AFURLSessionManager.h */,
-				1796995F1A916C2600693695 /* AFURLSessionManager.m */,
-			);
-			name = AFNetworking;
-			path = "AFNetworking-master/AFNetworking";
-			sourceTree = "<group>";
-		};
-		179699691A916C3700693695 /* BDBOAuth1Manager */ = {
-			isa = PBXGroup;
-			children = (
-				1796996A1A916C3700693695 /* BDBOAuth1RequestOperationManager.h */,
-				1796996B1A916C3700693695 /* BDBOAuth1RequestOperationManager.m */,
-				1796996C1A916C3700693695 /* BDBOAuth1RequestSerializer.h */,
-				1796996D1A916C3700693695 /* BDBOAuth1RequestSerializer.m */,
-				1796996E1A916C3700693695 /* BDBOAuth1SessionManager.h */,
-				1796996F1A916C3700693695 /* BDBOAuth1SessionManager.m */,
-				179699701A916C3700693695 /* Categories */,
-			);
-			name = BDBOAuth1Manager;
-			path = "BDBOAuth1Manager-master/BDBOAuth1Manager";
-			sourceTree = "<group>";
-		};
-		179699701A916C3700693695 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				179699711A916C3700693695 /* NSDictionary+BDBOAuth1Manager.h */,
-				179699721A916C3700693695 /* NSDictionary+BDBOAuth1Manager.m */,
-				179699731A916C3700693695 /* NSString+BDBOAuth1Manager.h */,
-				179699741A916C3700693695 /* NSString+BDBOAuth1Manager.m */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		1796997B1A916C6A00693695 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				179699801A916C6A00693695 /* Yelp.app */,
-				179699821A916C6A00693695 /* YelpTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		17BE0B231A8BD36A0025AFC4 = {
 			isa = PBXGroup;
 			children = (
-				1796997A1A916C6A00693695 /* Yelp.xcodeproj */,
-				179699691A916C3700693695 /* BDBOAuth1Manager */,
-				1796994C1A916C2600693695 /* AFNetworking */,
 				17BE0B2E1A8BD36A0025AFC4 /* Sample */,
 				17BE0B461A8BD36A0025AFC4 /* SampleTests */,
 				17BE0B2D1A8BD36A0025AFC4 /* Products */,
@@ -217,21 +95,21 @@
 		17BE0B2E1A8BD36A0025AFC4 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
-				1796998B1A916D8600693695 /* Sample-Bridging-Header.h */,
-				179699871A916CB000693695 /* YelpClient.swift */,
 				17BE0B591A8BE5700025AFC4 /* Person.swift */,
 				17BE0B311A8BD36A0025AFC4 /* AppDelegate.swift */,
-				17BE0B351A8BD36A0025AFC4 /* NearMeViewController.swift */,
 				17BE0B551A8BD5700025AFC4 /* BumpViewController.swift */,
 				17BE0B371A8BD36A0025AFC4 /* Main.storyboard */,
 				17BE0B3A1A8BD36A0025AFC4 /* Images.xcassets */,
 				17BE0B3C1A8BD36A0025AFC4 /* LaunchScreen.xib */,
 				17BE0B2F1A8BD36A0025AFC4 /* Supporting Files */,
-				17EBF3051A8BE9C500B67B3D /* SocialViewController.swift */,
 				17562DA81A8C120700327F26 /* LoginViewController.swift */,
+				17EBF3051A8BE9C500B67B3D /* SocialViewController.swift */,
 				17562DAA1A8C208A00327F26 /* SocialDetailViewController.swift */,
+				1761AD871A9924D40090598D /* SocialTableViewCell.swift */,
 				17D725131A91403C00252120 /* NearMe.swift */,
+				17BE0B351A8BD36A0025AFC4 /* NearMeViewController.swift */,
 				17D725151A9141CD00252120 /* NearMeDetailViewController.swift */,
+				1761AD891A9952D10090598D /* NearMeTableViewCell.swift */,
 			);
 			path = Sample;
 			sourceTree = "<group>";
@@ -328,12 +206,6 @@
 			mainGroup = 17BE0B231A8BD36A0025AFC4;
 			productRefGroup = 17BE0B2D1A8BD36A0025AFC4 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 1796997B1A916C6A00693695 /* Products */;
-					ProjectRef = 1796997A1A916C6A00693695 /* Yelp.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				17BE0B2B1A8BD36A0025AFC4 /* Project Foodie */,
@@ -341,23 +213,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		179699801A916C6A00693695 /* Yelp.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Yelp.app;
-			remoteRef = 1796997F1A916C6A00693695 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		179699821A916C6A00693695 /* YelpTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = YelpTests.xctest;
-			remoteRef = 179699811A916C6A00693695 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		17BE0B2A1A8BD36A0025AFC4 /* Resources */ = {
@@ -384,29 +239,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				179699641A916C2600693695 /* AFSecurityPolicy.m in Sources */,
 				17562DAB1A8C208A00327F26 /* SocialDetailViewController.swift in Sources */,
-				179699631A916C2600693695 /* AFNetworkReachabilityManager.m in Sources */,
 				17562DA91A8C120700327F26 /* LoginViewController.swift in Sources */,
-				179699881A916CB000693695 /* YelpClient.swift in Sources */,
-				179699761A916C3700693695 /* BDBOAuth1RequestSerializer.m in Sources */,
-				179699651A916C2600693695 /* AFURLConnectionOperation.m in Sources */,
-				179699601A916C2600693695 /* AFHTTPRequestOperation.m in Sources */,
-				179699621A916C2600693695 /* AFHTTPSessionManager.m in Sources */,
-				179699751A916C3700693695 /* BDBOAuth1RequestOperationManager.m in Sources */,
-				179699661A916C2600693695 /* AFURLRequestSerialization.m in Sources */,
+				1761AD881A9924D40090598D /* SocialTableViewCell.swift in Sources */,
 				17BE0B361A8BD36A0025AFC4 /* NearMeViewController.swift in Sources */,
-				179699681A916C2600693695 /* AFURLSessionManager.m in Sources */,
 				17BE0B561A8BD5700025AFC4 /* BumpViewController.swift in Sources */,
-				179699611A916C2600693695 /* AFHTTPRequestOperationManager.m in Sources */,
-				179699791A916C3700693695 /* NSString+BDBOAuth1Manager.m in Sources */,
-				179699771A916C3700693695 /* BDBOAuth1SessionManager.m in Sources */,
 				17D725161A9141CD00252120 /* NearMeDetailViewController.swift in Sources */,
-				179699671A916C2600693695 /* AFURLResponseSerialization.m in Sources */,
 				17BE0B321A8BD36A0025AFC4 /* AppDelegate.swift in Sources */,
 				17EBF3061A8BE9C500B67B3D /* SocialViewController.swift in Sources */,
-				179699781A916C3700693695 /* NSDictionary+BDBOAuth1Manager.m in Sources */,
 				17BE0B5A1A8BE5700025AFC4 /* Person.swift in Sources */,
+				1761AD8A1A9952D10090598D /* NearMeTableViewCell.swift in Sources */,
 				17D725141A91403C00252120 /* NearMe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,6 +375,8 @@
 				INFOPLIST_FILE = Sample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Project Foodie";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -543,7 +387,8 @@
 				INFOPLIST_FILE = Sample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Project Foodie";
-				SWIFT_OBJC_BRIDGING_HEADER = "Sample-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
