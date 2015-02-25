@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09CE025D1A9E4780003EC91E /* SlideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CE025C1A9E4780003EC91E /* SlideBarTableViewController.swift */; };
 		17562DA91A8C120700327F26 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17562DA81A8C120700327F26 /* LoginViewController.swift */; };
 		17562DAB1A8C208A00327F26 /* SocialDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17562DAA1A8C208A00327F26 /* SocialDetailViewController.swift */; };
 		1761AD881A9924D40090598D /* SocialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1761AD871A9924D40090598D /* SocialTableViewCell.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09CE025C1A9E4780003EC91E /* SlideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideBarTableViewController.swift; sourceTree = "<group>"; };
 		17562DA81A8C120700327F26 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		17562DAA1A8C208A00327F26 /* SocialDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialDetailViewController.swift; sourceTree = "<group>"; };
 		1761AD871A9924D40090598D /* SocialTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialTableViewCell.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				17BE0B3A1A8BD36A0025AFC4 /* Images.xcassets */,
 				17BE0B3C1A8BD36A0025AFC4 /* LaunchScreen.xib */,
 				17562DA81A8C120700327F26 /* LoginViewController.swift */,
+				09CE025C1A9E4780003EC91E /* SlideBarTableViewController.swift */,
 				17EBF3051A8BE9C500B67B3D /* SocialViewController.swift */,
 				17562DAA1A8C208A00327F26 /* SocialDetailViewController.swift */,
 				1761AD871A9924D40090598D /* SocialTableViewCell.swift */,
@@ -246,6 +249,7 @@
 				17BE0B561A8BD5700025AFC4 /* BumpViewController.swift in Sources */,
 				17D725161A9141CD00252120 /* NearMeDetailViewController.swift in Sources */,
 				17BE0B321A8BD36A0025AFC4 /* AppDelegate.swift in Sources */,
+				09CE025D1A9E4780003EC91E /* SlideBarTableViewController.swift in Sources */,
 				17EBF3061A8BE9C500B67B3D /* SocialViewController.swift in Sources */,
 				17BE0B5A1A8BE5700025AFC4 /* Person.swift in Sources */,
 				1761AD8A1A9952D10090598D /* NearMeTableViewCell.swift in Sources */,
