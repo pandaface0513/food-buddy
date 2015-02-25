@@ -35,7 +35,6 @@ class NearMeTableViewCell: UITableViewCell {
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            println("async hello world")
             var imageURL = NSURL(string: placephoto)
             var imageData = NSData(contentsOfURL: imageURL!)
             dispatch_async(dispatch_get_main_queue()){

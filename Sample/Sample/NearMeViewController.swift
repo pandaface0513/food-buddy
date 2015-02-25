@@ -32,7 +32,7 @@ class NearMeViewController: UIViewController, UITableViewDataSource, UITableView
             var name = "Bad Restaurant" + String(x)
             var type = "Taste Bad"
             var distance = Int(arc4random_uniform(40))
-            var n = NearMe(name: name, type: type, distance: distance, image: "http://lorempixel.com/320/320/nightlife/"+String(x))
+            var n = NearMe(name: name, type: type, distance: distance, image: "http://lorempixel.com/500/500/nightlife/"+String(x))
             arr.append(n)
         }
 

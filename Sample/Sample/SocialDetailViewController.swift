@@ -21,13 +21,18 @@ class SocialDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         
-        var nURL = NSURL(string: imageURL!)
-        var imageData = NSData(contentsOfURL: nURL!)
-        
-        //picture.image = UIImage(data: imageData!)
         nameLabel.text = name!
         ageLabel.text = String(age!)
+        
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            var nURL = NSURL(string: self.imageURL!)
+            var imageData = NSData(contentsOfURL: nURL!)
+            dispatch_async(dispatch_get_main_queue()) {
+                self.picture.image = UIImage(data: imageData!)
+            }
+        }
         
         // Do any additional setup after loading the view.
     }

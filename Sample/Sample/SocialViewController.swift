@@ -20,6 +20,9 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.setupPeople()
         
+        var screenSize: CGRect = UIScreen.mainScreen().bounds
+        println(screenSize)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -37,7 +40,7 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
             var age = Int(arc4random_uniform(40))
             var desc = "Lorem ipsum dolor sit amet"
             
-            var p = Person(nameF: nameF, nameL : nameL, age: age, image: "http://lorempixel.com/320/320/food/"+String(x), desc: desc)
+            var p = Person(nameF: nameF, nameL : nameL, age: age, image: "http://lorempixel.com/400/400/food/"+String(x), desc: desc)
             personArr.append(p)
         }
     }
