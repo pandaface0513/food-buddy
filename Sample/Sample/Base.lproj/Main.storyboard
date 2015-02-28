@@ -457,7 +457,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bump View" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAe-rP-eBV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bump View" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAe-rP-eBV">
                                 <rect key="frame" x="117" y="222" width="87" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -466,9 +466,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BAe-rP-eBV" firstAttribute="top" secondItem="2Kg-2o-nHy" secondAttribute="bottom" constant="202" id="6uc-c0-7I7"/>
-                            <constraint firstItem="BAe-rP-eBV" firstAttribute="leading" secondItem="ukp-Tx-Xbo" secondAttribute="leadingMargin" constant="101" id="mQP-Tm-awQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="BAe-rP-eBV" secondAttribute="trailing" constant="100" id="nRN-Yy-T3t"/>
+                            <constraint firstItem="BAe-rP-eBV" firstAttribute="centerX" secondItem="ukp-Tx-Xbo" secondAttribute="centerX" id="4uh-Qy-fI7"/>
+                            <constraint firstItem="BAe-rP-eBV" firstAttribute="top" secondItem="2Kg-2o-nHy" secondAttribute="bottom" constant="158" id="PFy-BN-bN7"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Bump" id="tEi-qQ-ac2"/>
