@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09C475981AA0681A00F2BDB9 /* cold_forest_1194.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09C475971AA0681A00F2BDB9 /* cold_forest_1194.jpg */; };
+		09CB56B31AA24CA600AC8203 /* cold_forest_1194.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09CB56B21AA24CA600AC8203 /* cold_forest_1194.jpg */; };
 		09CE025D1A9E4780003EC91E /* SlideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CE025C1A9E4780003EC91E /* SlideBarTableViewController.swift */; };
 		17562DA91A8C120700327F26 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17562DA81A8C120700327F26 /* LoginViewController.swift */; };
 		17562DAB1A8C208A00327F26 /* SocialDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17562DAA1A8C208A00327F26 /* SocialDetailViewController.swift */; };
@@ -86,7 +86,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09C475971AA0681A00F2BDB9 /* cold_forest_1194.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cold_forest_1194.jpg; path = ../../cold_forest_1194.jpg; sourceTree = "<group>"; };
+		09CB56B21AA24CA600AC8203 /* cold_forest_1194.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cold_forest_1194.jpg; path = ../../cold_forest_1194.jpg; sourceTree = "<group>"; };
 		09CE025C1A9E4780003EC91E /* SlideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideBarTableViewController.swift; sourceTree = "<group>"; };
 		17562DA81A8C120700327F26 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		17562DAA1A8C208A00327F26 /* SocialDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialDetailViewController.swift; sourceTree = "<group>"; };
@@ -193,7 +193,6 @@
 				17BE0B2E1A8BD36A0025AFC4 /* Sample */,
 				17BE0B461A8BD36A0025AFC4 /* SampleTests */,
 				17BE0B2D1A8BD36A0025AFC4 /* Products */,
-				09C475971AA0681A00F2BDB9 /* cold_forest_1194.jpg */,
 			);
 			sourceTree = "<group>";
 		};
@@ -229,6 +228,7 @@
 				9477AE781A9F050400A2DCEF /* ParseHeader.m */,
 				9477AE761A9F050300A2DCEF /* Project Foodie-Bridging-Header.h */,
 				9477AE771A9F050300A2DCEF /* Project FoodieTests-Bridging-Header.h */,
+				09CB56B21AA24CA600AC8203 /* cold_forest_1194.jpg */,
 			);
 			path = Sample;
 			sourceTree = "<group>";
@@ -377,7 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17BE0B391A8BD36A0025AFC4 /* Main.storyboard in Resources */,
-				09C475981AA0681A00F2BDB9 /* cold_forest_1194.jpg in Resources */,
+				09CB56B31AA24CA600AC8203 /* cold_forest_1194.jpg in Resources */,
 				17BE0B3E1A8BD36A0025AFC4 /* LaunchScreen.xib in Resources */,
 				17BE0B3B1A8BD36A0025AFC4 /* Images.xcassets in Resources */,
 			);
