@@ -13,10 +13,16 @@ class DataBase{
     var dataBaseName:String = ""
 
     func upload(data:Dictionary<String,AnyObject>)->Void{
-        var dataRow:PFObject = PFObject()
+		var dataRow:PFObject = PFObject(className: dataBaseName)
         
         for (key,value) in data{
-            dataRow[key] = value
+            if (value is NSData){
+                let imageFile = PFFile(data: value as NSData)
+                dataRow[key] = value
+            }
+            else{
+                dataRow[key] = value
+            }
         }
         
         dataRow.saveInBackgroundWithBlock({
@@ -24,19 +30,21 @@ class DataBase{
             
             if (success){
                 NSLog("%s", "upload succeeded")
+				NSNotificationCenter.defaultCenter().postNotificationName("upload Done", object: nil)
             } else {
                 NSLog("%s", "upload failed")
+				NSNotificationCenter.defaultCenter().postNotificationName("upload Failed", object: error)
             }
         })
     }
-    
-    func downloadContaining(args:Dictionary<String,AnyObject>...)->Void{
+	
+    func downloadEqualTo(args:Dictionary<String,AnyObject>...)->Void{
         var data:Array<Dictionary<String,AnyObject>> = Array()
         var query:PFQuery = PFQuery(className: dataBaseName)
         
         for arg in args{
             for (key,value) in arg{
-                query.whereKey(key, containsString: value as String)
+                query.whereKey(key, equalTo: value)
             }
         }
     
@@ -49,16 +57,25 @@ class DataBase{
                     var keys = object.allKeys()!
                     for key in keys{
                         let dictionaryKey = key as String
-                        let value: AnyObject! = object[dictionaryKey]
-                        dictionary.updateValue(value!, forKey: dictionaryKey)
+                        var value: AnyObject! = object.objectForKey(dictionaryKey) as AnyObject!
+                        if (value is PFFile){
+                            let image = value as PFFile
+                            var errorPointer:NSErrorPointer!
+                            value = image.getData()
+                            if (errorPointer != nil){
+                                dictionary.updateValue(errorPointer.debugDescription, forKey: "errorPointer")
+                            }
+                        }
+                        dictionary.updateValue(value, forKey: dictionaryKey)
                     }
-                    //printDictionary(dictionary)
-                    data.append(dictionary)
+					
+                    printDictionary(dictionary)
+					
+					data.append(dictionary)
                 }
-                //printDictionaries(data)
-                NSNotificationCenter.defaultCenter().postNotificationName("Download Successful", object: data)
+                NSNotificationCenter.defaultCenter().postNotificationName("downloadContaining Done", object: data)
             } else{
-                NSNotificationCenter.defaultCenter().postNotificationName("Download Failed", object:nil)
+                NSNotificationCenter.defaultCenter().postNotificationName("downloadContaining Failed", object:error)
             }
             
         }
