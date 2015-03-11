@@ -13,12 +13,29 @@ class SocialTableViewCell: UITableViewCell {
     @IBOutlet weak var FeedPhoto: UIImageView!
     @IBOutlet weak var FeedUsername: UILabel!
     @IBOutlet weak var FeedDesc: UILabel!
+    @IBOutlet weak var likeCounts: UILabel!
+    @IBOutlet weak var commentCounts: UILabel!
+    
+    var likeCount = 0
+    var commentCount = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        likeCounts.text = String(likeCount)
+        commentCounts.text = String(commentCount)
         // Initialization code
     }
 
+    @IBAction func likeAction(sender: AnyObject) {
+        likeCount += 1
+        likeCounts.text = String(likeCount)
+    }
+    
+    @IBAction func commentAction(sender: AnyObject) {
+        commentCount += 1
+        commentCounts.text = String(commentCount)
+    }
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -28,7 +45,6 @@ class SocialTableViewCell: UITableViewCell {
     func loadItem(feedusername: String, feedphoto: String, description: String){
         FeedUsername.text = feedusername
         FeedDesc.text = description
-        
         
         
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
