@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SocialViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SocialViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
     @IBOutlet weak var socialTable: UITableView!
     
@@ -19,7 +19,7 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         
         self.setupPeople()
-        
+    
         var screenSize: CGRect = UIScreen.mainScreen().bounds
         println(screenSize)
         
