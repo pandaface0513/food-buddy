@@ -5,44 +5,6 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--New Feed-->
-        <scene sceneID="UZW-9n-UhL">
-            <objects>
-                <viewController id="a38-yl-Od5" customClass="AddFeedViewController" customModule="Project_Foodie" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="EUO-iQ-JeN"/>
-                        <viewControllerLayoutGuide type="bottom" id="Qc7-Fd-oh4"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="XcF-Rq-ju8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gaA-iS-ZjV">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Soq-NX-Yog">
-                                <rect key="frame" x="0.0" y="475" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem systemItem="camera" id="bb5-LL-7DJ"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wMK-ZE-kQY"/>
-                                    <barButtonItem systemItem="done" id="sMq-09-Xpp"/>
-                                </items>
-                            </toolbar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="New Feed" id="yqw-ct-YnN">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="TMe-bk-69f"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="bhP-O8-ECR"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="myImage" destination="gaA-iS-ZjV" id="kBA-PP-a0h"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DdZ-dq-Zn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2134" y="-2138"/>
-        </scene>
         <!--Social View-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
@@ -167,13 +129,7 @@
                             <constraint firstAttribute="bottomMargin" secondItem="Roa-iS-Ajx" secondAttribute="bottom" id="yR7-7s-3Vk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Social View" id="Iym-mY-C5a">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="cVF-8I-Vxt">
-                            <connections>
-                                <segue destination="a38-yl-Od5" kind="push" id="K3I-cK-Mez"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Social View" id="Iym-mY-C5a"/>
                     <connections>
                         <outlet property="socialTable" destination="Roa-iS-Ajx" id="Dwn-bJ-7X9"/>
                     </connections>
@@ -803,7 +759,6 @@
             </objects>
             <point key="canvasLocation" x="1134" y="1238"/>
         </scene>
-<<<<<<< Updated upstream
         <!--Navigation Controller-->
         <scene sceneID="2C3-Fc-jOl">
             <objects>
@@ -825,64 +780,6 @@
     </scenes>
     <resources>
         <image name="comment.png" width="436" height="355"/>
-=======
-        <!--Item 2-->
-        <scene sceneID="ZHe-ip-flQ">
-            <objects>
-                <viewController id="0Ah-jf-Lpc" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="nje-Nf-RS1"/>
-                        <viewControllerLayoutGuide type="bottom" id="zk4-Og-OVB"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pDa-n1-0zB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="0St-ml-KPC"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SxO-OX-FfG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--Item 1-->
-        <scene sceneID="v9l-oB-4QL">
-            <objects>
-                <viewController id="YCq-dZ-ZIi" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="u6F-zL-iSJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="geZ-Kd-Qz4"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="571-TP-I4j">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="4mx-hv-mCV"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tun-Ee-BB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="K6G-hv-73c">
-            <objects>
-                <tabBarController id="wYu-Ix-EvK" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="9aD-kO-fjw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="YCq-dZ-ZIi" kind="relationship" relationship="viewControllers" id="2H0-j2-OWZ"/>
-                        <segue destination="0Ah-jf-Lpc" kind="relationship" relationship="viewControllers" id="y9z-N2-OPE"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wbE-KM-yfl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-    </scenes>
-    <resources>
->>>>>>> Stashed changes
         <image name="first" width="30" height="30"/>
         <image name="like.png" width="300" height="300"/>
         <image name="second" width="30" height="30"/>
