@@ -5,6 +5,25 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="i58-jL-p3o">
+            <objects>
+                <viewController id="kMa-Nc-Srd" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yuO-JA-hgz"/>
+                        <viewControllerLayoutGuide type="bottom" id="pAQ-kX-ifa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bOJ-3B-SKI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bpJ-qa-1qU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Jp-Lv-lY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2210" y="-2077"/>
+        </scene>
         <!--Social View-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
@@ -129,7 +148,13 @@
                             <constraint firstAttribute="bottomMargin" secondItem="Roa-iS-Ajx" secondAttribute="bottom" id="yR7-7s-3Vk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Social View" id="Iym-mY-C5a"/>
+                    <navigationItem key="navigationItem" title="Social View" id="Iym-mY-C5a">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bui-it-QVa">
+                            <connections>
+                                <segue destination="kMa-Nc-Srd" kind="push" id="8BQ-yz-rbR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="socialTable" destination="Roa-iS-Ajx" id="Dwn-bJ-7X9"/>
                     </connections>
@@ -227,10 +252,13 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Social Detail View" id="axg-Qy-rxX"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="Pe0-G9-utn" id="dex-8Y-4sM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="laW-WH-4wb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2633" y="-1417"/>
+            <point key="canvasLocation" x="2702" y="-1414"/>
         </scene>
         <!--Near Me View Controller-->
         <scene sceneID="wg7-f3-ORb">
@@ -658,7 +686,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C6x-Bg-nxv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2032" y="442"/>
+            <point key="canvasLocation" x="2051" y="284"/>
         </scene>
         <!--Social-->
         <scene sceneID="Lbw-hT-7ci">

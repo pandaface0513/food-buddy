@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class SocialDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
+    @IBOutlet weak var tableView: UITableView!
 
     var imageURL : String?
     var name : String?
@@ -28,6 +29,10 @@ class SocialDetailViewController: UIViewController, UITableViewDataSource, UITab
             commentArr.append(Comment(name: name, comment: comment))
         }
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
