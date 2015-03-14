@@ -14,7 +14,6 @@ class SignUpViewController: UIViewController {
     var counts = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        label.text = String(counts)
 
         // Do any additional setup after loading the view.
     }
@@ -25,8 +24,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func btn(sender: AnyObject) {
-        counts += 1
-        label.text = String(counts)
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
     /*

@@ -618,15 +618,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1w-Dq-1gm">
-                                <rect key="frame" x="139" y="140" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EDH-Wn-wyS">
+                                <rect key="frame" x="28" y="100" width="265" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dQK-Da-hS3">
+                                <rect key="frame" x="28" y="155" width="265" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Whatever" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CQQ-cA-B6i">
+                                <rect key="frame" x="28" y="214" width="265" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hungry" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SYg-ci-v0B">
+                                <rect key="frame" x="28" y="269" width="265" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PmT-oA-mfU">
-                                <rect key="frame" x="137" y="252" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="133" y="307" width="55" height="30"/>
+                                <state key="normal" title="Sign Up">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -636,17 +650,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="I1w-Dq-1gm" firstAttribute="top" secondItem="DSe-JW-RZ8" secondAttribute="bottom" constant="76" id="IBc-uF-T7a"/>
-                            <constraint firstItem="PmT-oA-mfU" firstAttribute="leading" secondItem="eNA-AL-6hE" secondAttribute="leadingMargin" constant="121" id="YKP-0p-YDu"/>
-                            <constraint firstAttribute="centerX" secondItem="PmT-oA-mfU" secondAttribute="centerX" id="fRt-c3-5UZ"/>
-                            <constraint firstItem="I1w-Dq-1gm" firstAttribute="centerX" secondItem="PmT-oA-mfU" secondAttribute="centerX" id="waS-w5-R2O"/>
-                            <constraint firstItem="PmT-oA-mfU" firstAttribute="top" secondItem="I1w-Dq-1gm" secondAttribute="bottom" constant="91" id="wvd-t5-NvX"/>
+                            <constraint firstItem="CQQ-cA-B6i" firstAttribute="top" secondItem="dQK-Da-hS3" secondAttribute="bottom" constant="29" id="00U-zU-Dpa"/>
+                            <constraint firstItem="PmT-oA-mfU" firstAttribute="top" secondItem="SYg-ci-v0B" secondAttribute="bottom" constant="8" symbolic="YES" id="6lO-Lh-C27"/>
+                            <constraint firstItem="dQK-Da-hS3" firstAttribute="top" secondItem="EDH-Wn-wyS" secondAttribute="bottom" constant="25" id="JyB-7b-hWp"/>
+                            <constraint firstItem="EDH-Wn-wyS" firstAttribute="leading" secondItem="eNA-AL-6hE" secondAttribute="leadingMargin" constant="12" id="KYo-Jk-VUd"/>
+                            <constraint firstItem="SYg-ci-v0B" firstAttribute="centerX" secondItem="PmT-oA-mfU" secondAttribute="centerX" id="N6n-3c-bHu"/>
+                            <constraint firstItem="CQQ-cA-B6i" firstAttribute="trailing" secondItem="SYg-ci-v0B" secondAttribute="trailing" id="Qdc-bm-cbb"/>
+                            <constraint firstItem="CQQ-cA-B6i" firstAttribute="trailing" secondItem="dQK-Da-hS3" secondAttribute="trailing" id="Tc3-Ff-Z7j"/>
+                            <constraint firstItem="dQK-Da-hS3" firstAttribute="leading" secondItem="EDH-Wn-wyS" secondAttribute="leading" id="UZM-HJ-O3q"/>
+                            <constraint firstItem="CQQ-cA-B6i" firstAttribute="leading" secondItem="dQK-Da-hS3" secondAttribute="leading" id="YO7-5V-Ulg"/>
+                            <constraint firstItem="SYg-ci-v0B" firstAttribute="centerY" secondItem="eNA-AL-6hE" secondAttribute="centerY" id="ZvM-9F-VAW"/>
+                            <constraint firstItem="dQK-Da-hS3" firstAttribute="trailing" secondItem="EDH-Wn-wyS" secondAttribute="trailing" id="cHh-Fd-Pne"/>
+                            <constraint firstItem="SYg-ci-v0B" firstAttribute="top" secondItem="CQQ-cA-B6i" secondAttribute="bottom" constant="25" id="ebI-Gb-q3E"/>
+                            <constraint firstItem="CQQ-cA-B6i" firstAttribute="leading" secondItem="SYg-ci-v0B" secondAttribute="leading" id="kAP-Pw-5Xs"/>
+                            <constraint firstItem="PmT-oA-mfU" firstAttribute="centerX" secondItem="eNA-AL-6hE" secondAttribute="centerX" id="o69-cw-J61"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BaV-FX-u9t"/>
-                    <connections>
-                        <outlet property="label" destination="I1w-Dq-1gm" id="yzQ-wL-zsn"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="evW-2V-iXB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -701,7 +721,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0cC-9Y-xGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1641" y="-1409"/>
+            <point key="canvasLocation" x="1640" y="-1414"/>
         </scene>
         <!--Near Me-->
         <scene sceneID="9M3-v9-nAB">
