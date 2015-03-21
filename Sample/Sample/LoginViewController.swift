@@ -40,6 +40,11 @@ class LoginViewController: UIViewController {
             performSegueWithIdentifier("loginSuccess", sender: self)
         }
     }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        self.view.endEditing(true);
+    }
+    
     /*
     // MARK: - Navigation
 

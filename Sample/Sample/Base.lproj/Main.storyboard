@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ud9-I0-x9c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ud9-I0-x9c">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -58,7 +58,7 @@
                                     <constraint firstAttribute="width" constant="92" id="xzc-T8-u2v"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -76,6 +76,7 @@
                             <constraint firstItem="TP1-kc-OML" firstAttribute="centerX" secondItem="Nis-0p-kTu" secondAttribute="centerX" id="iTg-GJ-89I"/>
                             <constraint firstItem="bQv-xg-VEZ" firstAttribute="top" secondItem="Nis-0p-kTu" secondAttribute="bottom" constant="54" id="kkq-uZ-sG2"/>
                             <constraint firstItem="Tl9-NU-KjH" firstAttribute="top" secondItem="Nis-0p-kTu" secondAttribute="bottom" constant="3" id="sgi-YW-OeM"/>
+                            <constraint firstItem="pAQ-kX-ifa" firstAttribute="top" secondItem="TP1-kc-OML" secondAttribute="bottom" constant="91" id="y2X-Pm-FrU"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -94,6 +95,8 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="myImage" destination="Nis-0p-kTu" id="hgm-VA-4HR"/>
+                        <outlet property="myText" destination="TP1-kc-OML" id="Ysl-qm-zDY"/>
+                        <outlet property="textViewBottomConstraint" destination="y2X-Pm-FrU" id="CH1-2Q-iWf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Jp-Lv-lY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -710,7 +713,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwo-Ih-hu0">
                                 <rect key="frame" x="74" y="360" width="172" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>

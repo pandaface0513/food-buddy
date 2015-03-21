@@ -77,6 +77,7 @@
 		9477AE991A9F061300A2DCEF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9477AE7F1A9F05A300A2DCEF /* CoreGraphics.framework */; };
 		9477AE9A1A9F061300A2DCEF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9477AE7D1A9F059D00A2DCEF /* CFNetwork.framework */; };
 		9477AE9B1A9F061300A2DCEF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9477AE7B1A9F059600A2DCEF /* AudioToolbox.framework */; };
+		BA2B71531ABE3B540058862E /* AddFreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B71521ABE3B540058862E /* AddFreeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		9477AE8B1A9F05DD00A2DCEF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9477AE8D1A9F05E600A2DCEF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		9477AE8F1A9F05ED00A2DCEF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		BA2B71521ABE3B540058862E /* AddFreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFreeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +239,7 @@
 				17BE0B591A8BE5700025AFC4 /* Person.swift */,
 				17D725131A91403C00252120 /* NearMe.swift */,
 				17BE0B351A8BD36A0025AFC4 /* NearMeViewController.swift */,
+				BA2B71521ABE3B540058862E /* AddFreeViewController.swift */,
 				17D725151A9141CD00252120 /* NearMeDetailViewController.swift */,
 				1761AD891A9952D10090598D /* NearMeTableViewCell.swift */,
 				17BE0B551A8BD5700025AFC4 /* BumpViewController.swift */,
@@ -408,6 +411,7 @@
 				9477AE5F1A9F032000A2DCEF /* DataBase.swift in Sources */,
 				1761AD881A9924D40090598D /* SocialTableViewCell.swift in Sources */,
 				17BE0B361A8BD36A0025AFC4 /* NearMeViewController.swift in Sources */,
+				BA2B71531ABE3B540058862E /* AddFreeViewController.swift in Sources */,
 				17BE0B561A8BD5700025AFC4 /* BumpViewController.swift in Sources */,
 				9477AE611A9F032000A2DCEF /* PostDataBase.swift in Sources */,
 				097437BD1AB1606800C173BF /* SocialDetailTableViewCell.swift in Sources */,
