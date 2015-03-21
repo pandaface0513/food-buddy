@@ -13,15 +13,4 @@ class RestaurantDataBase:DataBase{
         super.init()
         dataBaseName="RestaurantDataBase"
     }
-	
-	func findRestaurantName(args:Dictionary<String,AnyObject>)->Void {
-		PFCloud.callFunctionInBackground("findRestaurantName", withParameters: args){
-			(result:AnyObject!, error: NSError!)-> Void in
-			if (error==nil){
-				NSNotificationCenter.defaultCenter().postNotificationName("findRestaurantName Done", object: result)
-			}else{
-				NSNotificationCenter.defaultCenter().postNotificationName("findRestaurantName Failed", object: error)
-			}
-		}
-	}
 }
