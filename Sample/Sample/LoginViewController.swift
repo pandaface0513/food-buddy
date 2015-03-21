@@ -14,16 +14,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passInput: UITextField!
     
     @IBOutlet weak var warning: UILabel!
-    let username:String = "admin"
-    let password:String = "admin2015"
     
     var user = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         warning.text = ""
-        usernameInput.text = username
-        passInput.text = password
         
 //        checkUser()
         
@@ -41,9 +37,9 @@ class LoginViewController: UIViewController {
         }
         else {
             user.logIn(usernameInput.text, passwd: passInput.text)
+            performSegueWithIdentifier("loginSuccess", sender: self)
         }
     }
-
     /*
     // MARK: - Navigation
 

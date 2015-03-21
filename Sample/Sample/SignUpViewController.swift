@@ -10,9 +10,11 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var emailInput: UITextField!
     @IBOutlet weak var usernameInput: UITextField!
     @IBOutlet weak var passInput: UITextField!
     @IBOutlet weak var retypePassInput: UITextField!
+    @IBOutlet weak var warning: UILabel!
     
     
     var user = User()
@@ -28,8 +30,20 @@ class SignUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func signupBtn(sender: AnyObject) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+    @IBAction func signupBtn(sender: UIButton) {
+        if (emailInput.text == ""){
+            warning.text = "Email"
+        }
+        else if (usernameInput.text == ""){
+            warning.text = "Username"
+        }
+        else if (passInput.text == "" || passInput.text != retypePassInput.text){
+            warning.text = "Password"
+        }
+        else {
+            user.signUp(usernameInput.text, passwd: passInput.text, email: emailInput.text)
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }
     }
 
     /*
