@@ -13,4 +13,15 @@ class PostDataBase:DataBase{
         super.init()
         dataBaseName="PostDataBase"
     }
+	
+	func findPost(args:Dictionary<String,AnyObject>)->Void {
+		PFCloud.callFunctionInBackground("findPost", withParameters: args){
+			(result:AnyObject!, error: NSError!)-> Void in
+			if (error==nil){
+				NSNotificationCenter.defaultCenter().postNotificationName("findPost Done", object: result)
+			}else{
+				NSNotificationCenter.defaultCenter().postNotificationName("findPost Failed", object: error)
+			}
+		}
+	}
 }

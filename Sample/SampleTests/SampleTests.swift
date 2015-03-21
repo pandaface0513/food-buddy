@@ -7,17 +7,11 @@
 //
 
 import UIKit
-import XCTest
+//import XCTest
 
 class SampleTests: XCTestCase {
     
-    let user = User()
-    let userDataBase = UserDataBase()
-    let postDataBase = PostDataBase()
-    let preferenceDataBase = PreferenceDataBase()
-    let photoDataBase = PhotoDataBase()
-    let restaurantDataBase = RestaurantDataBase()
-    
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
