@@ -10,8 +10,13 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
-    @IBOutlet weak var label: UILabel!
-    var counts = 0
+    @IBOutlet weak var usernameInput: UITextField!
+    @IBOutlet weak var passInput: UITextField!
+    @IBOutlet weak var retypePassInput: UITextField!
+    
+    
+    var user = User()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +28,7 @@ class SignUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func btn(sender: AnyObject) {
+    @IBAction func signupBtn(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
 

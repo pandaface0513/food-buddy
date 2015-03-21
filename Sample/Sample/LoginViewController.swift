@@ -13,13 +13,15 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameInput: UITextField!
     @IBOutlet weak var passInput: UITextField!
     
-    @IBOutlet weak var label1: UILabel!
+    @IBOutlet weak var warning: UILabel!
     let username:String = "admin"
     let password:String = "admin2015"
     
+    var user = User()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        label1.text = ""
+        warning.text = ""
         usernameInput.text = username
         passInput.text = password
         
@@ -34,14 +36,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginBtn(sender: UIButton) {
-        if (usernameInput.text == username && passInput.text == password){
-            label1.text = "Logged In"
-            println("logged in")
-            self.performSegueWithIdentifier("loginSuccess", sender: self)
-            
+        if (usernameInput.text == "" || passInput.text == ""){
+            warning.text = "Wrong"
         }
         else {
-            label1.text = "noob no account"
+            user.logIn(usernameInput.text, passwd: passInput.text)
         }
     }
 
