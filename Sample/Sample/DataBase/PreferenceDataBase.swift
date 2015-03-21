@@ -13,4 +13,15 @@ class PreferenceDataBase:DataBase{
         super.init()
         dataBaseName="PreferenceDataBase"
     }
+	
+	func findPreference(args:Dictionary<String,AnyObject>)->Void {
+		PFCloud.callFunctionInBackground("findPreference", withParameters: args){
+			(result:AnyObject!, error: NSError!)-> Void in
+			if (error==nil){
+				NSNotificationCenter.defaultCenter().postNotificationName("findPreference Done", object: result)
+			}else{
+				NSNotificationCenter.defaultCenter().postNotificationName("findPreference Failed", object: error)
+			}
+		}
+	}
 }

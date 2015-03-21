@@ -36,9 +36,9 @@ class User{
         PFUser.currentUser().saveInBackgroundWithBlock{
             (success:Bool,error:NSError!)->Void in
             if (success){
-                NSNotificationCenter.defaultCenter().postNotificationName("Email Update Successful", object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName("setEmail Done", object: nil)
             }else{
-                NSNotificationCenter.defaultCenter().postNotificationName("Email Update Failed", object: nil)            
+                NSNotificationCenter.defaultCenter().postNotificationName("setEmail Fail", object: nil)
             }
         }
     }
@@ -52,9 +52,9 @@ class User{
         PFUser.currentUser().saveInBackgroundWithBlock{
             (success:Bool,error:NSError!)->Void in
             if (success){
-                NSNotificationCenter.defaultCenter().postNotificationName("Userame Update Successful", object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName("setUsername Done", object: nil)
             }else{
-                NSNotificationCenter.defaultCenter().postNotificationName("Username Update Failed", object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName("setUserName Failed", object: nil)
             }
         }
     }
@@ -80,22 +80,42 @@ class User{
         PFUser.currentUser().saveInBackgroundWithBlock{
             (success:Bool,error:NSError!)->Void in
             if (success){
-                NSNotificationCenter.defaultCenter().postNotificationName("Password Update Successful", object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName("setPassword Done", object: nil)
             }else{
-                NSNotificationCenter.defaultCenter().postNotificationName("Password Update Failed", object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName("setPassword Failed", object: nil)
             }
         }
     }
     
-    func logIn(){
-        PFUser.logInWithUsernameInBackground("myname", password:"mypass") {
+    func logIn(acc:String,passwd:String){
+        PFUser.logInWithUsernameInBackground(acc, password:passwd) {
             (user: PFUser!, error: NSError!) -> Void in
             if user != nil {
             // Do stuff after successful login.
-                NSNotificationCenter.defaultCenter().postNotificationName("Log In Successful", object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName("logIn Done", object: nil)
             } else {
             // The login failed. Check error to see why.
-                NSNotificationCenter.defaultCenter().postNotificationName("Log In Failed", object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName("logIn Failed", object: nil)
+            }
+        }
+    }
+    
+    func signUp(acc:String,passwd:String,email:String){
+        var user = PFUser()
+        user.username = acc
+        user.password = passwd
+        user.email = email
+        
+        user.signUpInBackgroundWithBlock {
+            (succeeded: Bool!, error: NSError!) -> Void in
+            if error == nil {
+                NSNotificationCenter.defaultCenter().postNotificationName("signUp Done", object: nil)
+                println("sign up successful")
+            } else {
+                let errorString = error.userInfo?["error"] as NSString
+                // Show the errorString somewhere and let the user try again.
+                NSNotificationCenter.defaultCenter().postNotificationName("signUp Failed", object: errorString)
+                println("sign up unsuccessful")
             }
         }
     }
@@ -113,12 +133,12 @@ class User{
         user.signUpInBackgroundWithBlock {
             (succeeded: Bool!, error: NSError!) -> Void in
             if error == nil {
-                NSNotificationCenter.defaultCenter().postNotificationName("Sign In Successful", object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName("signUp Done", object: nil)
             } else {
                 let errorString = error.userInfo?["error"] as NSString
                 // Show the errorString somewhere and let the user try again.
                 
-                NSNotificationCenter.defaultCenter().postNotificationName("Sign In Failed", object: errorString)
+                NSNotificationCenter.defaultCenter().postNotificationName("signUp Failed", object: errorString)
             }
         }
     }
