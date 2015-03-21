@@ -28,7 +28,7 @@ class TestingDownloadTest:XCTestCase{
 		NSNotificationCenter.defaultCenter().postNotificationName("downloadContaining Done", object: nil)
 		NSNotificationCenter.defaultCenter().postNotificationName("downLoadContaining Failed", object: nil)
 		
-		testingDataBase.downloadEqualTo(["typetest":123])
+		testingDataBase.downloadEqualTo(["name":"henry's kitchen"])
 		
 		//timeout control
 		let timeout:NSTimeInterval = 10.0

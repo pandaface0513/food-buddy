@@ -18,7 +18,7 @@ class DataBase{
         for (key,value) in data{
             if (value is NSData){
                 let imageFile = PFFile(data: value as NSData)
-                dataRow[key] = value
+                dataRow[key] = imageFile
             }
             else{
                 dataRow[key] = value

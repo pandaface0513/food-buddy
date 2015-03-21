@@ -13,4 +13,15 @@ class PhotoDataBase:DataBase{
         super.init()
         dataBaseName="PhotoDataBase"
     }
+	
+	func findPostPhoto(args:Dictionary<String,AnyObject>)->Void {
+		PFCloud.callFunctionInBackground("findPostPhoto", withParameters: args){
+			(result:AnyObject!, error: NSError!)-> Void in
+			if (error==nil){
+				NSNotificationCenter.defaultCenter().postNotificationName("findPostPhoto Done", object: result)
+			}else{
+				NSNotificationCenter.defaultCenter().postNotificationName("findPostPhoto Failed", object: error)
+			}
+		}
+	}
 }

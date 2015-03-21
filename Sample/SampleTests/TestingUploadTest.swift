@@ -17,6 +17,7 @@ class TestingUploadTest:XCTestCase{
 	let testingDataBase = TestingDataBase()
 	
 	
+	
 	override func setUp() {
 		super.setUp()
 		// Put setup code here. This method is called before the invocation of each test method in the class.
@@ -30,8 +31,10 @@ class TestingUploadTest:XCTestCase{
 			NSNotificationCenter.defaultCenter().addObserver(self, selector: "completed:", name: "upload Done", object: nil)
 			NSNotificationCenter.defaultCenter().addObserver(self, selector: "failed:", name: "upload Failed", object: nil)
 			
+			let imageData = NSData(contentsOfURL: NSURL(string:"http://www.graftoninnvermont.com/wp-content/uploads/2011/09/Woodard-House-kitchen.jpg")!)
+			
 //			let restaurant = ["name":"henry's kitchen \(restaurantCount)","description":"henry's home made good stuff","location":"123 vancouver ave. earth","menu":"any home made stuff"]
-			let restaurant = ["name":"henry's kitchen","description":"henry's home made good stuff","location":"123 vancouver ave. earth","menu":"any home made stuff","typetest":123]
+			let restaurant:Dictionary<String,AnyObject!> = ["name":"henry's kitchen","description":"henry's home made good stuff","location":"123 vancouver ave. earth","menu":"any home made stuff","typetest":123,"image":imageData]
 			testingDataBase.upload(restaurant)
 			
 			//timeout control

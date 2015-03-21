@@ -13,4 +13,15 @@ class TestingDataBase: DataBase {
 		super.init()
 		dataBaseName = "TestingDataBase"
 	}
+	/*
+	func findTesting(args:Dictionary<String,AnyObject>)->Void {
+		PFCloud.callFunctionInBackground("findTesting", withParameters: args){
+			(result:AnyObject!, error: NSError!)-> Void in
+			if (error==nil){
+				NSNotificationCenter.defaultCenter().postNotificationName("findTesting Done", object: result)
+			}else{
+				NSNotificationCenter.defaultCenter().postNotificationName("findTesting Failed", object: error)
+			}
+		}
+	}*/
 }
