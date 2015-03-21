@@ -16,7 +16,17 @@ class DataBase{
         var dataRow:PFObject = PFObject()
         
         for (key,value) in data{
+<<<<<<< HEAD
             dataRow[key] = value
+=======
+            if (value is NSData){
+                let file = PFFile(data: value as NSData)
+                dataRow[key] = file
+            }
+            else{
+                dataRow[key] = value
+            }
+>>>>>>> database
         }
         
         dataRow.saveInBackgroundWithBlock({
@@ -29,6 +39,7 @@ class DataBase{
             }
         })
     }
+<<<<<<< HEAD
     
     func downloadContaining(args:Dictionary<String,AnyObject>...)->Void{
         var data:Array<Dictionary<String,AnyObject>> = Array()
@@ -39,6 +50,55 @@ class DataBase{
                 query.whereKey(key, containsString: value as String)
             }
         }
+=======
+	
+	func downloadEqualTo(equalTo:Dictionary<String,AnyObject>)->Void{
+		download(equalTo, containedIn: [:], containString: [:], greaterThanOrEqualTo: [:], lessThanOrEqualTo: [:])
+	}
+	
+	func downloadContainedIn(containedIn:Dictionary<String,[String]>)->Void{
+		download([:], containedIn: containedIn, containString: [:], greaterThanOrEqualTo: [:], lessThanOrEqualTo: [:])
+	}
+	
+	func downloadcontainsString(containString:Dictionary<String,String>)->Void{
+		download([:], containedIn: [:], containString: containString, greaterThanOrEqualTo: [:], lessThanOrEqualTo: [:])
+	}
+	
+	func downloadGreaterThanOrEqualTo(greaterThanOrEqualTo:Dictionary<String,Float>)->Void{
+		download([:], containedIn: [:], containString: [:], greaterThanOrEqualTo: greaterThanOrEqualTo, lessThanOrEqualTo: [:])
+	}
+	
+	func downloadLessThanOrEqualTo(lessThanOrEqualTo:Dictionary<String,Float>)->Void{
+		download([:], containedIn: [:], containString: [:], greaterThanOrEqualTo: [:], lessThanOrEqualTo: lessThanOrEqualTo)
+	}
+	
+	func download(equalTo:Dictionary<String,AnyObject>, containedIn:Dictionary<String,[String]>, containString:Dictionary<String,String>, greaterThanOrEqualTo:Dictionary<String,Float>, lessThanOrEqualTo:Dictionary<String,Float>)->Void{
+        var data:Array<Dictionary<String,AnyObject>> = Array()
+        var query:PFQuery = PFQuery(className: dataBaseName)
+		
+		for (key,value) in equalTo{
+			query.whereKey(key, equalTo: value)
+		}
+		
+		for (key,value) in containedIn{
+			query.whereKey(key, containedIn: value)
+		}
+		
+		for (key,value) in containString{
+			query.whereKey(key, containedIn: [value])
+		}
+		
+		for (key,value) in greaterThanOrEqualTo{
+			query.whereKey(key, greaterThanOrEqualTo: value)
+		}
+		
+		for (key,value) in lessThanOrEqualTo{
+			query.whereKey(key, lessThanOrEqualTo: value)
+		}
+		
+		
+		
+>>>>>>> database
     
         query.findObjectsInBackgroundWithBlock{
             (objects:[AnyObject]!,error:NSError!) -> Void in
@@ -49,11 +109,21 @@ class DataBase{
                     var keys = object.allKeys()!
                     for key in keys{
                         let dictionaryKey = key as String
+<<<<<<< HEAD
                         let value: AnyObject! = object[dictionaryKey]
                         dictionary.updateValue(value!, forKey: dictionaryKey)
                     }
                     //printDictionary(dictionary)
                     data.append(dictionary)
+=======
+                        var value: AnyObject! = object.objectForKey(dictionaryKey) as AnyObject!
+                        if (value is PFFile){
+                            value = value.url
+                        }
+                        dictionary.updateValue(value, forKey: dictionaryKey)
+                    }
+					data.append(dictionary)
+>>>>>>> database
                 }
                 //printDictionaries(data)
                 NSNotificationCenter.defaultCenter().postNotificationName("Download Successful", object: data)
