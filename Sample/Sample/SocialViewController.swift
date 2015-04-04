@@ -13,14 +13,12 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var socialTable: UITableView!
     
     let identifier = "tableCell"
-    var personArr : [Person] = [Person]()
+    var postArr:[Dictionary<String, AnyObject>] = [Dictionary]()
     var user = User()
     var postDatabase = PostDataBase()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.setupPeople()
         
         var screenSize: CGRect = UIScreen.mainScreen().bounds
         println(PFUser.currentUser().username)
@@ -42,7 +40,11 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         var arr : Array<Dictionary<String, AnyObject>> = notification.object as Array
         for dick in arr {
             println(dick)
+            println(dick["user"])
+            postArr.append(dick)
         }
+        //reload that shit
+        socialTable.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,36 +54,37 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     // Creating fake data for testing purpose
-    func setupPeople() {
-        for (var x = 0; x < 15; x++){
-            var nameF = "henry" + String(x)
-            var nameL = "Lu"
-            var age = Int(arc4random_uniform(40))
-            var desc = "Lorem ipsum dolor sit amet"
-            
-            var p = Person(nameF: nameF, nameL : nameL, age: age, image: "http://lorempixel.com/400/400/food/"+String(x), desc: desc)
-            personArr.append(p)
-        }
-    }
+//    func setupPeople() {
+//        for (var x = 0; x < 15; x++){
+//            var nameF = "henry" + String(x)
+//            var nameL = "Lu"
+//            var age = Int(arc4random_uniform(40))
+//            var desc = "Lorem ipsum dolor sit amet"
+//            
+//            var p = Person(nameF: nameF, nameL : nameL, age: age, image: "http://lorempixel.com/400/400/food/"+String(x), desc: desc)
+//            personArr.append(p)
+//        }
+//    }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.personArr.count
+        return self.postArr.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: SocialTableViewCell = tableView.dequeueReusableCellWithIdentifier(self.identifier) as SocialTableViewCell
         
-        cell.loadItem(personArr[indexPath.row].nameF, feedphoto: personArr[indexPath.row].img, description: personArr[indexPath.row].desc)
+        let post:Dictionary<String,AnyObject> = postArr[indexPath.row] as Dictionary
+        
+        cell.loadItem(post["user"] as String, feedphoto: post["imagefile"] as String, description: post["description"] as String)
 //        cell.textLabel?.text = personArr[indexPath.row].nameF
         
 //        var imageURL = NSURL(string: personArr[indexPath.row].img)
 //        var imageData = NSData(contentsOfURL: imageURL!)
 //        cell.imageView!.image = UIImage(data: imageData!)
-        
         return cell
     }
     
@@ -91,9 +94,9 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
             
             var socialDetail : SocialDetailViewController = segue.destinationViewController as SocialDetailViewController
             
-            socialDetail.name = personArr[index!.row].nameF + " " + personArr[index!.row].nameL
-            socialDetail.age = personArr[index!.row].age
-            socialDetail.imageURL = personArr[index!.row].img
+            socialDetail.name = "fk"
+            socialDetail.age = 1
+            socialDetail.imageURL = "www.google.com"
             
         }
     }

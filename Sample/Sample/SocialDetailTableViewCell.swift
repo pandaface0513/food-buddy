@@ -35,13 +35,13 @@ class SocialDetailTableViewCell: UITableViewCell {
         
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            var imageURL = NSURL(string: feedphoto)
-            var imageData = NSData(contentsOfURL: imageURL!)
-            dispatch_async(dispatch_get_main_queue()){
-                self.FeedPhoto.image = UIImage(data: imageData!)
-            }
-        }
+//        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+//            var imageURL = NSURL(string: feedphoto)
+//            var imageData = NSData(contentsOfURL: imageURL!)
+//            dispatch_async(dispatch_get_main_queue()){
+//                self.FeedPhoto.image = UIImage(data: imageData!)
+//            }
+//        }
         
         //        FeedDesc.numberOfLines = 0
         //        FeedDesc.preferredMaxLayoutWidth = 450
