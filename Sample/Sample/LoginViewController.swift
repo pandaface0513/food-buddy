@@ -42,33 +42,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-    func loginSuccessful(notification: NSNotification){
-        println("done")
-        performSegueWithIdentifier("loginSuccess", sender: self)
-    }
-    
-    func loginEr(notification: NSNotification){
-        println("login error")
-        
-        var alert = UIAlertController(title: "Alert", message: "Login Unsuccessful", preferredStyle: UIAlertControllerStyle.Alert)
-        var alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
-        alert.addAction(alertAction)
-        presentViewController(alert, animated: true, completion: nil)
-        
-    }
-=======
->>>>>>> Stashed changes
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        self.view.endEditing(true);
-    }
-    
-<<<<<<< Updated upstream
-=======
->>>>>>> origin/master
->>>>>>> Stashed changes
     /*
     // MARK: - Navigation
 
