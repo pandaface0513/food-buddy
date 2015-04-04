@@ -42,6 +42,24 @@ class LoginViewController: UIViewController {
         }
     }
     
+    func loginSuccessful(notification: NSNotification){
+        println("Login Done")
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    func loginEr(notification: NSNotification){
+        println("Login failed")
+        alertPopup("Login Error")
+    }
+    
+    func alertPopup(warningMsg:String){
+        var alert = UIAlertController(title: "Alert", message: warningMsg, preferredStyle: UIAlertControllerStyle.Alert)
+        var alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+        alert.addAction(alertAction)
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
