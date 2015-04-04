@@ -105,7 +105,7 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "upLoadPostDone:", name: "upload Done", object: nil)
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "upLoadPostFail:", name: "upload Failed", object: nil)
             
-            var postData:Dictionary<String, AnyObject!> = ["user": usr.getObjectId(), "description": textField.text, "imagefile": imgData, "location": "Victor's House"]
+            var postData:Dictionary<String, AnyObject!> = ["userid": usr.getObjectId(), "user": usr.getUsername(), "description": textField.text, "imagefile": imgData, "location": "Victor's House"]
             db.upload(postData)
             self.navigationController?.popToRootViewControllerAnimated(true)
         }
