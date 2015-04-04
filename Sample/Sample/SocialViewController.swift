@@ -17,13 +17,23 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
     var user = User()
     var postDatabase = PostDataBase()
     
+    var refreshControl:UIRefreshControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "reload:", forControlEvents: UIControlEvents.ValueChanged)
+        socialTable.addSubview(refreshControl)
+        
+        
         
         var screenSize: CGRect = UIScreen.mainScreen().bounds
         println(PFUser.currentUser().username)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "testLoad:", name: "findAllPost Done", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "upLoadPostDone:", name: "upload Done", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "upLoadPostFail:", name: "upload Done", object: nil)
         
         postDatabase.findAllPost()
         
@@ -35,9 +45,28 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         // Do any additional setup after loading the view.
     }
     
+    //function for upload done
+    func upLoadPostDone(notifcation: NSNotification){
+        postDatabase.findAllPost()
+        println("got notification")
+    }
+    
+    //function for upload fail
+    func upLoadPostFail(notifcation: NSNotification){
+        //failView.show()
+    }
+    
+    //function to reload
+    func reload(sender:AnyObject){
+        postDatabase.findAllPost()
+        println("reloading")
+        self.refreshControl.endRefreshing()
+    }
+    
     
     func testLoad(notification : NSNotification){
         var arr : Array<Dictionary<String, AnyObject>> = notification.object as Array
+        postArr = [Dictionary]()
         for dick in arr {
             println(dick)
             println(dick["user"])

@@ -102,8 +102,8 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
             //println(beforeData.length)
             //println(imgData.length)
             
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "upLoadPostDone:", name: "upload Done", object: nil)
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "upLoadPostFail:", name: "upload Failed", object: nil)
+            //NSNotificationCenter.defaultCenter().addObserver(self, selector: "upLoadPostDone:", name: "upload Done", object: nil)
+            //NSNotificationCenter.defaultCenter().addObserver(self, selector: "upLoadPostFail:", name: "upload Failed", object: nil)
             
             var postData:Dictionary<String, AnyObject!> = ["userid": usr.getObjectId(), "user": usr.getUsername(), "description": textField.text, "imagefile": imgData, "location": "Victor's House"]
             db.upload(postData)
@@ -111,19 +111,19 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
-    //function for upload done
-    func upLoadPostDone(notifcation: NSNotification){
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "upload Done", object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "upload Failed", object: nil)
-        //self.navigationController?.popToRootViewControllerAnimated(true)
-    }
-    
-    //function for upload fail
-    func upLoadPostFail(notifcation: NSNotification){
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "upload Done", object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "upload Failed", object: nil)
-        failView.show()
-    }
+//    //function for upload done
+//    func upLoadPostDone(notifcation: NSNotification){
+//        NSNotificationCenter.defaultCenter().removeObserver(self, name: "upload Done", object: nil)
+//        NSNotificationCenter.defaultCenter().removeObserver(self, name: "upload Failed", object: nil)
+//        //self.navigationController?.popToRootViewControllerAnimated(true)
+//    }
+//    
+//    //function for upload fail
+//    func upLoadPostFail(notifcation: NSNotification){
+//        NSNotificationCenter.defaultCenter().removeObserver(self, name: "upload Done", object: nil)
+//        NSNotificationCenter.defaultCenter().removeObserver(self, name: "upload Failed", object: nil)
+//        failView.show()
+//    }
     
     
     //function to crop iamge to a certain size
