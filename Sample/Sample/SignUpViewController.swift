@@ -16,6 +16,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var retypePassInput: UITextField!
     @IBOutlet weak var warning: UILabel!
     
+    var warningMsg = ""
     
     var user = User()
     
@@ -32,18 +33,47 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signupBtn(sender: UIButton) {
         if (emailInput.text == ""){
-            warning.text = "Email"
+            warningMsg = "Email"
+            alertPopup("Check your \(warningMsg)")
         }
         else if (usernameInput.text == ""){
-            warning.text = "Username"
+            warningMsg = "Username"
+            alertPopup("Check your \(warningMsg)")
         }
         else if (passInput.text == "" || passInput.text != retypePassInput.text){
-            warning.text = "Password"
+            warningMsg = "Password"
+            alertPopup("Check your \(warningMsg)")
         }
         else {
             user.signUp(usernameInput.text, passwd: passInput.text, email: emailInput.text)
-            self.navigationController?.popToRootViewControllerAnimated(true)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "signupSuc:", name: "signUp Done", object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "signupEr:", name: "signUp Failed", object: nil)
         }
+        warningMsg = ""
+    }
+    
+    func signupSuc(notification: NSNotification){
+        println("signUp Done")
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    func signupEr(notification: NSNotification){
+        var msg = notification.object? as String
+        println("signUp Failed")
+        println("error msg: \(msg)")
+        alertPopup(msg)
+    }
+    
+    func alertPopup(warningMsg:String){
+        var alert = UIAlertController(title: "Alert", message: warningMsg, preferredStyle: UIAlertControllerStyle.Alert)
+        var alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+        alert.addAction(alertAction)
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        self.view.endEditing(true);
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {

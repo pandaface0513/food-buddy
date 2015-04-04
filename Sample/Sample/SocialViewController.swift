@@ -14,6 +14,7 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
     
     let identifier = "tableCell"
     var personArr : [Person] = [Person]()
+    var user = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,7 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         self.setupPeople()
         
         var screenSize: CGRect = UIScreen.mainScreen().bounds
-        println(screenSize)
+        println(PFUser.currentUser().username)
         
         // Do any additional setup after loading the view.
     }
