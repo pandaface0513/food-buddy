@@ -15,6 +15,7 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
     let identifier = "tableCell"
     var personArr : [Person] = [Person]()
     var user = User()
+    var postDatabase = PostDataBase()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,24 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         var screenSize: CGRect = UIScreen.mainScreen().bounds
         println(PFUser.currentUser().username)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "testLoad:", name: "findAllPost Done", object: nil)
+        
+        postDatabase.findAllPost()
+        
+        //postDatabase.downloadContainedIn([:])
+        
+
+        
+        
         // Do any additional setup after loading the view.
+    }
+    
+    
+    func testLoad(notification : NSNotification){
+        var arr : Array<Dictionary<String, AnyObject>> = notification.object as Array
+        for dick in arr {
+            println(dick)
+        }
     }
     
     override func didReceiveMemoryWarning() {

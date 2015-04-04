@@ -24,4 +24,30 @@ class PostDataBase:DataBase{
 			}
 		}
 	}
+    
+    func findAllPost()->Void {
+        PFCloud.callFunctionInBackground("findAllPost", withParameters: [:]){
+            (result:AnyObject!, error: NSError!)-> Void in
+            if (error==nil){
+                var data:Array<Dictionary<String,AnyObject>> = Array()
+                for objects in result! as NSArray{
+                    var dictionary:Dictionary<String,AnyObject> = Dictionary()
+                    var object = objects as PFObject
+                    var keys = object.allKeys()!
+                    for key in keys{
+                        let dictionaryKey = key as String
+                        var value: AnyObject! = object.objectForKey(dictionaryKey) as AnyObject!
+                        if (value is PFFile){
+                            value = value.url
+                        }
+                        dictionary.updateValue(value, forKey: dictionaryKey)
+                    }
+                    data.append(dictionary)
+                }
+                NSNotificationCenter.defaultCenter().postNotificationName("findAllPost Done", object: data)
+            }else{
+                NSNotificationCenter.defaultCenter().postNotificationName("findAllPost Failed", object: error)
+            }
+        }
+    }
 }

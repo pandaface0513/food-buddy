@@ -61,7 +61,7 @@ class SocialDetailViewController: UIViewController, UITableViewDataSource, UITab
             //        cell.imageView!.image = UIImage(data: imageData!)
             
             //return cell
-            println(imageURL!)
+            //println(imageURL!)
         }
         else {
             cell = tableView.dequeueReusableCellWithIdentifier("commentCell") as SocialDetailTableViewCell
@@ -73,9 +73,8 @@ class SocialDetailViewController: UIViewController, UITableViewDataSource, UITab
             //        cell.imageView!.image = UIImage(data: imageData!)
             
             //return cell
-            println(commentArr[indexPath.row - 1])
+            //println(commentArr[indexPath.row - 1])
         }
-        println("WTF")
         return cell
     }
 

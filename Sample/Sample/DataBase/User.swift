@@ -13,13 +13,10 @@ let Attributes = ["profilePic","firstName","lastName","friends"]
 class User{
     
     func addFriend(userId:String){
-        var friendsList = PFUser.currentUser().objectForKey("friends")! as String
-        
-        if(friendsList==""){
-            friendsList=userId
-        }else{
-            friendsList = "\(friendsList),\(userId)"
-        }
+        var friendsList:Array<String> = PFUser.currentUser().objectForKey("follower")! as Array<String>
+
+        friendsList.append(userId);
+    
         PFUser.currentUser().setValue(friendsList, forKey: "friends")
     }
     
