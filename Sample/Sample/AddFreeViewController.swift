@@ -8,10 +8,14 @@
 
 import UIKit
 
-class AddFeedViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
+class AddFeedViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate {
     
     let alertView = UIAlertView(title: "Alert!", message: "Text or Photo is missing...", delegate: nil, cancelButtonTitle: "OK")
+    let failView = UIAlertView(title: "Alert!", message: "Upload failed...", delegate: nil, cancelButtonTitle: ":(")
+    let db:PostDataBase = PostDataBase()
     
+    //var img:UIImage!
+    var imgData:NSData!
     
     @IBAction func cancelBtn(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
@@ -20,9 +24,9 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var myImage: UIImageView!
     let picker = UIImagePickerController()
     
-    @IBOutlet weak var myText: UITextField!
+    @IBOutlet weak var textField: UITextView!
     
-    @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var TextViewConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +34,7 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
         picker.delegate = self
         picker.allowsEditing = true
         
-        myText.delegate = self
+        textField.delegate = self
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         
@@ -49,7 +53,7 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
     func keyboardWillShow(sender: NSNotification) {
         if let userInfo = sender.userInfo {
             if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
-                textViewBottomConstraint.constant += keyboardHeight
+                TextViewConstraint.constant += keyboardHeight
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
                     self.view.layoutIfNeeded()
                 })
@@ -60,7 +64,7 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
     func keyboardWillHide(sender: NSNotification) {
         if let userInfo = sender.userInfo {
             if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
-                textViewBottomConstraint.constant -= keyboardHeight
+                TextViewConstraint.constant -= keyboardHeight
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
                     self.view.layoutIfNeeded()
                 })
@@ -84,14 +88,50 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
     
     @IBAction func doneBtn(sender: AnyObject) {
         //check content and image
-        if (myText.text.isEmpty || myImage?.image? == nil) {
+        if (textField.text.isEmpty || myImage?.image? == nil) {
             alertView.show();
         }else{
-            //below convert image to jpeg with 1.0 quality
-            var imgData:NSData = UIImageJPEGRepresentation(myImage.image, 0.8)
+            //below crop image to certain size (640 x 640)
+            //var croppedImg:UIImage = cropImageTo(myImage.image!, scaledToSize: CGSizeMake(640, 640))
+            //println(myImage.image!.size);
+            //println(croppedImg.size);
+            //below convert image to jpeg with 60% quality
+//            var imgData:NSData = UIImageJPEGRepresentation(img, 0.6)
+            //var beforeData:NSData = UIImageJPEGRepresentation(myImage.image!, 1.0)
+            //println(beforeData.length)
+            //println(imgData.length)
             
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "upLoadPostDone:", name: "upload Done", object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "upLoadPostFail:", name: "upload Failed", object: nil)
+            
+            var postData:Dictionary<String, AnyObject!> = ["user": "Henry", "description": textField.text, "imagefile": imgData, "location": "Victor's House"]
+            db.upload(postData)
+            self.navigationController?.popToRootViewControllerAnimated(true)
         }
+    }
+    
+    //function for upload done
+    func upLoadPostDone(notifcation: NSNotification){
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "upload Done", object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "upload Failed", object: nil)
         //self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    //function for upload fail
+    func upLoadPostFail(notifcation: NSNotification){
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "upload Done", object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "upload Failed", object: nil)
+        failView.show()
+    }
+    
+    
+    //function to crop iamge to a certain size
+    func cropImageTo(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
+        image.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
+        var newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
     }
     
     func uploadFromGallery(){
@@ -101,8 +141,10 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
     
     //MARK: Delegates
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        var chosenImage = info[UIImagePickerControllerOriginalImage] as UIImage //2
-        //        myImage.contentMode = .ScaleAspectFit myImage. //3
+        var chosenImage = info[UIImagePickerControllerEditedImage] as UIImage //2
+        myImage.contentMode = .ScaleAspectFit//3
+        chosenImage = cropImageTo(chosenImage, scaledToSize: CGSizeMake(640, 640))
+        imgData = UIImageJPEGRepresentation(chosenImage, 0.6)
         myImage.image = chosenImage //4
         dismissViewControllerAnimated(true, completion: nil) //5
     }

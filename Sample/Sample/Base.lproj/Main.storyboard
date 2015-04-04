@@ -23,11 +23,6 @@
                                     <constraint firstAttribute="height" constant="320" id="T0m-6K-apX"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="comments..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TP1-kc-OML">
-                                <rect key="frame" x="4" y="403" width="313" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tl9-NU-KjH">
                                 <rect key="frame" x="235" y="323" width="69" height="30"/>
                                 <constraints>
@@ -52,31 +47,26 @@
                                     <action selector="galleryBtn:" destination="kMa-Nc-Srd" eventType="touchUpInside" id="vK0-bY-7Cs"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQv-xg-VEZ">
-                                <rect key="frame" x="4" y="374" width="92" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="92" id="xzc-T8-u2v"/>
-                                </constraints>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" text="Enter comments here..." translatesAutoresizingMaskIntoConstraints="NO" id="kmc-cX-Bc5">
+                                <rect key="frame" x="4" y="361" width="300" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Tl9-NU-KjH" firstAttribute="baseline" secondItem="ZD8-ti-864" secondAttribute="baseline" id="7Hr-Gt-mU6"/>
                             <constraint firstItem="Nis-0p-kTu" firstAttribute="top" secondItem="bOJ-3B-SKI" secondAttribute="top" id="7sL-He-vKX"/>
-                            <constraint firstItem="TP1-kc-OML" firstAttribute="top" secondItem="bQv-xg-VEZ" secondAttribute="bottom" constant="8" symbolic="YES" id="Blf-oN-JAR"/>
                             <constraint firstItem="Nis-0p-kTu" firstAttribute="leading" secondItem="bOJ-3B-SKI" secondAttribute="leading" id="Ka7-Do-StE"/>
                             <constraint firstItem="Tl9-NU-KjH" firstAttribute="trailing" secondItem="bOJ-3B-SKI" secondAttribute="trailingMargin" id="Syf-QS-y76"/>
-                            <constraint firstItem="ZD8-ti-864" firstAttribute="leading" secondItem="bQv-xg-VEZ" secondAttribute="leading" id="ZLF-Cj-Hey"/>
+                            <constraint firstItem="kmc-cX-Bc5" firstAttribute="top" secondItem="ZD8-ti-864" secondAttribute="bottom" constant="8" symbolic="YES" id="Vnt-L9-Lt5"/>
+                            <constraint firstItem="kmc-cX-Bc5" firstAttribute="trailing" secondItem="Tl9-NU-KjH" secondAttribute="trailing" id="ZiA-cy-6OT"/>
                             <constraint firstAttribute="trailing" secondItem="Nis-0p-kTu" secondAttribute="trailing" id="agi-aL-XYH"/>
-                            <constraint firstItem="TP1-kc-OML" firstAttribute="leading" secondItem="bOJ-3B-SKI" secondAttribute="leadingMargin" constant="-12" id="ddh-xg-o0r"/>
-                            <constraint firstItem="TP1-kc-OML" firstAttribute="leading" secondItem="bQv-xg-VEZ" secondAttribute="leading" id="e6t-dh-gEc"/>
-                            <constraint firstItem="TP1-kc-OML" firstAttribute="centerX" secondItem="Nis-0p-kTu" secondAttribute="centerX" id="iTg-GJ-89I"/>
-                            <constraint firstItem="bQv-xg-VEZ" firstAttribute="top" secondItem="Nis-0p-kTu" secondAttribute="bottom" constant="54" id="kkq-uZ-sG2"/>
+                            <constraint firstItem="ZD8-ti-864" firstAttribute="leading" secondItem="bOJ-3B-SKI" secondAttribute="leadingMargin" constant="-12" id="bbe-yh-Dv5"/>
+                            <constraint firstItem="ZD8-ti-864" firstAttribute="leading" secondItem="kmc-cX-Bc5" secondAttribute="leading" id="fM7-Ew-fLh"/>
+                            <constraint firstItem="pAQ-kX-ifa" firstAttribute="top" secondItem="kmc-cX-Bc5" secondAttribute="bottom" constant="13" id="jos-LE-LhG"/>
                             <constraint firstItem="Tl9-NU-KjH" firstAttribute="top" secondItem="Nis-0p-kTu" secondAttribute="bottom" constant="3" id="sgi-YW-OeM"/>
-                            <constraint firstItem="pAQ-kX-ifa" firstAttribute="top" secondItem="TP1-kc-OML" secondAttribute="bottom" constant="91" id="y2X-Pm-FrU"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -94,9 +84,9 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="TextViewConstraint" destination="jos-LE-LhG" id="9Zu-BY-3X1"/>
                         <outlet property="myImage" destination="Nis-0p-kTu" id="hgm-VA-4HR"/>
-                        <outlet property="myText" destination="TP1-kc-OML" id="Ysl-qm-zDY"/>
-                        <outlet property="textViewBottomConstraint" destination="y2X-Pm-FrU" id="CH1-2Q-iWf"/>
+                        <outlet property="textField" destination="kmc-cX-Bc5" id="g1D-wi-Fe2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Jp-Lv-lY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
