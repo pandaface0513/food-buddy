@@ -38,7 +38,9 @@ class User{
             if (success){
                 NSNotificationCenter.defaultCenter().postNotificationName("setEmail Done", object: nil)
             }else{
-                NSNotificationCenter.defaultCenter().postNotificationName("setEmail Fail", object: nil)
+                let errorString = error.userInfo?["error"] as NSString
+                // Show the errorString somewhere and let the user try again.
+                NSNotificationCenter.defaultCenter().postNotificationName("setEmail Fail", object: errorString)
             }
         }
     }
@@ -54,7 +56,9 @@ class User{
             if (success){
                 NSNotificationCenter.defaultCenter().postNotificationName("setUsername Done", object: nil)
             }else{
-                NSNotificationCenter.defaultCenter().postNotificationName("setUserName Failed", object: nil)
+                let errorString = error.userInfo?["error"] as NSString
+                // Show the errorString somewhere and let the user try again.
+                NSNotificationCenter.defaultCenter().postNotificationName("setUserName Failed", object: errorString)
             }
         }
     }
@@ -82,7 +86,9 @@ class User{
             if (success){
                 NSNotificationCenter.defaultCenter().postNotificationName("setPassword Done", object: nil)
             }else{
-                NSNotificationCenter.defaultCenter().postNotificationName("setPassword Failed", object: nil)
+                let errorString = error.userInfo?["error"] as NSString
+                // Show the errorString somewhere and let the user try again.
+                NSNotificationCenter.defaultCenter().postNotificationName("setPassword Failed", object: errorString)
             }
         }
     }
@@ -94,8 +100,10 @@ class User{
             // Do stuff after successful login.
                 NSNotificationCenter.defaultCenter().postNotificationName("logIn Done", object: nil)
             } else {
+                let errorString = error.userInfo?["error"] as NSString
+                // Show the errorString somewhere and let the user try again.
             // The login failed. Check error to see why.
-                NSNotificationCenter.defaultCenter().postNotificationName("logIn Failed", object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName("logIn Failed", object: errorString)
             }
         }
     }
