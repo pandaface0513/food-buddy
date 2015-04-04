@@ -13,6 +13,7 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
     let alertView = UIAlertView(title: "Alert!", message: "Text or Photo is missing...", delegate: nil, cancelButtonTitle: "OK")
     let failView = UIAlertView(title: "Alert!", message: "Upload failed...", delegate: nil, cancelButtonTitle: ":(")
     let db:PostDataBase = PostDataBase()
+    let usr:User = User()
     
     //var img:UIImage!
     var imgData:NSData!
@@ -104,7 +105,7 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "upLoadPostDone:", name: "upload Done", object: nil)
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "upLoadPostFail:", name: "upload Failed", object: nil)
             
-            var postData:Dictionary<String, AnyObject!> = ["user": "Henry", "description": textField.text, "imagefile": imgData, "location": "Victor's House"]
+            var postData:Dictionary<String, AnyObject!> = ["user": usr.getObjectId(), "description": textField.text, "imagefile": imgData, "location": "Victor's House"]
             db.upload(postData)
             self.navigationController?.popToRootViewControllerAnimated(true)
         }
