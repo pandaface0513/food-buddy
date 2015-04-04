@@ -45,7 +45,7 @@ class LoginViewController: UIViewController {
     func loginSuccessful(notification: NSNotification){
         println("Login Done")
         NSNotificationCenter.defaultCenter().removeObserver(self)
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.performSegueWithIdentifier("loginSuccess", sender: nil)
     }
     
     func loginEr(notification: NSNotification){
