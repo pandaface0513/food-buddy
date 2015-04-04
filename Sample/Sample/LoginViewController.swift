@@ -60,6 +60,11 @@ class LoginViewController: UIViewController {
         presentViewController(alert, animated: true, completion: nil)
     }
     
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        self.view.endEditing(true);
+
+    }
+    
     /*
     // MARK: - Navigation
 
