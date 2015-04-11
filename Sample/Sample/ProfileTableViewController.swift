@@ -66,7 +66,7 @@ class ProfileTableViewController: UITableViewController {
         
         if (indexPath.row == 0){
             cell = tableView.dequeueReusableCellWithIdentifier("profileInfo") as! ProfileTableViewCell
-            cell.loadProfileInfo("picurl", username: user.getUsername() as String)
+            cell.loadProfileInfo("http://www.punchbrand.com/blog/wp-content/uploads/2012/04/PIN-MEGUSTA.jpg", username: user.getUsername() as String)
         }
         else {
             cell = tableView.dequeueReusableCellWithIdentifier("previousPost") as! ProfileTableViewCell

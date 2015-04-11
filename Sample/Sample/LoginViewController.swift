@@ -22,6 +22,9 @@ class LoginViewController: UIViewController {
         warning.text = ""
         
 //        checkUser()
+        if (PFUser.currentUser() != nil){
+            self.performSegueWithIdentifier("loginSuccess", sender: nil)
+        }
         
         // Do any additional setup after loading the view.
     }
