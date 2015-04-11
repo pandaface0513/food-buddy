@@ -30,12 +30,12 @@ class PostDataBase:DataBase{
             (result:AnyObject!, error: NSError!)-> Void in
             if (error==nil){
                 var data:Array<Dictionary<String,AnyObject>> = Array()
-                for objects in result! as NSArray{
+                for objects in result! as! NSArray{
                     var dictionary:Dictionary<String,AnyObject> = Dictionary()
-                    var object = objects as PFObject
+                    var object = objects as! PFObject
                     var keys = object.allKeys()!
                     for key in keys{
-                        let dictionaryKey = key as String
+                        let dictionaryKey = key as! String
                         var value: AnyObject! = object.objectForKey(dictionaryKey) as AnyObject!
                         if (value is PFFile){
                             value = value.url

@@ -12,30 +12,38 @@ class DataBase{
     
     var dataBaseName:String = ""
 
-    func upload(data:Dictionary<String,AnyObject>)->Void{
+	func uploadRelational(dataBase:DataBase?, parentId:String?, child:Dictionary<String,AnyObject!>)->Void{
 		var dataRow:PFObject = PFObject(className: dataBaseName)
-        
-        for (key,value) in data{
-            if (value is NSData){
-                let file = PFFile(data: value as NSData)
-                dataRow[key] = file
-            }
-            else{
-                dataRow[key] = value
-            }
-        }
-        
-        dataRow.saveInBackgroundWithBlock({
-            (success:Bool, error:NSError!)-> Void in
-            
-            if (success){
-                NSLog("%s", "upload succeeded")
+		if !(dataBase==nil){
+			dataRow["parent"] = PFObject(withoutDataWithClassName:dataBase!.dataBaseName, objectId:parentId!)
+		}
+		
+		for (key,value) in child{
+			if (value is NSData){
+				let file = PFFile(data: value as! NSData)
+				dataRow[key] = file
+			}
+			else{
+				dataRow[key] = value
+			}
+		}
+		
+		dataRow.saveInBackgroundWithBlock({
+			(success:Bool, error:NSError!)-> Void in
+			
+			if (success){
 				NSNotificationCenter.defaultCenter().postNotificationName("upload Done", object: nil)
-            } else {
-                NSLog("%s", "upload failed")
-				NSNotificationCenter.defaultCenter().postNotificationName("upload Failed", object: error)
-            }
-        })
+			} else {
+				let errorString = error.userInfo?["error"] as! NSString
+				// Show the errorString somewhere and let the user try again.
+				
+				NSNotificationCenter.defaultCenter().postNotificationName("upload Failed", object: errorString)
+			}
+		})
+	}
+	
+    func upload(data:Dictionary<String,AnyObject>)->Void{
+		uploadRelational(nil, parentId: nil, child: data)
     }
 	
 	func downloadEqualTo(equalTo:Dictionary<String,AnyObject>)->Void{
@@ -58,59 +66,87 @@ class DataBase{
 		download([:], containedIn: [:], containString: [:], greaterThanOrEqualTo: [:], lessThanOrEqualTo: lessThanOrEqualTo)
 	}
 	
+	func changePFObjectsToDictionary(objects: [PFObject]) -> Array<Dictionary<String,AnyObject>>{
+		var data:Array<Dictionary<String,AnyObject>> = Array()
+		
+		for object in objects{
+			var dictionary:Dictionary<String,AnyObject> = Dictionary()
+			var keys = object.allKeys()!
+			for key in keys{
+				let dictionaryKey = key as! String
+				var value: AnyObject! = object.objectForKey(dictionaryKey) as AnyObject!
+				if (value is PFFile){
+					value = value.url
+				}
+				dictionary.updateValue(value, forKey: dictionaryKey)
+			}
+			dictionary.updateValue(object.objectId, forKey:"objectId")
+			dictionary.updateValue(object.createdAt, forKey: "createdAt")
+			data.append(dictionary)
+		}
+		
+		return data
+	}
+	
 	func download(equalTo:Dictionary<String,AnyObject>, containedIn:Dictionary<String,[String]>, containString:Dictionary<String,String>, greaterThanOrEqualTo:Dictionary<String,Float>, lessThanOrEqualTo:Dictionary<String,Float>)->Void{
         var data:Array<Dictionary<String,AnyObject>> = Array()
-        var query:PFQuery = PFQuery(className: dataBaseName)
+        var querys:Array<PFQuery> = Array()
+		var orQuery:PFQuery = PFQuery(className: dataBaseName)
 		
 		for (key,value) in equalTo{
-			query.whereKey(key, equalTo: value)
+			var temp = PFQuery(className: dataBaseName)
+			temp.whereKey(key, equalTo: value)
+			querys.append(temp)
 		}
 		
 		for (key,value) in containedIn{
-			query.whereKey(key, containedIn: value)
+			var temp = PFQuery(className: dataBaseName)
+			temp.whereKey(key, equalTo: value)
+			querys.append(temp)
 		}
 		
 		for (key,value) in containString{
-			query.whereKey(key, containedIn: [value])
+			var temp = PFQuery(className: dataBaseName)
+			temp.whereKey(key, equalTo: value)
+			querys.append(temp)
 		}
 		
 		for (key,value) in greaterThanOrEqualTo{
-			query.whereKey(key, greaterThanOrEqualTo: value)
+			var temp = PFQuery(className: dataBaseName)
+			temp.whereKey(key, equalTo: value)
+			querys.append(temp)
 		}
 		
 		for (key,value) in lessThanOrEqualTo{
-			query.whereKey(key, lessThanOrEqualTo: value)
+			var temp = PFQuery(className: dataBaseName)
+			temp.whereKey(key, equalTo: value)
+			querys.append(temp)
 		}
 		
 		
-		
+		orQuery = PFQuery.orQueryWithSubqueries(querys)
+
     
-        query.findObjectsInBackgroundWithBlock{
+        orQuery.findObjectsInBackgroundWithBlock{
             (objects:[AnyObject]!,error:NSError!) -> Void in
-            
+			
             if (error==nil){
-                for object in objects as [PFObject]{
-                    var dictionary:Dictionary<String,AnyObject> = Dictionary()
-                    var keys = object.allKeys()!
-                    for key in keys{
-                        let dictionaryKey = key as String
-                        var value: AnyObject! = object.objectForKey(dictionaryKey) as AnyObject!
-                        if (value is PFFile){
-                            value = value.url
-                        }
-                        dictionary.updateValue(value, forKey: dictionaryKey)
-                    }
-					data.append(dictionary)
-                }
-                NSNotificationCenter.defaultCenter().postNotificationName("downloadContaining Done", object: data)
+				data = self.changePFObjectsToDictionary(objects as! [PFObject])
+                NSNotificationCenter.defaultCenter().postNotificationName("download Done", object: data)
             } else{
-                NSNotificationCenter.defaultCenter().postNotificationName("downloadContaining Failed", object:error)
+				let errorString = error.userInfo?["error"] as! NSString
+				// Show the errorString somewhere and let the user try again.
+				
+                NSNotificationCenter.defaultCenter().postNotificationName("download Failed", object:errorString)
             }
             
         }
         
         return
     }
+	
+
+	
 }
 
 func printDictionary(dictionary:Dictionary<String,AnyObject>){

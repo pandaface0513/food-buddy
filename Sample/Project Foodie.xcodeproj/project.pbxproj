@@ -14,6 +14,8 @@
 		097437BD1AB1606800C173BF /* SocialDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097437BC1AB1606800C173BF /* SocialDetailTableViewCell.swift */; };
 		0984A2051ABE0D58007DE238 /* FeaturePostDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984A2041ABE0D58007DE238 /* FeaturePostDataBase.swift */; };
 		09CE025D1A9E4780003EC91E /* SlideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CE025C1A9E4780003EC91E /* SlideBarTableViewController.swift */; };
+		09E1F2821AD99FFA000FFCB2 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1F2811AD99FFA000FFCB2 /* ProfileTableViewController.swift */; };
+		09E1F2861AD9A748000FFCB2 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1F2851AD9A748000FFCB2 /* ProfileTableViewCell.swift */; };
 		09E8DB8B1AB4BFA4000CCE8C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E8DB8A1AB4BFA4000CCE8C /* Comment.swift */; };
 		17562DA91A8C120700327F26 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17562DA81A8C120700327F26 /* LoginViewController.swift */; };
 		17562DAB1A8C208A00327F26 /* SocialDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17562DAA1A8C208A00327F26 /* SocialDetailViewController.swift */; };
@@ -98,6 +100,8 @@
 		097437BC1AB1606800C173BF /* SocialDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialDetailTableViewCell.swift; sourceTree = "<group>"; };
 		0984A2041ABE0D58007DE238 /* FeaturePostDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturePostDataBase.swift; sourceTree = "<group>"; };
 		09CE025C1A9E4780003EC91E /* SlideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideBarTableViewController.swift; sourceTree = "<group>"; };
+		09E1F2811AD99FFA000FFCB2 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		09E1F2851AD9A748000FFCB2 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		09E8DB8A1AB4BFA4000CCE8C /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		17562DA81A8C120700327F26 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		17562DAA1A8C208A00327F26 /* SocialDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialDetailViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +248,8 @@
 				17D725151A9141CD00252120 /* NearMeDetailViewController.swift */,
 				1761AD891A9952D10090598D /* NearMeTableViewCell.swift */,
 				17BE0B551A8BD5700025AFC4 /* BumpViewController.swift */,
+				09E1F2811AD99FFA000FFCB2 /* ProfileTableViewController.swift */,
+				09E1F2851AD9A748000FFCB2 /* ProfileTableViewCell.swift */,
 				17BE0B311A8BD36A0025AFC4 /* AppDelegate.swift */,
 				9477AE781A9F050400A2DCEF /* ParseHeader.m */,
 				9477AE761A9F050300A2DCEF /* Project Foodie-Bridging-Header.h */,
@@ -408,11 +414,13 @@
 				17562DAB1A8C208A00327F26 /* SocialDetailViewController.swift in Sources */,
 				09E8DB8B1AB4BFA4000CCE8C /* Comment.swift in Sources */,
 				17562DA91A8C120700327F26 /* LoginViewController.swift in Sources */,
+				09E1F2861AD9A748000FFCB2 /* ProfileTableViewCell.swift in Sources */,
 				9477AE5F1A9F032000A2DCEF /* DataBase.swift in Sources */,
 				1761AD881A9924D40090598D /* SocialTableViewCell.swift in Sources */,
 				17BE0B361A8BD36A0025AFC4 /* NearMeViewController.swift in Sources */,
 				BA2B71531ABE3B540058862E /* AddFreeViewController.swift in Sources */,
 				17BE0B561A8BD5700025AFC4 /* BumpViewController.swift in Sources */,
+				09E1F2821AD99FFA000FFCB2 /* ProfileTableViewController.swift in Sources */,
 				9477AE611A9F032000A2DCEF /* PostDataBase.swift in Sources */,
 				097437BD1AB1606800C173BF /* SocialDetailTableViewCell.swift in Sources */,
 				9477AE621A9F032000A2DCEF /* PreferenceDataBase.swift in Sources */,
