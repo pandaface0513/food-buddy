@@ -13,14 +13,16 @@ class ProfileTableViewController: UITableViewController {
     var postArr:[Dictionary<String, AnyObject>] = [Dictionary]()
     var user = User()
     var postDatabase = PostDataBase()
-    var database = DataBase()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        println("Profile loaded")
+        println(user.getObjectId())
         
         postDatabase.downloadEqualTo(["objectId": user.getObjectId()])
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadMyPost:", name: "download Done", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadMyPostError:", name: "download Failed", object: nil)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -33,12 +35,17 @@ class ProfileTableViewController: UITableViewController {
         var arr : Array<Dictionary<String, AnyObject>> = notification.object as! Array
         postArr = [Dictionary]()
         for dick in arr {
+            println("running")
             println(dick)
             println(dick["user"])
             postArr.append(dick)
         }
         //reload that shit
         self.tableView.reloadData()
+    }
+    
+    func loadMyPostError(notification:NSNotification){
+        println("download not working")
     }
 
     override func didReceiveMemoryWarning() {
