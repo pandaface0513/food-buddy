@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-class SocialDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
+class SocialDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate  {
     @IBOutlet weak var tableView: UITableView!
-
+    
     var imageURL : String?
     var name : String?
     var age : Int?
@@ -20,6 +20,19 @@ class SocialDetailViewController: UIViewController, UITableViewDataSource, UITab
     var commentArr : [Comment] = [Comment]()
 //    let identifier : String = "commentCell"
     
+    var db:PostDataBase = PostDataBase()
+    
+    @IBOutlet weak var commentField: UITextField!
+    @IBOutlet weak var toolbarConstraint: NSLayoutConstraint!
+    
+    @IBAction func submitBtn(sender: AnyObject) {
+        if(!commentField.text.isEmpty){
+            //uploadComments
+            println("trying to upload - " + commentField.text)
+            self.view.endEditing(true)
+            commentField.text = nil
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +41,12 @@ class SocialDetailViewController: UIViewController, UITableViewDataSource, UITab
             var comment = "stuff " + String(i)
             commentArr.append(Comment(name: name, comment: comment))
         }
+        
+        commentField.delegate = self
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         // Do any additional setup after loading the view.
     }
     
@@ -77,6 +96,38 @@ class SocialDetailViewController: UIViewController, UITableViewDataSource, UITab
         }
         return cell
     }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true);
+    }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        if let userInfo = sender.userInfo {
+            if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
+                toolbarConstraint.constant += keyboardHeight*0.78
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    self.view.layoutIfNeeded()
+                })
+            }
+        }
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        if let userInfo = sender.userInfo {
+            if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
+                toolbarConstraint.constant -= keyboardHeight*0.78
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    self.view.layoutIfNeeded()
+                })
+            }
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
 
     /*
     // MARK: - Navigation
