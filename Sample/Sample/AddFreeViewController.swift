@@ -86,7 +86,7 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true);
     }
     
@@ -100,7 +100,7 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
     
     @IBAction func doneBtn(sender: AnyObject) {
         //check content and image
-        if (textField.text.isEmpty || myImage?.image? == nil) {
+        if (textView.text.isEmpty || myImage?.image == nil) {
             alertView.show();
         }else{
             //below crop image to certain size (640 x 640)
@@ -116,7 +116,7 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
             //NSNotificationCenter.defaultCenter().addObserver(self, selector: "upLoadPostDone:", name: "upload Done", object: nil)
             //NSNotificationCenter.defaultCenter().addObserver(self, selector: "upLoadPostFail:", name: "upload Failed", object: nil)
             
-            var postData:Dictionary<String, AnyObject!> = ["userid": usr.getObjectId(), "user": usr.getUsername(), "description": textField.text, "imagefile": imgData, "location": "Victor's House"]
+            var postData:Dictionary<String, AnyObject!> = ["userid": usr.getObjectId(), "user": usr.getUsername(), "description": textView.text, "imagefile": imgData, "location": "Victor's House"]
             db.upload(postData)
             self.navigationController?.popToRootViewControllerAnimated(true)
         }
@@ -186,7 +186,7 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
     
     //MARK: Delegates
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        var chosenImage = info[UIImagePickerControllerEditedImage] as UIImage //2
+        var chosenImage = info[UIImagePickerControllerEditedImage] as! UIImage //2
         myImage.contentMode = .ScaleAspectFit//3
         chosenImage = cropImageTo(chosenImage, scaledToSize: CGSizeMake(640, 640))
         imgData = UIImageJPEGRepresentation(chosenImage, 0.6)
