@@ -19,10 +19,10 @@ class ProfileTableViewController: UITableViewController {
         println("Profile loaded")
         println(user.getObjectId())
         
-        postDatabase.downloadEqualTo(["objectId": user.getObjectId()])
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadMyPost:", name: "download Done", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadMyPostError:", name: "download Failed", object: nil)
+        
+        postDatabase.downloadEqualTo(["user": user.getUsername()])
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -35,11 +35,12 @@ class ProfileTableViewController: UITableViewController {
         var arr : Array<Dictionary<String, AnyObject>> = notification.object as! Array
         postArr = [Dictionary]()
         for dick in arr {
-            println("running")
-            println(dick)
-            println(dick["user"])
+//            println("running")
+//            println(dick)
+//            println(dick["user"])
             postArr.append(dick)
         }
+        println(postArr)
         //reload that shit
         self.tableView.reloadData()
     }
@@ -66,6 +67,15 @@ class ProfileTableViewController: UITableViewController {
         // Return the number of rows in the section.
         return self.postArr.count + 1
     }
+    
+    //it mother fking works. overriding a function to change the cell height depending on the content. so.....row == 0 is the profile, so its smaller. otherwise each photos is 360
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if(indexPath.row == 0){
+            return 100
+        }else{
+            return 360
+        }
+    }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -74,12 +84,16 @@ class ProfileTableViewController: UITableViewController {
         if (indexPath.row == 0){
             cell = tableView.dequeueReusableCellWithIdentifier("profileInfo") as! ProfileTableViewCell
             cell.loadProfileInfo("http://www.punchbrand.com/blog/wp-content/uploads/2012/04/PIN-MEGUSTA.jpg", username: user.getUsername() as String)
+            cell.frame.size.height = 123
+            cell.sizeToFit()
         }
         else {
-            cell = tableView.dequeueReusableCellWithIdentifier("previousPost") as! ProfileTableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("previousPosts") as! ProfileTableViewCell
             let post:Dictionary<String,AnyObject> = postArr[indexPath.row - 1] as Dictionary
             
             cell.loadItem(post["imagefile"] as! String, description: post["description"] as! String)
+            cell.sizeToFit()
+            
         }
 
         return cell
