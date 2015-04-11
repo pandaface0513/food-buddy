@@ -59,7 +59,7 @@ class SignUpViewController: UIViewController {
     }
     
     func signupEr(notification: NSNotification){
-        var msg = notification.object? as String
+        var msg = notification.object as! String
         println("signUp Failed")
         println("error msg: \(msg)")
         alertPopup(msg)
@@ -72,8 +72,9 @@ class SignUpViewController: UIViewController {
         presentViewController(alert, animated: true, completion: nil)
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true);
+
     }
 
     /*

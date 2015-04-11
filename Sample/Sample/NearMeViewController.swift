@@ -47,7 +47,7 @@ class NearMeViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:NearMeTableViewCell = tableView.dequeueReusableCellWithIdentifier(self.identifier) as NearMeTableViewCell
+        var cell:NearMeTableViewCell = tableView.dequeueReusableCellWithIdentifier(self.identifier) as! NearMeTableViewCell
         
         var place = arr[indexPath.row]
         
@@ -60,7 +60,7 @@ class NearMeViewController: UIViewController, UITableViewDataSource, UITableView
         if segue.identifier == "NearTable" {
             let index = nearTable?.indexPathForSelectedRow()
             
-            var nearDetail : NearMeDetailViewController = segue.destinationViewController as NearMeDetailViewController
+            var nearDetail : NearMeDetailViewController = segue.destinationViewController as!NearMeDetailViewController
             
             nearDetail.name = arr[index!.row].name + " " + arr[index!.row].type
             nearDetail.dist = arr[index!.row].distance

@@ -65,7 +65,7 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func testLoad(notification : NSNotification){
-        var arr : Array<Dictionary<String, AnyObject>> = notification.object as Array
+        var arr : Array<Dictionary<String, AnyObject>> = notification.object as! Array
         postArr = [Dictionary]()
         for dick in arr {
             println(dick)
@@ -104,11 +104,11 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: SocialTableViewCell = tableView.dequeueReusableCellWithIdentifier(self.identifier) as SocialTableViewCell
+        var cell: SocialTableViewCell = tableView.dequeueReusableCellWithIdentifier(self.identifier) as! SocialTableViewCell
         
         let post:Dictionary<String,AnyObject> = postArr[indexPath.row] as Dictionary
         
-        cell.loadItem(post["user"] as String, feedphoto: post["imagefile"] as String, description: post["description"] as String)
+        cell.loadItem(post["user"] as! String, feedphoto: post["imagefile"] as! String, description: post["description"] as! String)
 //        cell.textLabel?.text = personArr[indexPath.row].nameF
         
 //        var imageURL = NSURL(string: personArr[indexPath.row].img)
@@ -121,7 +121,7 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         if segue.identifier == "socialDetail" {
             let index = socialTable?.indexPathForSelectedRow()
             
-            var socialDetail : SocialDetailViewController = segue.destinationViewController as SocialDetailViewController
+            var socialDetail : SocialDetailViewController = segue.destinationViewController as! SocialDetailViewController
             
             socialDetail.name = "fk"
             socialDetail.age = 1

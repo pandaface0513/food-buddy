@@ -52,7 +52,7 @@ class SocialDetailViewController: UIViewController, UITableViewDataSource, UITab
         var cell: SocialDetailTableViewCell
         
         if (indexPath.row == 0) {
-            cell = tableView.dequeueReusableCellWithIdentifier("imageCell") as SocialDetailTableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("imageCell") as! SocialDetailTableViewCell
             cell.loadItem(imageURL!)
             //        cell.textLabel?.text = personArr[indexPath.row].nameF
             
@@ -64,7 +64,7 @@ class SocialDetailViewController: UIViewController, UITableViewDataSource, UITab
             //println(imageURL!)
         }
         else {
-            cell = tableView.dequeueReusableCellWithIdentifier("commentCell") as SocialDetailTableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("commentCell")as! SocialDetailTableViewCell
             cell.loadItem(commentArr[indexPath.row - 1].name, comment: commentArr[indexPath.row - 1].comment)
             //        cell.textLabel?.text = personArr[indexPath.row].nameF
             

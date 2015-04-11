@@ -13,7 +13,7 @@ let Attributes = ["profilePic","firstName","lastName","friends"]
 class User{
     
     func addFriend(userId:String){
-        var friendsList:Array<String> = PFUser.currentUser().objectForKey("follower")! as Array<String>
+        var friendsList:Array<String> = PFUser.currentUser().objectForKey("follower")! as! Array<String>
 
         friendsList.append(userId);
     
@@ -21,7 +21,7 @@ class User{
     }
     
     func getFriends()->String{
-        return PFUser.currentUser().objectForKey("friends")! as String
+        return PFUser.currentUser().objectForKey("friends")! as! String
     }
     
     func getObjectId()->String{
@@ -35,7 +35,7 @@ class User{
             if (success){
                 NSNotificationCenter.defaultCenter().postNotificationName("setEmail Done", object: nil)
             }else{
-                let errorString = error.userInfo?["error"] as NSString
+                let errorString = error.userInfo?["error"] as! NSString
                 // Show the errorString somewhere and let the user try again.
                 NSNotificationCenter.defaultCenter().postNotificationName("setEmail Fail", object: errorString)
             }
@@ -53,7 +53,7 @@ class User{
             if (success){
                 NSNotificationCenter.defaultCenter().postNotificationName("setUsername Done", object: nil)
             }else{
-                let errorString = error.userInfo?["error"] as NSString
+                let errorString = error.userInfo?["error"] as! NSString
                 // Show the errorString somewhere and let the user try again.
                 NSNotificationCenter.defaultCenter().postNotificationName("setUserName Failed", object: errorString)
             }
@@ -68,7 +68,7 @@ class User{
         let keys = PFUser.currentUser().allKeys()
         var info:Dictionary<String,AnyObject> = Dictionary()
         for key in keys{
-            let dictionaryKey = key as String
+            let dictionaryKey = key as! String
             let value: AnyObject = PFUser.currentUser().objectForKey(dictionaryKey)!
             info.updateValue(value, forKey: dictionaryKey)
         }
@@ -83,7 +83,7 @@ class User{
             if (success){
                 NSNotificationCenter.defaultCenter().postNotificationName("setPassword Done", object: nil)
             }else{
-                let errorString = error.userInfo?["error"] as NSString
+                let errorString = error.userInfo?["error"] as! NSString
                 // Show the errorString somewhere and let the user try again.
                 NSNotificationCenter.defaultCenter().postNotificationName("setPassword Failed", object: errorString)
             }
@@ -97,7 +97,7 @@ class User{
             // Do stuff after successful login.
                 NSNotificationCenter.defaultCenter().postNotificationName("logIn Done", object: nil)
             } else {
-                let errorString = error.userInfo?["error"] as NSString
+                let errorString = error.userInfo?["error"] as! NSString
                 // Show the errorString somewhere and let the user try again.
             // The login failed. Check error to see why.
                 NSNotificationCenter.defaultCenter().postNotificationName("logIn Failed", object: errorString)
@@ -120,15 +120,16 @@ class User{
         }
 
         user.signUpInBackgroundWithBlock {
-            (succeeded: Bool!, error: NSError!) -> Void in
+            (succeeded: Bool, error: NSError!) -> Void in
             if error == nil {
                 NSNotificationCenter.defaultCenter().postNotificationName("signUp Done", object: nil)
             } else {
-                let errorString = error.userInfo?["error"] as NSString
+                let errorString = error.userInfo?["error"] as! NSString
                 // Show the errorString somewhere and let the user try again.
                 
                 NSNotificationCenter.defaultCenter().postNotificationName("signUp Failed", object: errorString)
             }
+            return
         }
     }
     

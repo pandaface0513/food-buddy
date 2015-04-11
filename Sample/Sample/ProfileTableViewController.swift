@@ -18,11 +18,10 @@ class ProfileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadMyPost:", name: "findMyPost", object: nil)
-        
         postDatabase.downloadEqualTo(["objectId": user.getObjectId()])
         
-
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadMyPost:", name: "download Done", object: nil)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -30,8 +29,8 @@ class ProfileTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    func loadMyPost(notifaction:NSNotification){
-        var arr : Array<Dictionary<String, AnyObject>> = notification.object as Array
+    func loadMyPost(notification:NSNotification){
+        var arr : Array<Dictionary<String, AnyObject>> = notification.object as! Array
         postArr = [Dictionary]()
         for dick in arr {
             println(dick)
