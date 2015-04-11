@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddFeedViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate {
+class AddFeedViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
     
     let alertView = UIAlertView(title: "Alert!", message: "Text or Photo is missing...", delegate: nil, cancelButtonTitle: "OK")
     let failView = UIAlertView(title: "Alert!", message: "Upload failed...", delegate: nil, cancelButtonTitle: ":(")
@@ -25,9 +25,10 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var myImage: UIImageView!
     let picker = UIImagePickerController()
     
-    @IBOutlet weak var textField: UITextView!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textView: UITextView!
     
-    @IBOutlet weak var TextViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var TexViewConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +37,24 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
         picker.allowsEditing = true
         
         textField.delegate = self
+        textView.delegate = self
+        
+//        var frameRect:CGRect = textField.frame;
+//        frameRect.size.height = 53;
+//        frameRect.size.width = textView.frame.size.width;
+//        textField.frame = frameRect;
+
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
-        uploadFromGallery()
+        //check if camera exists, if so, uploadFromCamera, otherwise, uploadFromGallery
+        if(isCameraAvailable()){
+            uploadFromCamera()
+        }else{
+            uploadFromGallery();
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -54,7 +67,7 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
     func keyboardWillShow(sender: NSNotification) {
         if let userInfo = sender.userInfo {
             if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
-                TextViewConstraint.constant += keyboardHeight
+                TexViewConstraint.constant -= keyboardHeight
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
                     self.view.layoutIfNeeded()
                 })
@@ -65,7 +78,7 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
     func keyboardWillHide(sender: NSNotification) {
         if let userInfo = sender.userInfo {
             if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
-                TextViewConstraint.constant -= keyboardHeight
+                TexViewConstraint.constant += keyboardHeight
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
                     self.view.layoutIfNeeded()
                 })
@@ -78,9 +91,7 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     @IBAction func cameraBtn(sender: AnyObject) {
-        picker.sourceType = UIImagePickerControllerSourceType.Camera
-        picker.cameraCaptureMode = .Photo
-        presentViewController(picker, animated: true, completion: nil)
+        uploadFromCamera()
     }
     
     @IBAction func galleryBtn(sender: AnyObject) {
@@ -128,8 +139,31 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
     
     //function to crop iamge to a certain size
     func cropImageTo(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
-        image.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
+        //make a new square size, that is the resize image width
+        var sz:CGSize = CGSizeMake(newSize.width, newSize.width);
+        
+        //figure out if the picture is landscape or portrait, then calculate scale factor and offset
+        var ratio:CGFloat, delta:CGFloat, offset:CGPoint;
+        if(image.size.width > image.size.height){
+            ratio = newSize.width / image.size.width;
+            delta = (ratio*image.size.width - ratio * image.size.height);
+            offset = CGPointMake(delta/2, 0);
+        }else{
+            ratio = newSize.width / image.size.height;
+            delta = (ratio*image.size.height - ratio*image.size.width);
+            offset = CGPointMake(0, delta/2);
+        }
+        
+        //mkae the final clipping rect based on the calculated values
+        var clipRect:CGRect = CGRectMake(-offset.x, -offset.y,
+            (ratio * image.size.width) + delta,
+            (ratio * image.size.height) + delta
+        )
+        
+        //start a new context, with scale factor 0.0 so retina displays get high quality image
+        UIGraphicsBeginImageContextWithOptions(newSize, true, 0.0);
+        UIRectClip(clipRect);
+        image.drawInRect(clipRect)
         var newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage
@@ -138,6 +172,16 @@ class AddFeedViewController: UIViewController, UINavigationControllerDelegate, U
     func uploadFromGallery(){
         picker.sourceType = .PhotoLibrary //3
         presentViewController(picker, animated: true, completion: nil)//4
+    }
+    
+    func uploadFromCamera(){
+        picker.sourceType = UIImagePickerControllerSourceType.Camera
+        picker.cameraCaptureMode = .Photo
+        presentViewController(picker, animated: true, completion: nil)
+    }
+    
+    func isCameraAvailable() -> Bool{
+        return UIImagePickerController.isSourceTypeAvailable(.Camera)
     }
     
     //MARK: Delegates

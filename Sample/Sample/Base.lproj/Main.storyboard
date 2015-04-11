@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ud9-I0-x9c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ud9-I0-x9c">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -20,7 +20,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nis-0p-kTu">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="320" id="T0m-6K-apX"/>
+                                    <constraint firstAttribute="height" constant="320" id="EO3-om-2bM"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tl9-NU-KjH">
@@ -47,26 +47,36 @@
                                     <action selector="galleryBtn:" destination="kMa-Nc-Srd" eventType="touchUpInside" id="vK0-bY-7Cs"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" text="Enter comments here..." translatesAutoresizingMaskIntoConstraints="NO" id="kmc-cX-Bc5">
-                                <rect key="frame" x="4" y="361" width="300" height="150"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes"/>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tl9-y2-eyH">
+                                <rect key="frame" x="16" y="361" width="288" height="140"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6N-I3-re1">
+                                <rect key="frame" x="16" y="361" width="288" height="120"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="A6N-I3-re1" secondAttribute="centerY" constant="-137" id="0bX-Pg-jHr"/>
+                            <constraint firstItem="pAQ-kX-ifa" firstAttribute="top" secondItem="A6N-I3-re1" secondAttribute="bottom" constant="43" id="4Fe-vk-R6e"/>
+                            <constraint firstItem="Nis-0p-kTu" firstAttribute="leading" secondItem="bOJ-3B-SKI" secondAttribute="leading" id="4rG-BR-bbJ"/>
+                            <constraint firstAttribute="centerY" secondItem="A6N-I3-re1" secondAttribute="centerY" constant="-137" id="5RV-8L-y8r"/>
+                            <constraint firstItem="A6N-I3-re1" firstAttribute="width" secondItem="Tl9-y2-eyH" secondAttribute="width" id="6Na-bE-ar2"/>
                             <constraint firstItem="Tl9-NU-KjH" firstAttribute="baseline" secondItem="ZD8-ti-864" secondAttribute="baseline" id="7Hr-Gt-mU6"/>
-                            <constraint firstItem="Nis-0p-kTu" firstAttribute="top" secondItem="bOJ-3B-SKI" secondAttribute="top" id="7sL-He-vKX"/>
-                            <constraint firstItem="Nis-0p-kTu" firstAttribute="leading" secondItem="bOJ-3B-SKI" secondAttribute="leading" id="Ka7-Do-StE"/>
+                            <constraint firstItem="ZD8-ti-864" firstAttribute="top" secondItem="Nis-0p-kTu" secondAttribute="bottom" constant="3" id="GTA-T3-lCK"/>
+                            <constraint firstItem="A6N-I3-re1" firstAttribute="height" secondItem="Tl9-y2-eyH" secondAttribute="height" constant="-20" id="SXl-Rd-Sov"/>
                             <constraint firstItem="Tl9-NU-KjH" firstAttribute="trailing" secondItem="bOJ-3B-SKI" secondAttribute="trailingMargin" id="Syf-QS-y76"/>
-                            <constraint firstItem="kmc-cX-Bc5" firstAttribute="top" secondItem="ZD8-ti-864" secondAttribute="bottom" constant="8" symbolic="YES" id="Vnt-L9-Lt5"/>
-                            <constraint firstItem="kmc-cX-Bc5" firstAttribute="trailing" secondItem="Tl9-NU-KjH" secondAttribute="trailing" id="ZiA-cy-6OT"/>
-                            <constraint firstAttribute="trailing" secondItem="Nis-0p-kTu" secondAttribute="trailing" id="agi-aL-XYH"/>
+                            <constraint firstItem="A6N-I3-re1" firstAttribute="centerX" secondItem="Nis-0p-kTu" secondAttribute="centerX" id="UZd-Ri-7GW"/>
+                            <constraint firstItem="A6N-I3-re1" firstAttribute="leading" secondItem="Tl9-y2-eyH" secondAttribute="leading" id="ZX4-BT-WBp"/>
                             <constraint firstItem="ZD8-ti-864" firstAttribute="leading" secondItem="bOJ-3B-SKI" secondAttribute="leadingMargin" constant="-12" id="bbe-yh-Dv5"/>
-                            <constraint firstItem="ZD8-ti-864" firstAttribute="leading" secondItem="kmc-cX-Bc5" secondAttribute="leading" id="fM7-Ew-fLh"/>
-                            <constraint firstItem="pAQ-kX-ifa" firstAttribute="top" secondItem="kmc-cX-Bc5" secondAttribute="bottom" constant="13" id="jos-LE-LhG"/>
-                            <constraint firstItem="Tl9-NU-KjH" firstAttribute="top" secondItem="Nis-0p-kTu" secondAttribute="bottom" constant="3" id="sgi-YW-OeM"/>
+                            <constraint firstAttribute="trailing" secondItem="Nis-0p-kTu" secondAttribute="trailing" id="cd8-d5-9yb"/>
+                            <constraint firstItem="A6N-I3-re1" firstAttribute="width" secondItem="Tl9-y2-eyH" secondAttribute="width" id="ePb-G3-id6"/>
+                            <constraint firstItem="Nis-0p-kTu" firstAttribute="top" secondItem="bOJ-3B-SKI" secondAttribute="top" id="g6v-rE-Adb"/>
+                            <constraint firstItem="A6N-I3-re1" firstAttribute="trailing" secondItem="Tl9-NU-KjH" secondAttribute="trailing" id="gpj-RP-C7c"/>
+                            <constraint firstItem="A6N-I3-re1" firstAttribute="top" secondItem="Tl9-y2-eyH" secondAttribute="top" id="wHu-bI-L2o"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -84,9 +94,10 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="TextViewConstraint" destination="jos-LE-LhG" id="9Zu-BY-3X1"/>
+                        <outlet property="TexViewConstraint" destination="4Fe-vk-R6e" id="vYv-d7-aj1"/>
                         <outlet property="myImage" destination="Nis-0p-kTu" id="hgm-VA-4HR"/>
-                        <outlet property="textField" destination="kmc-cX-Bc5" id="g1D-wi-Fe2"/>
+                        <outlet property="textField" destination="Tl9-y2-eyH" id="SpX-yG-IeH"/>
+                        <outlet property="textView" destination="A6N-I3-re1" id="nJ9-Yb-mAV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Jp-Lv-lY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
