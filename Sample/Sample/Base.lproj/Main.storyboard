@@ -229,6 +229,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Social View" id="Iym-mY-C5a">
+                        <barButtonItem key="leftBarButtonItem" title="Log Off" id="a0J-BG-DND">
+                            <connections>
+                                <action selector="logoff:" destination="9pv-A4-QxB" id="cYR-Wv-vnT"/>
+                                <segue destination="NY0-DO-9LM" kind="modal" identifier="loginScreen" modalTransitionStyle="crossDissolve" id="VT1-Jn-Mth"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bui-it-QVa">
                             <connections>
                                 <segue destination="kMa-Nc-Srd" kind="push" id="8BQ-yz-rbR"/>
@@ -693,7 +699,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1124" y="-884"/>
+            <point key="canvasLocation" x="1120" y="-810"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="KrE-xf-jNT">
@@ -1012,4 +1018,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="VT1-Jn-Mth"/>
+    </inferredMetricsTieBreakers>
 </document>
