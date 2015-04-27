@@ -1,21 +1,19 @@
 //
-//  SampleTests.swift
-//  SampleTests
+//  Project_Foodie_Tests.swift
+//  Project Foodie Tests
 //
-//  Created by Victor on 2015-02-11.
+//  Created by Stardustxx on 2015-04-11.
 //  Copyright (c) 2015 Victor. All rights reserved.
 //
 
 import UIKit
 import XCTest
 
-class SampleTests:XCTestCase {
+class Project_Foodie_Tests: XCTestCase {
     
-
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        
     }
     
     override func tearDown() {

@@ -34,7 +34,7 @@ class DataBase{
 			if (success){
 				NSNotificationCenter.defaultCenter().postNotificationName("upload Done", object: nil)
 			} else {
-				let errorString = error.userInfo?["error"] as! NSString
+				let errorString = error.userInfo?["error"]as! NSString
 				// Show the errorString somewhere and let the user try again.
 				
 				NSNotificationCenter.defaultCenter().postNotificationName("upload Failed", object: errorString)
@@ -47,23 +47,27 @@ class DataBase{
     }
 	
 	func downloadEqualTo(equalTo:Dictionary<String,AnyObject>)->Void{
-		download(equalTo, containedIn: [:], containString: [:], greaterThanOrEqualTo: [:], lessThanOrEqualTo: [:])
+		download(equalTo, containedIn: nil, containString: nil, greaterThanOrEqualTo: nil, lessThanOrEqualTo: nil, dataBase: nil, parentId: nil)
 	}
 	
 	func downloadContainedIn(containedIn:Dictionary<String,[String]>)->Void{
-		download([:], containedIn: containedIn, containString: [:], greaterThanOrEqualTo: [:], lessThanOrEqualTo: [:])
+		download(nil, containedIn: containedIn, containString: nil, greaterThanOrEqualTo: nil, lessThanOrEqualTo: nil, dataBase: nil, parentId: nil)
 	}
 	
 	func downloadcontainsString(containString:Dictionary<String,String>)->Void{
-		download([:], containedIn: [:], containString: containString, greaterThanOrEqualTo: [:], lessThanOrEqualTo: [:])
+		download(nil, containedIn: nil, containString: containString, greaterThanOrEqualTo: nil, lessThanOrEqualTo: nil, dataBase: nil, parentId: nil)
 	}
 	
 	func downloadGreaterThanOrEqualTo(greaterThanOrEqualTo:Dictionary<String,Float>)->Void{
-		download([:], containedIn: [:], containString: [:], greaterThanOrEqualTo: greaterThanOrEqualTo, lessThanOrEqualTo: [:])
+		download(nil, containedIn: nil, containString: nil, greaterThanOrEqualTo: greaterThanOrEqualTo, lessThanOrEqualTo: nil, dataBase: nil, parentId: nil)
 	}
 	
 	func downloadLessThanOrEqualTo(lessThanOrEqualTo:Dictionary<String,Float>)->Void{
-		download([:], containedIn: [:], containString: [:], greaterThanOrEqualTo: [:], lessThanOrEqualTo: lessThanOrEqualTo)
+		download(nil, containedIn: nil, containString: nil, greaterThanOrEqualTo: nil, lessThanOrEqualTo: lessThanOrEqualTo, dataBase: nil, parentId: nil)
+	}
+	
+	func downloadRelational(dataBase:DataBase,parentId:String){
+		download(nil, containedIn: nil, containString: nil, greaterThanOrEqualTo: nil, lessThanOrEqualTo: nil, dataBase: dataBase, parentId: parentId)
 	}
 	
 	func changePFObjectsToDictionary(objects: [PFObject]) -> Array<Dictionary<String,AnyObject>>{
@@ -88,43 +92,58 @@ class DataBase{
 		return data
 	}
 	
-	func download(equalTo:Dictionary<String,AnyObject>, containedIn:Dictionary<String,[String]>, containString:Dictionary<String,String>, greaterThanOrEqualTo:Dictionary<String,Float>, lessThanOrEqualTo:Dictionary<String,Float>)->Void{
+	func download(equalTo:Dictionary<String,AnyObject>?, containedIn:Dictionary<String,[String]>?, containString:Dictionary<String,String>?, greaterThanOrEqualTo:Dictionary<String,Float>?, lessThanOrEqualTo:Dictionary<String,Float>?, dataBase:DataBase?, parentId:String?)->Void{
         var data:Array<Dictionary<String,AnyObject>> = Array()
         var querys:Array<PFQuery> = Array()
 		var orQuery:PFQuery = PFQuery(className: dataBaseName)
 		
-		for (key,value) in equalTo{
-			var temp = PFQuery(className: dataBaseName)
-			temp.whereKey(key, equalTo: value)
-			querys.append(temp)
+		if let option = equalTo{
+			for (key,value) in option{
+				var temp = PFQuery(className: dataBaseName)
+				temp.whereKey(key, equalTo: value)
+				querys.append(temp)
+			}
+		}
+		if let option = containedIn{
+			for (key,value) in option{
+				var temp = PFQuery(className: dataBaseName)
+				temp.whereKey(key, equalTo: value)
+				querys.append(temp)
+			}
 		}
 		
-		for (key,value) in containedIn{
-			var temp = PFQuery(className: dataBaseName)
-			temp.whereKey(key, equalTo: value)
-			querys.append(temp)
+		if let option = containString{
+			for (key,value) in option{
+				var temp = PFQuery(className: dataBaseName)
+				temp.whereKey(key, equalTo: value)
+				querys.append(temp)
+			}
 		}
 		
-		for (key,value) in containString{
-			var temp = PFQuery(className: dataBaseName)
-			temp.whereKey(key, equalTo: value)
-			querys.append(temp)
+		if let option = greaterThanOrEqualTo{
+			for (key,value) in option{
+				var temp = PFQuery(className: dataBaseName)
+				temp.whereKey(key, equalTo: value)
+				querys.append(temp)
+			}
+		}
+		if let option = lessThanOrEqualTo{
+			for (key,value) in option{
+				var temp = PFQuery(className: dataBaseName)
+				temp.whereKey(key, equalTo: value)
+				querys.append(temp)
+			}
 		}
 		
-		for (key,value) in greaterThanOrEqualTo{
-			var temp = PFQuery(className: dataBaseName)
-			temp.whereKey(key, equalTo: value)
-			querys.append(temp)
+		if !(querys==[]){
+			orQuery = PFQuery.orQueryWithSubqueries(querys)
 		}
 		
-		for (key,value) in lessThanOrEqualTo{
-			var temp = PFQuery(className: dataBaseName)
-			temp.whereKey(key, equalTo: value)
-			querys.append(temp)
+		if let dataBaseOption = dataBase{
+			if let parentIdOption = parentId{
+				orQuery.whereKey("parent", equalTo: PFObject(withoutDataWithClassName: dataBaseOption.dataBaseName, objectId: parentIdOption))
+			}
 		}
-		
-		
-		orQuery = PFQuery.orQueryWithSubqueries(querys)
 
     
         orQuery.findObjectsInBackgroundWithBlock{

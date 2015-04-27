@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-//import XCTest
+import XCTest
 
 class SignUpTest:XCTestCase{
 	var isCompleted:Bool?

@@ -11,16 +11,21 @@ import Foundation
 class UserDataBase:DataBase{
     override init(){
         super.init()
-        dataBaseName = "UserDataBase"
+        dataBaseName = "Users"
     }
 	
 	func findUser(args:Dictionary<String,AnyObject>)->Void {
 		PFCloud.callFunctionInBackground("findUser", withParameters: args){
-			(result:AnyObject!, error: NSError!)-> Void in
+			(objects:AnyObject!, error: NSError!)-> Void in
 			if (error==nil){
-				NSNotificationCenter.defaultCenter().postNotificationName("findUser Done", object: result)
+				var data:Array<Dictionary<String,AnyObject>> = Array()
+				data = self.changePFObjectsToDictionary(objects as! [PFObject])
+				NSNotificationCenter.defaultCenter().postNotificationName("findUser Done", object: objects)
 			}else{
-				NSNotificationCenter.defaultCenter().postNotificationName("findUser Failed", object: error)
+				let errorString = error.userInfo?["error"] as! NSString
+				// Show the errorString somewhere and let the user try again.
+				
+				NSNotificationCenter.defaultCenter().postNotificationName("findUser Failed", object: errorString)
 			}
 		}
 	}

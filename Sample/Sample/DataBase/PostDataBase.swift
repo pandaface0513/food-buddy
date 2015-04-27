@@ -16,15 +16,20 @@ class PostDataBase:DataBase{
 	
 	func findPost(args:Dictionary<String,AnyObject>)->Void {
 		PFCloud.callFunctionInBackground("findPost", withParameters: args){
-			(result:AnyObject!, error: NSError!)-> Void in
+			(objects:AnyObject!, error: NSError!)-> Void in
 			if (error==nil){
-				NSNotificationCenter.defaultCenter().postNotificationName("findPost Done", object: result)
+				var data: Array<Dictionary<String,AnyObject>> = Array()
+				data = self.changePFObjectsToDictionary(objects as! [PFObject])
+				NSNotificationCenter.defaultCenter().postNotificationName("findPost Done", object: data)
 			}else{
-				NSNotificationCenter.defaultCenter().postNotificationName("findPost Failed", object: error)
+				let errorString = error.userInfo?["error"] as! NSString
+				// Show the errorString somewhere and let the user try again.
+				
+				NSNotificationCenter.defaultCenter().postNotificationName("findPost Failed", object: errorString)
 			}
 		}
 	}
-    
+	
     func findAllPost()->Void {
         PFCloud.callFunctionInBackground("findAllPost", withParameters: [:]){
             (result:AnyObject!, error: NSError!)-> Void in

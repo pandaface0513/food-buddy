@@ -8,34 +8,31 @@
 
 import Foundation
 import UIKit
-//import XCTest
+import XCTest
 
 class TestingUploadTest:XCTestCase{
 	var isCompleted:Bool?
 	
 	let testUser = User()
 	let testingDataBase = TestingDataBase()
-	
+	let relationalTestingDataBase = RelationalTestingDataBase()
 	
 	
 	override func setUp() {
 		super.setUp()
 		// Put setup code here. This method is called before the invocation of each test method in the class.
+		Parse.setApplicationId("2fa3goVgGVtm6DyAga3k0W49MUqCd9PXnFYXP1FT", clientKey: "EReOFbDjtwvqtURF7FcjW4Tqer2niPVf8yt3UngE")
+		
 		var isTimeout = false;
 		var restaurantCount = 0
 		var oneTimeUploadCount = 1
-		Parse.setApplicationId("2fa3goVgGVtm6DyAga3k0W49MUqCd9PXnFYXP1FT", clientKey: "EReOFbDjtwvqtURF7FcjW4Tqer2niPVf8yt3UngE")
 		
 		while(restaurantCount < oneTimeUploadCount){
 			
 			NSNotificationCenter.defaultCenter().addObserver(self, selector: "completed:", name: "upload Done", object: nil)
 			NSNotificationCenter.defaultCenter().addObserver(self, selector: "failed:", name: "upload Failed", object: nil)
 			
-			let imageData = NSData(contentsOfURL: NSURL(string:"http://www.graftoninnvermont.com/wp-content/uploads/2011/09/Woodard-House-kitchen.jpg")!)
-			
-//			let restaurant = ["name":"henry's kitchen \(restaurantCount)","description":"henry's home made good stuff","location":"123 vancouver ave. earth","menu":"any home made stuff"]
-			let restaurant:Dictionary<String,AnyObject!> = ["name":"henry's kitchen","description":"henry's home made good stuff","location":"123 vancouver ave. earth","menu":"any home made stuff","typetest":123,"image":imageData]
-			testingDataBase.upload(restaurant)
+			testRelationalTestingDataBase()
 			
 			//timeout control
 			isCompleted = false
@@ -49,9 +46,6 @@ class TestingUploadTest:XCTestCase{
 				NSRunLoop.currentRunLoop().runUntilDate(tick)
 				isTimeout = (tick.compare(timeoutDate) == NSComparisonResult.OrderedDescending)
 			}
-
-			NSNotificationCenter.defaultCenter().removeObserver(self, name: "upload Done", object: nil)
-			NSNotificationCenter.defaultCenter().removeObserver(self, name: "upload Failed", object: nil)
 			
 			println("restaurantCount = \(restaurantCount) isTimeout = \(isTimeout)\n")
 			restaurantCount = restaurantCount + 1
@@ -62,13 +56,44 @@ class TestingUploadTest:XCTestCase{
 		}
 	}
 	
+	func testRelationalTestingDataBase(){
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "getId:", name: "download Done", object: nil)
+		testingDataBase.downloadEqualTo(["name":"henry's kitchen","description":"henry's home made good stuff","location":"123 vancouver ave. earth","menu":"any home made stuff","typetest":123])
+		
+	}
+	
+	func getId(notification:NSNotification){
+		NSNotificationCenter.defaultCenter().removeObserver(self, name: "download Done", object: nil)
+		let imageData = NSData(contentsOfURL: NSURL(string:"http://www.graftoninnvermont.com/wp-content/uploads/2011/09/Woodard-House-kitchen.jpg")!)
+		
+		//			let restaurant = ["name":"henry's kitchen \(restaurantCount)","description":"henry's home made good stuff","location":"123 vancouver ave. earth","menu":"any home made stuff"]
+		let dataRow:Dictionary<String,AnyObject!> = ["image":imageData]
+		
+		var downloaded = notification.object! as! Array<Dictionary<String,AnyObject>>
+		
+		relationalTestingDataBase.uploadRelational(testingDataBase, parentId: downloaded.first!["objectId"] as? String, child: dataRow)
+	}
+	
+	
+	
+	
+	func testTestingDataBase(){
+		let imageData = NSData(contentsOfURL: NSURL(string:"http://www.graftoninnvermont.com/wp-content/uploads/2011/09/Woodard-House-kitchen.jpg")!)
+		
+		//			let restaurant = ["name":"henry's kitchen \(restaurantCount)","description":"henry's home made good stuff","location":"123 vancouver ave. earth","menu":"any home made stuff"]
+		let restaurant:Dictionary<String,AnyObject!> = ["name":"henry's kitchen","description":"henry's home made good stuff","location":"123 vancouver ave. earth","menu":"any home made stuff","typetest":123,"image":imageData]
+		testingDataBase.upload(restaurant)
+	}
+	
 	func completed(notification:NSNotification){
 		isCompleted = true;
+		NSNotificationCenter.defaultCenter().removeObserver(self, name: "upload Done", object: nil)
 		print("\n**********\(notification.description)**********\n")
 	}
 	
 	func failed(notification:NSNotification){
 		isCompleted = true;
+		NSNotificationCenter.defaultCenter().removeObserver(self, name: "upload Failed", object: nil)
 		print("\n**********\(notification.description)**********\n")
 	}
 	
