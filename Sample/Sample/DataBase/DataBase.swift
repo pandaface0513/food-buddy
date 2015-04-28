@@ -12,6 +12,21 @@ class DataBase{
     
     var dataBaseName:String = ""
 
+	func uploatRelationalWithCurrentGeoLocation(dataBase:DataBase?, parentId:String?, child:Dictionary<String,AnyObject!>)->Void{
+		PFGeoPoint.geoPointForCurrentLocationInBackground{
+			(geoPoint:PFGeoPoint!, error:NSError!)->Void in
+			if error == nil{
+				var newData = child
+				newData.updateValue(geoPoint, forKey: "location")
+				self.uploadRelational(dataBase, parentId: parentId, child: newData)
+			}
+			else{
+				let errorString = error.userInfo?["error"] as! NSString
+				NSNotificationCenter.defaultCenter().postNotificationName("upload Failed", object: errorString)
+			}
+		}
+	}
+	
 	func uploadRelational(dataBase:DataBase?, parentId:String?, child:Dictionary<String,AnyObject!>)->Void{
 		var dataRow:PFObject = PFObject(className: dataBaseName)
 		if !(dataBase==nil){
@@ -42,6 +57,21 @@ class DataBase{
 		})
 	}
 	
+	func uploadWithCurrentGeoPoint(data:Dictionary<String,AnyObject>){
+		PFGeoPoint.geoPointForCurrentLocationInBackground{
+			(geoPoint:PFGeoPoint!, error:NSError!)->Void in
+			if error == nil{
+				var newData = data
+				newData.updateValue(geoPoint, forKey: "location")
+				self.upload(newData)
+			}
+			else{
+				let errorString = error.userInfo?["error"] as! NSString
+				NSNotificationCenter.defaultCenter().postNotificationName("upload Failed", object: errorString)
+			}
+		}
+	}
+	
     func upload(data:Dictionary<String,AnyObject>)->Void{
 		uploadRelational(nil, parentId: nil, child: data)
     }
@@ -70,31 +100,30 @@ class DataBase{
 		download(nil, containedIn: nil, containString: nil, greaterThanOrEqualTo: nil, lessThanOrEqualTo: nil, dataBase: dataBase, parentId: parentId)
 	}
 	
-	func changePFObjectsToDictionary(objects: [PFObject]) -> Array<Dictionary<String,AnyObject>>{
-		var data:Array<Dictionary<String,AnyObject>> = Array()
+	func download(equalTo:Dictionary<String,AnyObject>?, containedIn:Dictionary<String,[String]>?, containString:Dictionary<String,String>?, greaterThanOrEqualTo:Dictionary<String,Float>?, lessThanOrEqualTo:Dictionary<String,Float>?, dataBase:DataBase?, parentId:String?){
 		
-		for object in objects{
-			var dictionary:Dictionary<String,AnyObject> = Dictionary()
-			var keys = object.allKeys()!
-			for key in keys{
-				let dictionaryKey = key as! String
-				var value: AnyObject! = object.objectForKey(dictionaryKey) as AnyObject!
-				if (value is PFFile){
-					value = value.url
-				}
-				dictionary.updateValue(value, forKey: dictionaryKey)
-			}
-			dictionary.updateValue(object.objectId, forKey:"objectId")
-			dictionary.updateValue(object.createdAt, forKey: "createdAt")
-			data.append(dictionary)
-		}
+		downloadHelper(equalTo, containedIn: containedIn, containString: containString, greaterThanOrEqualTo: greaterThanOrEqualTo, lessThanOrEqualTo: lessThanOrEqualTo, dataBase: dataBase, parentId: parentId, rangeKiloRadius: nil, geoPoint: nil)
 		
-		return data
 	}
 	
-	func download(equalTo:Dictionary<String,AnyObject>?, containedIn:Dictionary<String,[String]>?, containString:Dictionary<String,String>?, greaterThanOrEqualTo:Dictionary<String,Float>?, lessThanOrEqualTo:Dictionary<String,Float>?, dataBase:DataBase?, parentId:String?)->Void{
-        var data:Array<Dictionary<String,AnyObject>> = Array()
-        var querys:Array<PFQuery> = Array()
+	func downloadWithLocationRange(equalTo:Dictionary<String,AnyObject>?, containedIn:Dictionary<String,[String]>?, containString:Dictionary<String,String>?, greaterThanOrEqualTo:Dictionary<String,Float>?, lessThanOrEqualTo:Dictionary<String,Float>?, dataBase:DataBase?, parentId:String?, rangeKiloRadius:Double?){
+		
+		PFGeoPoint.geoPointForCurrentLocationInBackground{
+			(geoPoint:PFGeoPoint!, error:NSError!)->Void in
+			if error == nil{
+				self.downloadHelper(equalTo, containedIn: containedIn, containString: containString, greaterThanOrEqualTo: greaterThanOrEqualTo, lessThanOrEqualTo: lessThanOrEqualTo, dataBase: dataBase, parentId: parentId, rangeKiloRadius: rangeKiloRadius, geoPoint: geoPoint)
+			}
+			else{
+				let errorString = error.userInfo?["error"] as! NSString
+				NSNotificationCenter.defaultCenter().postNotificationName("download Failed", object: errorString)
+			}
+		}
+		
+	}
+	
+	func downloadHelper(equalTo:Dictionary<String,AnyObject>?, containedIn:Dictionary<String,[String]>?, containString:Dictionary<String,String>?, greaterThanOrEqualTo:Dictionary<String,Float>?, lessThanOrEqualTo:Dictionary<String,Float>?, dataBase:DataBase?, parentId:String?, rangeKiloRadius:Double?, geoPoint:PFGeoPoint?){
+		var data:Array<Dictionary<String,AnyObject>> = Array()
+		var querys:Array<PFQuery> = Array()
 		var orQuery:PFQuery = PFQuery(className: dataBaseName)
 		
 		if let option = equalTo{
@@ -144,27 +173,50 @@ class DataBase{
 				orQuery.whereKey("parent", equalTo: PFObject(withoutDataWithClassName: dataBaseOption.dataBaseName, objectId: parentIdOption))
 			}
 		}
-
-    
-        orQuery.findObjectsInBackgroundWithBlock{
-            (objects:[AnyObject]!,error:NSError!) -> Void in
+		
+		if let range = rangeKiloRadius{
+			if let location = geoPoint{
+				orQuery.whereKey("location", nearGeoPoint: location, withinKilometers: range)
+			}
+		}
 			
-            if (error==nil){
+		orQuery.orderByAscending("updatedAt")
+		orQuery.findObjectsInBackgroundWithBlock{
+			(objects:[AnyObject]!,error:NSError!) -> Void in
+			if (error==nil){
 				data = self.changePFObjectsToDictionary(objects as! [PFObject])
-                NSNotificationCenter.defaultCenter().postNotificationName("download Done", object: data)
-            } else{
+				NSNotificationCenter.defaultCenter().postNotificationName("download Done", object: data)
+			} else{
 				let errorString = error.userInfo?["error"] as! NSString
 				// Show the errorString somewhere and let the user try again.
 				
-                NSNotificationCenter.defaultCenter().postNotificationName("download Failed", object:errorString)
-            }
-            
-        }
-        
-        return
-    }
+				NSNotificationCenter.defaultCenter().postNotificationName("download Failed", object:errorString)
+			}
+			
+		}
+	}
 	
-
+	func changePFObjectsToDictionary(objects: [PFObject]) -> Array<Dictionary<String,AnyObject>>{
+		var data:Array<Dictionary<String,AnyObject>> = Array()
+		
+		for object in objects{
+			var dictionary:Dictionary<String,AnyObject> = Dictionary()
+			var keys = object.allKeys()!
+			for key in keys{
+				let dictionaryKey = key as! String
+				var value: AnyObject! = object.objectForKey(dictionaryKey) as AnyObject!
+				if (value is PFFile){
+					value = value.url
+				}
+				dictionary.updateValue(value, forKey: dictionaryKey)
+			}
+			dictionary.updateValue(object.objectId, forKey:"objectId")
+			dictionary.updateValue(object.createdAt, forKey: "createdAt")
+			data.append(dictionary)
+		}
+		
+		return data
+	}
 	
 }
 

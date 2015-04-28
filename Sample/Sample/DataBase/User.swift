@@ -39,14 +39,50 @@ class User{
 				}
 			}
 		}else{
-			let errorString = "Friend Already Exist" as NSString
+			let errorString = "preference already exit" as NSString
 			NSNotificationCenter.defaultCenter().postNotificationName("addFriend Failed", object: errorString)
 		}
     }
-    
-    func getFriends()->Array<String>{
-        return PFUser.currentUser().objectForKey("friends")!as! Array<String>
+	
+	func addPreference(preference:String){
+		var isPreferenceExist = false
+		var preferenceList: Array<String>? = PFUser.currentUser().objectForKey("preference") as? Array<String>
+		
+		if ((preferenceList) == nil){
+			preferenceList=[preference]
+		}else{
+			for preference in preferenceList!{
+				if (preference == preference){
+					isPreferenceExist = true;
+					break
+				}
+			}
+		}
+		if (isPreferenceExist == false){
+			preferenceList!.append(preference)
+			PFUser.currentUser().setValue(preferenceList, forKey: "preference")
+			PFUser.currentUser().saveInBackgroundWithBlock{
+				(success:Bool,error:NSError!)->Void in
+				if(success){
+					NSNotificationCenter.defaultCenter().postNotificationName("addPreference done", object:nil)
+				}else{
+					let errorString = error.userInfo?["error"] as! NSString
+					NSNotificationCenter.defaultCenter().postNotificationName("addPreference Failed", object: errorString)
+				}
+			}
+		}else{
+			let errorString = "preference already exist" as NSString
+			NSNotificationCenter.defaultCenter().postNotificationName("addPreference Failed", object: errorString)
+		}
+	}
+	
+    func getFriends()->Array<String>!{
+        return PFUser.currentUser().objectForKey("friends") as! Array<String>
     }
+	
+	func getPreference()-> Array<String>!{
+		return PFUser.currentUser().objectForKey("preference") as! Array<String>
+	}
     
     func getObjectId()->String{
         return PFUser.currentUser().objectId
@@ -119,6 +155,10 @@ class User{
             }
         }
     }
+	
+	func logOut(){
+		PFUser.logOut();
+	}
     
     func signUp(acc:String,passwd:String,email:String){
         signUp(acc, psswd: passwd, email: email, additionalInfo: [:])
@@ -145,5 +185,6 @@ class User{
 			}
 		}
     }
-    
+	
+
 }

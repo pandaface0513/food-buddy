@@ -11,14 +11,6 @@
 		09070FDF1AB014AB00432845 /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 09070FDE1AB014AB00432845 /* comment.png */; };
 		09070FE31AB0185700432845 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09070FE21AB0185700432845 /* SignUpViewController.swift */; };
 		0920F77D1AB0076A0037C88D /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 0920F77C1AB0076A0037C88D /* like.png */; };
-		09517E851AD9ED2A00AC4A02 /* Project_Foodie_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09517E841AD9ED2A00AC4A02 /* Project_Foodie_Tests.swift */; };
-		09517E961AD9EF4700AC4A02 /* LogInTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09517E8E1AD9EF4700AC4A02 /* LogInTest.swift */; };
-		09517E971AD9EF4700AC4A02 /* RelationalTestingDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09517E8F1AD9EF4700AC4A02 /* RelationalTestingDataBase.swift */; };
-		09517E981AD9EF4700AC4A02 /* SampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09517E901AD9EF4700AC4A02 /* SampleTests.swift */; };
-		09517E991AD9EF4700AC4A02 /* SignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09517E911AD9EF4700AC4A02 /* SignUpTest.swift */; };
-		09517E9A1AD9EF4700AC4A02 /* TestingDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09517E921AD9EF4700AC4A02 /* TestingDataBase.swift */; };
-		09517E9B1AD9EF4700AC4A02 /* TestingDownloadTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09517E931AD9EF4700AC4A02 /* TestingDownloadTest.swift */; };
-		09517E9C1AD9EF4700AC4A02 /* TestingUploadTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09517E941AD9EF4700AC4A02 /* TestingUploadTest.swift */; };
 		097437BD1AB1606800C173BF /* SocialDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097437BC1AB1606800C173BF /* SocialDetailTableViewCell.swift */; };
 		0984A2051ABE0D58007DE238 /* FeaturePostDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984A2041ABE0D58007DE238 /* FeaturePostDataBase.swift */; };
 		09CE025D1A9E4780003EC91E /* SlideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CE025C1A9E4780003EC91E /* SlideBarTableViewController.swift */; };
@@ -47,7 +39,6 @@
 		9477AE5F1A9F032000A2DCEF /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE581A9F032000A2DCEF /* DataBase.swift */; };
 		9477AE601A9F032000A2DCEF /* PhotoDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE591A9F032000A2DCEF /* PhotoDataBase.swift */; };
 		9477AE611A9F032000A2DCEF /* PostDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5A1A9F032000A2DCEF /* PostDataBase.swift */; };
-		9477AE621A9F032000A2DCEF /* PreferenceDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5B1A9F032000A2DCEF /* PreferenceDataBase.swift */; };
 		9477AE631A9F032000A2DCEF /* RestaurantDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5C1A9F032000A2DCEF /* RestaurantDataBase.swift */; };
 		9477AE641A9F032000A2DCEF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5D1A9F032000A2DCEF /* User.swift */; };
 		9477AE651A9F032000A2DCEF /* UserDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5E1A9F032000A2DCEF /* UserDataBase.swift */; };
@@ -59,7 +50,6 @@
 		9477AE6E1A9F037900A2DCEF /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE581A9F032000A2DCEF /* DataBase.swift */; };
 		9477AE6F1A9F037900A2DCEF /* PhotoDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE591A9F032000A2DCEF /* PhotoDataBase.swift */; };
 		9477AE701A9F037900A2DCEF /* PostDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5A1A9F032000A2DCEF /* PostDataBase.swift */; };
-		9477AE711A9F037900A2DCEF /* PreferenceDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5B1A9F032000A2DCEF /* PreferenceDataBase.swift */; };
 		9477AE721A9F037900A2DCEF /* RestaurantDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5C1A9F032000A2DCEF /* RestaurantDataBase.swift */; };
 		9477AE731A9F037900A2DCEF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5D1A9F032000A2DCEF /* User.swift */; };
 		9477AE741A9F037900A2DCEF /* UserDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5E1A9F032000A2DCEF /* UserDataBase.swift */; };
@@ -88,16 +78,19 @@
 		9477AE9A1A9F061300A2DCEF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9477AE7D1A9F059D00A2DCEF /* CFNetwork.framework */; };
 		9477AE9B1A9F061300A2DCEF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9477AE7B1A9F059600A2DCEF /* AudioToolbox.framework */; };
 		BA2B71531ABE3B540058862E /* AddFreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B71521ABE3B540058862E /* AddFreeViewController.swift */; };
+		BB598A561AE2F489009F5997 /* CommentDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A541AE2F489009F5997 /* CommentDataBase.swift */; };
+		BB598A571AE2F489009F5997 /* LikeDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A551AE2F489009F5997 /* LikeDataBase.swift */; };
+		BB598A611AE2F49E009F5997 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB598A591AE2F49E009F5997 /* Info.plist */; };
+		BB598A621AE2F49E009F5997 /* LogInTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5A1AE2F49E009F5997 /* LogInTest.swift */; };
+		BB598A631AE2F49E009F5997 /* RelationalTestingDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5B1AE2F49E009F5997 /* RelationalTestingDataBase.swift */; };
+		BB598A641AE2F49E009F5997 /* SampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5C1AE2F49E009F5997 /* SampleTests.swift */; };
+		BB598A651AE2F49E009F5997 /* SignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5D1AE2F49E009F5997 /* SignUpTest.swift */; };
+		BB598A661AE2F49E009F5997 /* TestingDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5E1AE2F49E009F5997 /* TestingDataBase.swift */; };
+		BB598A671AE2F49E009F5997 /* TestingDownloadTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5F1AE2F49E009F5997 /* TestingDownloadTest.swift */; };
+		BB598A681AE2F49E009F5997 /* TestingUploadTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A601AE2F49E009F5997 /* TestingUploadTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		09517E861AD9ED2A00AC4A02 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 17BE0B241A8BD36A0025AFC4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 17BE0B2B1A8BD36A0025AFC4;
-			remoteInfo = "Project Foodie";
-		};
 		17BE0B441A8BD36A0025AFC4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 17BE0B241A8BD36A0025AFC4 /* Project object */;
@@ -112,16 +105,6 @@
 		09070FDE1AB014AB00432845 /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = comment.png; path = ../../comment.png; sourceTree = "<group>"; };
 		09070FE21AB0185700432845 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0920F77C1AB0076A0037C88D /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like.png; path = ../../like.png; sourceTree = "<group>"; };
-		09517E801AD9ED2A00AC4A02 /* Project Foodie Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Project Foodie Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		09517E831AD9ED2A00AC4A02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		09517E841AD9ED2A00AC4A02 /* Project_Foodie_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_Foodie_Tests.swift; sourceTree = "<group>"; };
-		09517E8E1AD9EF4700AC4A02 /* LogInTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInTest.swift; sourceTree = "<group>"; };
-		09517E8F1AD9EF4700AC4A02 /* RelationalTestingDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelationalTestingDataBase.swift; sourceTree = "<group>"; };
-		09517E901AD9EF4700AC4A02 /* SampleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleTests.swift; sourceTree = "<group>"; };
-		09517E911AD9EF4700AC4A02 /* SignUpTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTest.swift; sourceTree = "<group>"; };
-		09517E921AD9EF4700AC4A02 /* TestingDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingDataBase.swift; sourceTree = "<group>"; };
-		09517E931AD9EF4700AC4A02 /* TestingDownloadTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingDownloadTest.swift; sourceTree = "<group>"; };
-		09517E941AD9EF4700AC4A02 /* TestingUploadTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingUploadTest.swift; sourceTree = "<group>"; };
 		097437BC1AB1606800C173BF /* SocialDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialDetailTableViewCell.swift; sourceTree = "<group>"; };
 		0984A2041ABE0D58007DE238 /* FeaturePostDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturePostDataBase.swift; sourceTree = "<group>"; };
 		09CE025C1A9E4780003EC91E /* SlideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideBarTableViewController.swift; sourceTree = "<group>"; };
@@ -153,7 +136,6 @@
 		9477AE581A9F032000A2DCEF /* DataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		9477AE591A9F032000A2DCEF /* PhotoDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDataBase.swift; sourceTree = "<group>"; };
 		9477AE5A1A9F032000A2DCEF /* PostDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDataBase.swift; sourceTree = "<group>"; };
-		9477AE5B1A9F032000A2DCEF /* PreferenceDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceDataBase.swift; sourceTree = "<group>"; };
 		9477AE5C1A9F032000A2DCEF /* RestaurantDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDataBase.swift; sourceTree = "<group>"; };
 		9477AE5D1A9F032000A2DCEF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9477AE5E1A9F032000A2DCEF /* UserDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataBase.swift; sourceTree = "<group>"; };
@@ -172,16 +154,19 @@
 		9477AE8D1A9F05E600A2DCEF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		9477AE8F1A9F05ED00A2DCEF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		BA2B71521ABE3B540058862E /* AddFreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFreeViewController.swift; sourceTree = "<group>"; };
+		BB598A541AE2F489009F5997 /* CommentDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentDataBase.swift; sourceTree = "<group>"; };
+		BB598A551AE2F489009F5997 /* LikeDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeDataBase.swift; sourceTree = "<group>"; };
+		BB598A591AE2F49E009F5997 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB598A5A1AE2F49E009F5997 /* LogInTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInTest.swift; sourceTree = "<group>"; };
+		BB598A5B1AE2F49E009F5997 /* RelationalTestingDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelationalTestingDataBase.swift; sourceTree = "<group>"; };
+		BB598A5C1AE2F49E009F5997 /* SampleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleTests.swift; sourceTree = "<group>"; };
+		BB598A5D1AE2F49E009F5997 /* SignUpTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTest.swift; sourceTree = "<group>"; };
+		BB598A5E1AE2F49E009F5997 /* TestingDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingDataBase.swift; sourceTree = "<group>"; };
+		BB598A5F1AE2F49E009F5997 /* TestingDownloadTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingDownloadTest.swift; sourceTree = "<group>"; };
+		BB598A601AE2F49E009F5997 /* TestingUploadTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingUploadTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		09517E7D1AD9ED2A00AC4A02 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		17BE0B291A8BD36A0025AFC4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -231,37 +216,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		09517E811AD9ED2A00AC4A02 /* Project Foodie Tests */ = {
-			isa = PBXGroup;
-			children = (
-				09517E841AD9ED2A00AC4A02 /* Project_Foodie_Tests.swift */,
-				09517E821AD9ED2A00AC4A02 /* Supporting Files */,
-			);
-			path = "Project Foodie Tests";
-			sourceTree = "<group>";
-		};
-		09517E821AD9ED2A00AC4A02 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				09517E831AD9ED2A00AC4A02 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		09517E8C1AD9EF4700AC4A02 /* SampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				09517E8E1AD9EF4700AC4A02 /* LogInTest.swift */,
-				09517E8F1AD9EF4700AC4A02 /* RelationalTestingDataBase.swift */,
-				09517E901AD9EF4700AC4A02 /* SampleTests.swift */,
-				09517E911AD9EF4700AC4A02 /* SignUpTest.swift */,
-				09517E921AD9EF4700AC4A02 /* TestingDataBase.swift */,
-				09517E931AD9EF4700AC4A02 /* TestingDownloadTest.swift */,
-				09517E941AD9EF4700AC4A02 /* TestingUploadTest.swift */,
-			);
-			path = SampleTests;
-			sourceTree = "<group>";
-		};
 		097437BE1AB163CD00C173BF /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,10 +229,9 @@
 		17BE0B231A8BD36A0025AFC4 = {
 			isa = PBXGroup;
 			children = (
-				09517E8C1AD9EF4700AC4A02 /* SampleTests */,
-				9477AE9C1A9F062800A2DCEF /* Framework */,
 				17BE0B2E1A8BD36A0025AFC4 /* Sample */,
-				09517E811AD9ED2A00AC4A02 /* Project Foodie Tests */,
+				BB598A581AE2F49E009F5997 /* SampleTests */,
+				9477AE9C1A9F062800A2DCEF /* Framework */,
 				17BE0B2D1A8BD36A0025AFC4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -288,7 +241,6 @@
 			children = (
 				17BE0B2C1A8BD36A0025AFC4 /* Project Foodie.app */,
 				17BE0B431A8BD36A0025AFC4 /* Project FoodieTests.xctest */,
-				09517E801AD9ED2A00AC4A02 /* Project Foodie Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -338,11 +290,12 @@
 		9477AE571A9F032000A2DCEF /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
+				BB598A541AE2F489009F5997 /* CommentDataBase.swift */,
+				BB598A551AE2F489009F5997 /* LikeDataBase.swift */,
 				0984A2041ABE0D58007DE238 /* FeaturePostDataBase.swift */,
 				9477AE581A9F032000A2DCEF /* DataBase.swift */,
 				9477AE591A9F032000A2DCEF /* PhotoDataBase.swift */,
 				9477AE5A1A9F032000A2DCEF /* PostDataBase.swift */,
-				9477AE5B1A9F032000A2DCEF /* PreferenceDataBase.swift */,
 				9477AE5C1A9F032000A2DCEF /* RestaurantDataBase.swift */,
 				9477AE5D1A9F032000A2DCEF /* User.swift */,
 				9477AE5E1A9F032000A2DCEF /* UserDataBase.swift */,
@@ -373,27 +326,24 @@
 			name = Framework;
 			sourceTree = "<group>";
 		};
+		BB598A581AE2F49E009F5997 /* SampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				BB598A591AE2F49E009F5997 /* Info.plist */,
+				BB598A5A1AE2F49E009F5997 /* LogInTest.swift */,
+				BB598A5B1AE2F49E009F5997 /* RelationalTestingDataBase.swift */,
+				BB598A5C1AE2F49E009F5997 /* SampleTests.swift */,
+				BB598A5D1AE2F49E009F5997 /* SignUpTest.swift */,
+				BB598A5E1AE2F49E009F5997 /* TestingDataBase.swift */,
+				BB598A5F1AE2F49E009F5997 /* TestingDownloadTest.swift */,
+				BB598A601AE2F49E009F5997 /* TestingUploadTest.swift */,
+			);
+			path = SampleTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		09517E7F1AD9ED2A00AC4A02 /* Project Foodie Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 09517E881AD9ED2A00AC4A02 /* Build configuration list for PBXNativeTarget "Project Foodie Tests" */;
-			buildPhases = (
-				09517E7C1AD9ED2A00AC4A02 /* Sources */,
-				09517E7D1AD9ED2A00AC4A02 /* Frameworks */,
-				09517E7E1AD9ED2A00AC4A02 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				09517E871AD9ED2A00AC4A02 /* PBXTargetDependency */,
-			);
-			name = "Project Foodie Tests";
-			productName = "Project Foodie Tests";
-			productReference = 09517E801AD9ED2A00AC4A02 /* Project Foodie Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		17BE0B2B1A8BD36A0025AFC4 /* Project Foodie */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17BE0B4D1A8BD36A0025AFC4 /* Build configuration list for PBXNativeTarget "Project Foodie" */;
@@ -438,10 +388,6 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Victor;
 				TargetAttributes = {
-					09517E7F1AD9ED2A00AC4A02 = {
-						CreatedOnToolsVersion = 6.3;
-						TestTargetID = 17BE0B2B1A8BD36A0025AFC4;
-					};
 					17BE0B2B1A8BD36A0025AFC4 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = Y3WCWJ5G5H;
@@ -467,19 +413,11 @@
 			targets = (
 				17BE0B2B1A8BD36A0025AFC4 /* Project Foodie */,
 				17BE0B421A8BD36A0025AFC4 /* Project FoodieTests */,
-				09517E7F1AD9ED2A00AC4A02 /* Project Foodie Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		09517E7E1AD9ED2A00AC4A02 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		17BE0B2A1A8BD36A0025AFC4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -497,20 +435,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB598A611AE2F49E009F5997 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		09517E7C1AD9ED2A00AC4A02 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				09517E851AD9ED2A00AC4A02 /* Project_Foodie_Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		17BE0B281A8BD36A0025AFC4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -519,6 +450,7 @@
 				09E8DB8B1AB4BFA4000CCE8C /* Comment.swift in Sources */,
 				17562DA91A8C120700327F26 /* LoginViewController.swift in Sources */,
 				09E1F2861AD9A748000FFCB2 /* ProfileTableViewCell.swift in Sources */,
+				BB598A561AE2F489009F5997 /* CommentDataBase.swift in Sources */,
 				9477AE5F1A9F032000A2DCEF /* DataBase.swift in Sources */,
 				1761AD881A9924D40090598D /* SocialTableViewCell.swift in Sources */,
 				17BE0B361A8BD36A0025AFC4 /* NearMeViewController.swift in Sources */,
@@ -527,8 +459,8 @@
 				09E1F2821AD99FFA000FFCB2 /* ProfileTableViewController.swift in Sources */,
 				9477AE611A9F032000A2DCEF /* PostDataBase.swift in Sources */,
 				097437BD1AB1606800C173BF /* SocialDetailTableViewCell.swift in Sources */,
-				9477AE621A9F032000A2DCEF /* PreferenceDataBase.swift in Sources */,
 				9477AE791A9F050400A2DCEF /* ParseHeader.m in Sources */,
+				BB598A571AE2F489009F5997 /* LikeDataBase.swift in Sources */,
 				17D725161A9141CD00252120 /* NearMeDetailViewController.swift in Sources */,
 				17BE0B321A8BD36A0025AFC4 /* AppDelegate.swift in Sources */,
 				9477AE631A9F032000A2DCEF /* RestaurantDataBase.swift in Sources */,
@@ -549,19 +481,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09517E9A1AD9EF4700AC4A02 /* TestingDataBase.swift in Sources */,
-				09517E961AD9EF4700AC4A02 /* LogInTest.swift in Sources */,
-				09517E9B1AD9EF4700AC4A02 /* TestingDownloadTest.swift in Sources */,
+				BB598A661AE2F49E009F5997 /* TestingDataBase.swift in Sources */,
+				BB598A621AE2F49E009F5997 /* LogInTest.swift in Sources */,
+				BB598A671AE2F49E009F5997 /* TestingDownloadTest.swift in Sources */,
 				9477AE701A9F037900A2DCEF /* PostDataBase.swift in Sources */,
-				09517E971AD9EF4700AC4A02 /* RelationalTestingDataBase.swift in Sources */,
+				BB598A631AE2F49E009F5997 /* RelationalTestingDataBase.swift in Sources */,
 				9477AE741A9F037900A2DCEF /* UserDataBase.swift in Sources */,
 				9477AE721A9F037900A2DCEF /* RestaurantDataBase.swift in Sources */,
-				09517E991AD9EF4700AC4A02 /* SignUpTest.swift in Sources */,
+				BB598A651AE2F49E009F5997 /* SignUpTest.swift in Sources */,
 				9477AE6E1A9F037900A2DCEF /* DataBase.swift in Sources */,
 				9477AE6F1A9F037900A2DCEF /* PhotoDataBase.swift in Sources */,
-				09517E9C1AD9EF4700AC4A02 /* TestingUploadTest.swift in Sources */,
-				9477AE711A9F037900A2DCEF /* PreferenceDataBase.swift in Sources */,
-				09517E981AD9EF4700AC4A02 /* SampleTests.swift in Sources */,
+				BB598A681AE2F49E009F5997 /* TestingUploadTest.swift in Sources */,
+				BB598A641AE2F49E009F5997 /* SampleTests.swift in Sources */,
 				9477AE731A9F037900A2DCEF /* User.swift in Sources */,
 				9477AE7A1A9F050400A2DCEF /* ParseHeader.m in Sources */,
 			);
@@ -570,11 +501,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		09517E871AD9ED2A00AC4A02 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 17BE0B2B1A8BD36A0025AFC4 /* Project Foodie */;
-			targetProxy = 09517E861AD9ED2A00AC4A02 /* PBXContainerItemProxy */;
-		};
 		17BE0B451A8BD36A0025AFC4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 17BE0B2B1A8BD36A0025AFC4 /* Project Foodie */;
@@ -602,47 +528,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		09517E891AD9ED2A00AC4A02 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Project Foodie Tests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Project Foodie.app/Project Foodie";
-			};
-			name = Debug;
-		};
-		09517E8A1AD9ED2A00AC4A02 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Project Foodie Tests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Project Foodie.app/Project Foodie";
-			};
-			name = Release;
-		};
 		17BE0B4B1A8BD36A0025AFC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -805,14 +690,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		09517E881AD9ED2A00AC4A02 /* Build configuration list for PBXNativeTarget "Project Foodie Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				09517E891AD9ED2A00AC4A02 /* Debug */,
-				09517E8A1AD9ED2A00AC4A02 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
 		17BE0B271A8BD36A0025AFC4 /* Build configuration list for PBXProject "Project Foodie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

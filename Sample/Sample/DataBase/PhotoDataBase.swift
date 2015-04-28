@@ -9,6 +9,7 @@
 import Foundation
 
 class PhotoDataBase:DataBase{
+	
     override init(){
         super.init()
         dataBaseName="PhotoDataBase"

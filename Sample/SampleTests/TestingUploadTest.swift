@@ -32,7 +32,8 @@ class TestingUploadTest:XCTestCase{
 			NSNotificationCenter.defaultCenter().addObserver(self, selector: "completed:", name: "upload Done", object: nil)
 			NSNotificationCenter.defaultCenter().addObserver(self, selector: "failed:", name: "upload Failed", object: nil)
 			
-			testRelationalTestingDataBase()
+			//testRelationalTestingDataBase()
+			testTestingDataBase()
 			
 			//timeout control
 			isCompleted = false
@@ -81,7 +82,8 @@ class TestingUploadTest:XCTestCase{
 		let imageData = NSData(contentsOfURL: NSURL(string:"http://www.graftoninnvermont.com/wp-content/uploads/2011/09/Woodard-House-kitchen.jpg")!)
 		
 		//			let restaurant = ["name":"henry's kitchen \(restaurantCount)","description":"henry's home made good stuff","location":"123 vancouver ave. earth","menu":"any home made stuff"]
-		let restaurant:Dictionary<String,AnyObject!> = ["name":"henry's kitchen","description":"henry's home made good stuff","location":"123 vancouver ave. earth","menu":"any home made stuff","typetest":123,"image":imageData]
+
+		let restaurant:Dictionary<String,AnyObject!> = ["name":"henry's kitchen","description":"henry's home made good stuff","location":"123 vancouver ave. earth","menu":"any home made stuff","typetest":123,"imagePFFile":imageData]
 		testingDataBase.upload(restaurant)
 	}
 	
