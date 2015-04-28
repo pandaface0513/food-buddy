@@ -27,7 +27,6 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         socialTable.addSubview(refreshControl)
         
         
-        
         var screenSize: CGRect = UIScreen.mainScreen().bounds
         println(PFUser.currentUser().username)
         
@@ -44,10 +43,6 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         
         // Do any additional setup after loading the view.
     }
-    
-//    @IBAction func logoff(sender: AnyObject) {
-//        self.performSegueWithIdentifier("loginScreen", sender: nil)
-//    }
     
     //function for upload done
     func upLoadPostDone(notifcation: NSNotification){
@@ -133,7 +128,6 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
             
         }else if segue.identifier == "loginScreen" {
             PFUser.logOut()
-            println("FKFKKFFKF")
         }
     }
 

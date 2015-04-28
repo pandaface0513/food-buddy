@@ -108,5 +108,4 @@ class LikeDataBase:DataBase{
 			}
 		}
 	}
-	
 }

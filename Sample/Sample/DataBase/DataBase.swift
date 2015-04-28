@@ -183,7 +183,6 @@ class DataBase{
 		orQuery.orderByAscending("updatedAt")
 		orQuery.findObjectsInBackgroundWithBlock{
 			(objects:[AnyObject]!,error:NSError!) -> Void in
-			
 			if (error==nil){
 				data = self.changePFObjectsToDictionary(objects as! [PFObject])
 				NSNotificationCenter.defaultCenter().postNotificationName("download Done", object: data)
