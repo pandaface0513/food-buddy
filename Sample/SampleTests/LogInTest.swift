@@ -11,7 +11,8 @@ import UIKit
 import XCTest
 
 class LogInTest:XCTestCase{
-	var isCompleted:Bool?
+	var isLoginCompleted:Bool?
+	var isAddFreindCompleted:Bool?
 	
 	let testUser = User()
 	//let userDataBase = UserDataBase()
@@ -23,7 +24,7 @@ class LogInTest:XCTestCase{
 	override func setUp() {
 		super.setUp()
 		// Put setup code here. This method is called before the invocation of each test method in the class.
-		isCompleted = false
+		isLoginCompleted = false
 		Parse.setApplicationId("2fa3goVgGVtm6DyAga3k0W49MUqCd9PXnFYXP1FT", clientKey: "EReOFbDjtwvqtURF7FcjW4Tqer2niPVf8yt3UngE")
 		
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "completed:", name: "logIn Done", object: nil)
@@ -31,12 +32,12 @@ class LogInTest:XCTestCase{
 		testUser.logIn("testuser",passwd: "testpassword")
 		
 		//timeout control
-		isCompleted = false
+		isLoginCompleted = false
 		var isTimeout = false
 		let timeout:NSTimeInterval = 15.0
 		let idle:NSTimeInterval = 0.01;
 		var timeoutDate:NSDate = NSDate(timeIntervalSinceNow: timeout)
-		while(!isTimeout && !isCompleted!)
+		while(!isTimeout && !isLoginCompleted!)
 		{
 			var tick:NSDate = NSDate.init(timeIntervalSinceNow: idle)
 			NSRunLoop.currentRunLoop().runUntilDate(tick)
@@ -53,13 +54,31 @@ class LogInTest:XCTestCase{
 	}
 	
 	func completed(notification:NSNotification){
-		isCompleted = true;
-		testUser.addFriend("hicharliehowareyou?")
+		isLoginCompleted = true
+		isAddFreindCompleted = false;
+		testUser.addFriend("IW13xDIunF")
+		
+		var isTimeout = false
+		let timeout:NSTimeInterval = 15.0
+		let idle:NSTimeInterval = 0.01;
+		var timeoutDate:NSDate = NSDate(timeIntervalSinceNow: timeout)
+		while(!isTimeout && !isAddFreindCompleted!)
+		{
+			var tick:NSDate = NSDate.init(timeIntervalSinceNow: idle)
+			NSRunLoop.currentRunLoop().runUntilDate(tick)
+			isTimeout = (tick.compare(timeoutDate) == NSComparisonResult.OrderedDescending)
+		}
+		
+		if isTimeout {
+			println("time out")
+			return
+		}
+		
 		print("\n**********\(notification.description)**********\n")
 	}
 	
 	func failed(notification:NSNotification){
-		isCompleted = true;
+		isLoginCompleted = true;
 		print("\n**********\(notification.description)**********\n")
 	}
 	

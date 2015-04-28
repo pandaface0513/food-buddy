@@ -88,6 +88,7 @@
 		BB598A661AE2F49E009F5997 /* TestingDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5E1AE2F49E009F5997 /* TestingDataBase.swift */; };
 		BB598A671AE2F49E009F5997 /* TestingDownloadTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5F1AE2F49E009F5997 /* TestingDownloadTest.swift */; };
 		BB598A681AE2F49E009F5997 /* TestingUploadTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A601AE2F49E009F5997 /* TestingUploadTest.swift */; };
+		BB8E475F1AF041B20076151C /* CloudCodeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E475E1AF041B20076151C /* CloudCodeTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +165,7 @@
 		BB598A5E1AE2F49E009F5997 /* TestingDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingDataBase.swift; sourceTree = "<group>"; };
 		BB598A5F1AE2F49E009F5997 /* TestingDownloadTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingDownloadTest.swift; sourceTree = "<group>"; };
 		BB598A601AE2F49E009F5997 /* TestingUploadTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingUploadTest.swift; sourceTree = "<group>"; };
+		BB8E475E1AF041B20076151C /* CloudCodeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudCodeTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +339,7 @@
 				BB598A5E1AE2F49E009F5997 /* TestingDataBase.swift */,
 				BB598A5F1AE2F49E009F5997 /* TestingDownloadTest.swift */,
 				BB598A601AE2F49E009F5997 /* TestingUploadTest.swift */,
+				BB8E475E1AF041B20076151C /* CloudCodeTest.swift */,
 			);
 			path = SampleTests;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				BB598A681AE2F49E009F5997 /* TestingUploadTest.swift in Sources */,
 				BB598A641AE2F49E009F5997 /* SampleTests.swift in Sources */,
 				9477AE731A9F037900A2DCEF /* User.swift in Sources */,
+				BB8E475F1AF041B20076151C /* CloudCodeTest.swift in Sources */,
 				9477AE7A1A9F050400A2DCEF /* ParseHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "1.4.2"
+  },
+  "applications": {
+    "Foodie": {
+      "applicationId": "2fa3goVgGVtm6DyAga3k0W49MUqCd9PXnFYXP1FT",
+      "masterKey": "uZyVllaPtNKOvyR9UFuxBDD85MizWWHuuz30shCR"
+    },
+    "_default": {
+      "link": "Foodie"
+    }
+  }
+}
