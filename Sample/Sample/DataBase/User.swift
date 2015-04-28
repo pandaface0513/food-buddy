@@ -8,8 +8,6 @@
 
 import Foundation
 
-let Attributes = ["profilePic","firstName","lastName","friends"]
-
 class User{
     
     func addFriend(userId:String){
@@ -25,9 +23,9 @@ class User{
 					break
 				}
 			}
+			friendsList!.append(userId)
 		}
 		if (isFriendExist == false){
-			friendsList!.append(userId)
 			PFUser.currentUser().setValue(friendsList, forKey: "friends")
 			PFUser.currentUser().saveInBackgroundWithBlock{
 				(success:Bool,error:NSError!)->Void in

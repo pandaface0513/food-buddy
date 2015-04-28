@@ -14,6 +14,23 @@ class LikeDataBase:DataBase{
 		dataBaseName = "LikeDataBase"
 	}
 	
+	func likeToggle(postId:String, userId:String){
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "likeToggleHelper:", name: "isLike Done", object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "likeToggleHelper:", name: "isLike Failed", object: nil)
+		isLiked(postId, userId: userId)
+	}
+	
+	func likeToggleHelper(notification:NSNotification){
+		NSNotificationCenter.defaultCenter().removeObserver(self, name: "isLike Done", object: nil)
+		NSNotificationCenter.defaultCenter().removeObserver(self, name: "isLike Failed", object: nil)
+		if (notification.name == "isLike Done") {
+			let objectContainer = notification.object as! LikeObjectContainer
+			likeToggle(objectContainer.postId, userId: objectContainer.userId, isExisted: objectContainer.isExisted)
+		} else {
+			NSNotificationCenter.defaultCenter().postNotificationName("likeToggle Failed", object: notification.object)
+		}
+	}
+	
 	func isLiked(postId:String,userId:String){
 		let userRelation = PFObject(withoutDataWithClassName: "User", objectId: userId)
 		let postRelation = PFObject(withoutDataWithClassName: "PostDataBase", objectId: postId)
@@ -26,9 +43,11 @@ class LikeDataBase:DataBase{
 			(count:Int32,error:NSError!)->Void in
 			if (error == nil) {
 				if (count == 0 ){
-					NSNotificationCenter.defaultCenter().postNotificationName("isLike Done", object: false)
+					let objectContainer = LikeObjectContainer(postId: postId, userId: userId, isExisted: false)
+					NSNotificationCenter.defaultCenter().postNotificationName("isLike Done", object: objectContainer)
 				}else{
-					NSNotificationCenter.defaultCenter().postNotificationName("isLike Done", object: true)
+					let objectContainer = LikeObjectContainer(postId: postId, userId: userId, isExisted: true)
+					NSNotificationCenter.defaultCenter().postNotificationName("isLike Done", object: objectContainer)
 				}
 			} else {
 				let errorString = error.userInfo?["error"] as! NSString
@@ -106,6 +125,16 @@ class LikeDataBase:DataBase{
 				let errorString = error.userInfo?["error"] as! NSString
 				NSNotificationCenter.defaultCenter().postNotificationName("updateLikeCountFromTable Failed", object: errorString)
 			}
+		}
+	}
+	class LikeObjectContainer{
+		var postId:String = ""
+		var userId:String = ""
+		var isExisted:Bool = true
+		internal init(postId:String,userId:String,isExisted:Bool){
+			self.postId = postId
+			self.userId = userId
+			self.isExisted=isExisted
 		}
 	}
 }

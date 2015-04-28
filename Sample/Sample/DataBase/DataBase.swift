@@ -218,6 +218,28 @@ class DataBase{
 		return data
 	}
 	
+	func changeNSArrayToDictionary(nsArray: NSArray)->Array<Dictionary<String,AnyObject>>{
+		var data:Array<Dictionary<String,AnyObject>>=Array()
+		
+		for objects in nsArray{
+			var dictionary:Dictionary<String,AnyObject> = Dictionary()
+			var object = objects as! PFObject
+			var keys = object.allKeys()!
+			for key in keys{
+				let dictionaryKey = key as! String
+				var value: AnyObject! = object.objectForKey(dictionaryKey) as AnyObject!
+				if (value is PFFile){
+					value = value.url
+				}
+				dictionary.updateValue(value, forKey: dictionaryKey)
+			}
+			dictionary.updateValue(object.objectId, forKey: "objectId")
+			dictionary.updateValue(object.createdAt, forKey: "createdAt")
+			data.append(dictionary)
+		}
+		return data
+	}
+	
 }
 
 func printDictionary(dictionary:Dictionary<String,AnyObject>){

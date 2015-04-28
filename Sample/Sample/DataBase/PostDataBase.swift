@@ -35,24 +35,24 @@ class PostDataBase:DataBase{
             (result:AnyObject!, error: NSError!)-> Void in
             if (error==nil){
                 var data:Array<Dictionary<String,AnyObject>> = Array()
-                for objects in result! as! NSArray{
-                    var dictionary:Dictionary<String,AnyObject> = Dictionary()
-                    var object = objects as! PFObject
-                    var keys = object.allKeys()!
-                    for key in keys{
-                        let dictionaryKey = key as! String
-                        var value: AnyObject! = object.objectForKey(dictionaryKey) as AnyObject!
-                        if (value is PFFile){
-                            value = value.url
-                        }
-                        dictionary.updateValue(value, forKey: dictionaryKey)
-                    }
-                    data.append(dictionary)
-                }
+				data = self.changeNSArrayToDictionary(result as! NSArray)
                 NSNotificationCenter.defaultCenter().postNotificationName("findAllPost Done", object: data)
             }else{
                 NSNotificationCenter.defaultCenter().postNotificationName("findAllPost Failed", object: error)
             }
         }
     }
+	
+	func findFriendPost(userId:String)->Void {
+		PFCloud.callFunctionInBackground("findFriendPost", withParameters: ["userId":userId]){
+			(result:AnyObject!, error: NSError!)-> Void in
+			if (error==nil){
+				var data:Array<Dictionary<String,AnyObject>> = Array()
+				data=self.changeNSArrayToDictionary(result as!NSArray)
+				NSNotificationCenter.defaultCenter().postNotificationName("findFriendPost Done", object: data)
+			}else{
+				NSNotificationCenter.defaultCenter().postNotificationName("findFriendPost Failed", object: error)
+			}
+		}
+	}
 }
