@@ -8,10 +8,10 @@
 
 import Foundation
 
-class TestingRelationalDataBase: DataBase {
+class RelationalTestingDataBase: DataBase {
 	override init(){
 		super.init()
-		dataBaseName = "TestingRelationalDataBase"
+		dataBaseName = "RelationalTestingDataBase"
 	}
 	/*
 	func findTesting(args:Dictionary<String,AnyObject>)->Void {

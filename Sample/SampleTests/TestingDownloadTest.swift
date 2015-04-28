@@ -8,13 +8,14 @@
 
 import Foundation
 import UIKit
-//import XCTest
+import XCTest
 
 class TestingDownloadTest:XCTestCase{
 	var isCompleted:Bool?
 	
 	let testUser = User()
 	let testingDataBase = TestingDataBase()
+	let relationalTestingDataBase = RelationalTestingDataBase()
 	
 	
 	override func setUp() {
@@ -25,17 +26,18 @@ class TestingDownloadTest:XCTestCase{
 
 		Parse.setApplicationId("2fa3goVgGVtm6DyAga3k0W49MUqCd9PXnFYXP1FT", clientKey: "EReOFbDjtwvqtURF7FcjW4Tqer2niPVf8yt3UngE")
 
-		NSNotificationCenter.defaultCenter().postNotificationName("downloadContaining Done", object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "completed:", name: "download Done", object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "failed:", name: "download Failed", object: nil)
+		
 		NSNotificationCenter.defaultCenter().postNotificationName("downLoadContaining Failed", object: nil)
 		
-		testingDataBase.downloadEqualTo(["name":"henry's kitchen"])
+		testRelationalTestingDataBase()
 		
 		//timeout control
 		let timeout:NSTimeInterval = 10.0
 		let idle:NSTimeInterval = 0.01;
 		isTimeout = false;
 		var timeoutDate:NSDate = NSDate.init(timeIntervalSinceNow: timeout)
-		
 		
 		while(!isTimeout && !isCompleted!)
 		{
@@ -44,13 +46,23 @@ class TestingDownloadTest:XCTestCase{
 			isTimeout = (tick.compare(timeoutDate) == NSComparisonResult.OrderedDescending)
 		}
 		
-		NSNotificationCenter.defaultCenter().removeObserver(self, name: "downloadContaining Done", object: nil)
-		NSNotificationCenter.defaultCenter().removeObserver(self, name: "downloadContaining Failed", object: nil)
+		NSNotificationCenter.defaultCenter().removeObserver(self, name: "download Done", object: nil)
+		NSNotificationCenter.defaultCenter().removeObserver(self, name: "download Failed", object: nil)
 		
 		if isTimeout {
 			println("time out")
 			return
 		}
+	}
+	
+	func testRelationalTestingDataBase(){
+		//relationalTestingDataBase.download(["number":1], containedIn: nil, containString: nil, greaterThanOrEqualTo: nil, lessThanOrEqualTo: nil, dataBase: testingDataBase, parentId: "vkml0MpBvo")
+		relationalTestingDataBase.downloadRelational(testingDataBase, parentId: "vkml0MpBvo")
+		
+	}
+	
+	func testTestingDataBase(){
+		testingDataBase.downloadEqualTo(["description":"henry's home made good stuff"])
 	}
 	
 	func completed(notification:NSNotification){
@@ -74,10 +86,13 @@ class TestingDownloadTest:XCTestCase{
 		XCTAssert(true, "Pass")
 	}
 	
+	
+	/*
 	func testPerformanceExample() {
 		// This is an example of a performance test case.
 		self.measureBlock() {
 			// Put the code you want to measure the time of here.
 		}
 	}
+*/
 }

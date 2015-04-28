@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-//import XCTest
+import XCTest
 
 class SignUpTest:XCTestCase{
 	var isCompleted:Bool?
@@ -16,7 +16,6 @@ class SignUpTest:XCTestCase{
     let testUser = User()
     //let userDataBase = UserDataBase()
     let postDataBase = PostDataBase()
-    let preferenceDataBase = PreferenceDataBase()
     let photoDataBase = PhotoDataBase()
     let restaurantDataBase = RestaurantDataBase()
 	

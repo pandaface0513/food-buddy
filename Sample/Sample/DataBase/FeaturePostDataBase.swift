@@ -20,7 +20,10 @@ class FeaturePostDataBase:DataBase{
 			if (error==nil){
 				NSNotificationCenter.defaultCenter().postNotificationName("findFeaturePost Done", object: result)
 			}else{
-				NSNotificationCenter.defaultCenter().postNotificationName("findFeaturePost Failed", object: error)
+				let errorString = error.userInfo?["error"] as! NSString
+				// Show the errorString somewhere and let the user try again.
+				
+				NSNotificationCenter.defaultCenter().postNotificationName("findFeaturePost Failed", object: errorString)
 			}
 		}
 	}

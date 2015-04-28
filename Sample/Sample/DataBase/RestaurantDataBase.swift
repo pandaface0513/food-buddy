@@ -16,11 +16,16 @@ class RestaurantDataBase:DataBase{
 	
 	func findRestaurantName(args:Dictionary<String,AnyObject>)->Void {
 		PFCloud.callFunctionInBackground("findRestaurantName", withParameters: args){
-			(result:AnyObject!, error: NSError!)-> Void in
+			(objects:AnyObject!, error: NSError!)-> Void in
 			if (error==nil){
-				NSNotificationCenter.defaultCenter().postNotificationName("findRestaurantName Done", object: result)
+				var data:Array<Dictionary<String,AnyObject>> = Array()
+				data = self.changePFObjectsToDictionary(objects as! [PFObject])
+				NSNotificationCenter.defaultCenter().postNotificationName("findRestaurantName Done", object: data)
 			}else{
-				NSNotificationCenter.defaultCenter().postNotificationName("findRestaurantName Failed", object: error)
+				let errorString = error.userInfo?["error"] as! NSString
+				// Show the errorString somewhere and let the user try again.
+				
+				NSNotificationCenter.defaultCenter().postNotificationName("findRestaurantName Failed", object: errorString)
 			}
 		}
 	}

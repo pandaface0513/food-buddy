@@ -39,7 +39,6 @@
 		9477AE5F1A9F032000A2DCEF /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE581A9F032000A2DCEF /* DataBase.swift */; };
 		9477AE601A9F032000A2DCEF /* PhotoDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE591A9F032000A2DCEF /* PhotoDataBase.swift */; };
 		9477AE611A9F032000A2DCEF /* PostDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5A1A9F032000A2DCEF /* PostDataBase.swift */; };
-		9477AE621A9F032000A2DCEF /* PreferenceDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5B1A9F032000A2DCEF /* PreferenceDataBase.swift */; };
 		9477AE631A9F032000A2DCEF /* RestaurantDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5C1A9F032000A2DCEF /* RestaurantDataBase.swift */; };
 		9477AE641A9F032000A2DCEF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5D1A9F032000A2DCEF /* User.swift */; };
 		9477AE651A9F032000A2DCEF /* UserDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5E1A9F032000A2DCEF /* UserDataBase.swift */; };
@@ -51,7 +50,6 @@
 		9477AE6E1A9F037900A2DCEF /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE581A9F032000A2DCEF /* DataBase.swift */; };
 		9477AE6F1A9F037900A2DCEF /* PhotoDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE591A9F032000A2DCEF /* PhotoDataBase.swift */; };
 		9477AE701A9F037900A2DCEF /* PostDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5A1A9F032000A2DCEF /* PostDataBase.swift */; };
-		9477AE711A9F037900A2DCEF /* PreferenceDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5B1A9F032000A2DCEF /* PreferenceDataBase.swift */; };
 		9477AE721A9F037900A2DCEF /* RestaurantDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5C1A9F032000A2DCEF /* RestaurantDataBase.swift */; };
 		9477AE731A9F037900A2DCEF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5D1A9F032000A2DCEF /* User.swift */; };
 		9477AE741A9F037900A2DCEF /* UserDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9477AE5E1A9F032000A2DCEF /* UserDataBase.swift */; };
@@ -80,6 +78,16 @@
 		9477AE9A1A9F061300A2DCEF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9477AE7D1A9F059D00A2DCEF /* CFNetwork.framework */; };
 		9477AE9B1A9F061300A2DCEF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9477AE7B1A9F059600A2DCEF /* AudioToolbox.framework */; };
 		BA2B71531ABE3B540058862E /* AddFreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B71521ABE3B540058862E /* AddFreeViewController.swift */; };
+		BB598A561AE2F489009F5997 /* CommentDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A541AE2F489009F5997 /* CommentDataBase.swift */; };
+		BB598A571AE2F489009F5997 /* LikeDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A551AE2F489009F5997 /* LikeDataBase.swift */; };
+		BB598A611AE2F49E009F5997 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB598A591AE2F49E009F5997 /* Info.plist */; };
+		BB598A621AE2F49E009F5997 /* LogInTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5A1AE2F49E009F5997 /* LogInTest.swift */; };
+		BB598A631AE2F49E009F5997 /* RelationalTestingDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5B1AE2F49E009F5997 /* RelationalTestingDataBase.swift */; };
+		BB598A641AE2F49E009F5997 /* SampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5C1AE2F49E009F5997 /* SampleTests.swift */; };
+		BB598A651AE2F49E009F5997 /* SignUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5D1AE2F49E009F5997 /* SignUpTest.swift */; };
+		BB598A661AE2F49E009F5997 /* TestingDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5E1AE2F49E009F5997 /* TestingDataBase.swift */; };
+		BB598A671AE2F49E009F5997 /* TestingDownloadTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5F1AE2F49E009F5997 /* TestingDownloadTest.swift */; };
+		BB598A681AE2F49E009F5997 /* TestingUploadTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A601AE2F49E009F5997 /* TestingUploadTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,7 +136,6 @@
 		9477AE581A9F032000A2DCEF /* DataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		9477AE591A9F032000A2DCEF /* PhotoDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDataBase.swift; sourceTree = "<group>"; };
 		9477AE5A1A9F032000A2DCEF /* PostDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDataBase.swift; sourceTree = "<group>"; };
-		9477AE5B1A9F032000A2DCEF /* PreferenceDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceDataBase.swift; sourceTree = "<group>"; };
 		9477AE5C1A9F032000A2DCEF /* RestaurantDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDataBase.swift; sourceTree = "<group>"; };
 		9477AE5D1A9F032000A2DCEF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9477AE5E1A9F032000A2DCEF /* UserDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataBase.swift; sourceTree = "<group>"; };
@@ -147,6 +154,16 @@
 		9477AE8D1A9F05E600A2DCEF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		9477AE8F1A9F05ED00A2DCEF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		BA2B71521ABE3B540058862E /* AddFreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFreeViewController.swift; sourceTree = "<group>"; };
+		BB598A541AE2F489009F5997 /* CommentDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentDataBase.swift; sourceTree = "<group>"; };
+		BB598A551AE2F489009F5997 /* LikeDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeDataBase.swift; sourceTree = "<group>"; };
+		BB598A591AE2F49E009F5997 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB598A5A1AE2F49E009F5997 /* LogInTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInTest.swift; sourceTree = "<group>"; };
+		BB598A5B1AE2F49E009F5997 /* RelationalTestingDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelationalTestingDataBase.swift; sourceTree = "<group>"; };
+		BB598A5C1AE2F49E009F5997 /* SampleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleTests.swift; sourceTree = "<group>"; };
+		BB598A5D1AE2F49E009F5997 /* SignUpTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTest.swift; sourceTree = "<group>"; };
+		BB598A5E1AE2F49E009F5997 /* TestingDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingDataBase.swift; sourceTree = "<group>"; };
+		BB598A5F1AE2F49E009F5997 /* TestingDownloadTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingDownloadTest.swift; sourceTree = "<group>"; };
+		BB598A601AE2F49E009F5997 /* TestingUploadTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingUploadTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,8 +229,9 @@
 		17BE0B231A8BD36A0025AFC4 = {
 			isa = PBXGroup;
 			children = (
-				9477AE9C1A9F062800A2DCEF /* Framework */,
 				17BE0B2E1A8BD36A0025AFC4 /* Sample */,
+				BB598A581AE2F49E009F5997 /* SampleTests */,
+				9477AE9C1A9F062800A2DCEF /* Framework */,
 				17BE0B2D1A8BD36A0025AFC4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -272,11 +290,12 @@
 		9477AE571A9F032000A2DCEF /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
+				BB598A541AE2F489009F5997 /* CommentDataBase.swift */,
+				BB598A551AE2F489009F5997 /* LikeDataBase.swift */,
 				0984A2041ABE0D58007DE238 /* FeaturePostDataBase.swift */,
 				9477AE581A9F032000A2DCEF /* DataBase.swift */,
 				9477AE591A9F032000A2DCEF /* PhotoDataBase.swift */,
 				9477AE5A1A9F032000A2DCEF /* PostDataBase.swift */,
-				9477AE5B1A9F032000A2DCEF /* PreferenceDataBase.swift */,
 				9477AE5C1A9F032000A2DCEF /* RestaurantDataBase.swift */,
 				9477AE5D1A9F032000A2DCEF /* User.swift */,
 				9477AE5E1A9F032000A2DCEF /* UserDataBase.swift */,
@@ -305,6 +324,21 @@
 				9477AE511A9F030C00A2DCEF /* ParseUI.framework */,
 			);
 			name = Framework;
+			sourceTree = "<group>";
+		};
+		BB598A581AE2F49E009F5997 /* SampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				BB598A591AE2F49E009F5997 /* Info.plist */,
+				BB598A5A1AE2F49E009F5997 /* LogInTest.swift */,
+				BB598A5B1AE2F49E009F5997 /* RelationalTestingDataBase.swift */,
+				BB598A5C1AE2F49E009F5997 /* SampleTests.swift */,
+				BB598A5D1AE2F49E009F5997 /* SignUpTest.swift */,
+				BB598A5E1AE2F49E009F5997 /* TestingDataBase.swift */,
+				BB598A5F1AE2F49E009F5997 /* TestingDownloadTest.swift */,
+				BB598A601AE2F49E009F5997 /* TestingUploadTest.swift */,
+			);
+			path = SampleTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,6 +435,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB598A611AE2F49E009F5997 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +450,7 @@
 				09E8DB8B1AB4BFA4000CCE8C /* Comment.swift in Sources */,
 				17562DA91A8C120700327F26 /* LoginViewController.swift in Sources */,
 				09E1F2861AD9A748000FFCB2 /* ProfileTableViewCell.swift in Sources */,
+				BB598A561AE2F489009F5997 /* CommentDataBase.swift in Sources */,
 				9477AE5F1A9F032000A2DCEF /* DataBase.swift in Sources */,
 				1761AD881A9924D40090598D /* SocialTableViewCell.swift in Sources */,
 				17BE0B361A8BD36A0025AFC4 /* NearMeViewController.swift in Sources */,
@@ -423,8 +459,8 @@
 				09E1F2821AD99FFA000FFCB2 /* ProfileTableViewController.swift in Sources */,
 				9477AE611A9F032000A2DCEF /* PostDataBase.swift in Sources */,
 				097437BD1AB1606800C173BF /* SocialDetailTableViewCell.swift in Sources */,
-				9477AE621A9F032000A2DCEF /* PreferenceDataBase.swift in Sources */,
 				9477AE791A9F050400A2DCEF /* ParseHeader.m in Sources */,
+				BB598A571AE2F489009F5997 /* LikeDataBase.swift in Sources */,
 				17D725161A9141CD00252120 /* NearMeDetailViewController.swift in Sources */,
 				17BE0B321A8BD36A0025AFC4 /* AppDelegate.swift in Sources */,
 				9477AE631A9F032000A2DCEF /* RestaurantDataBase.swift in Sources */,
@@ -445,12 +481,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB598A661AE2F49E009F5997 /* TestingDataBase.swift in Sources */,
+				BB598A621AE2F49E009F5997 /* LogInTest.swift in Sources */,
+				BB598A671AE2F49E009F5997 /* TestingDownloadTest.swift in Sources */,
 				9477AE701A9F037900A2DCEF /* PostDataBase.swift in Sources */,
+				BB598A631AE2F49E009F5997 /* RelationalTestingDataBase.swift in Sources */,
 				9477AE741A9F037900A2DCEF /* UserDataBase.swift in Sources */,
 				9477AE721A9F037900A2DCEF /* RestaurantDataBase.swift in Sources */,
+				BB598A651AE2F49E009F5997 /* SignUpTest.swift in Sources */,
 				9477AE6E1A9F037900A2DCEF /* DataBase.swift in Sources */,
 				9477AE6F1A9F037900A2DCEF /* PhotoDataBase.swift in Sources */,
-				9477AE711A9F037900A2DCEF /* PreferenceDataBase.swift in Sources */,
+				BB598A681AE2F49E009F5997 /* TestingUploadTest.swift in Sources */,
+				BB598A641AE2F49E009F5997 /* SampleTests.swift in Sources */,
 				9477AE731A9F037900A2DCEF /* User.swift in Sources */,
 				9477AE7A1A9F050400A2DCEF /* ParseHeader.m in Sources */,
 			);

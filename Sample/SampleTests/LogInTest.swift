@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-//import XCTest
+import XCTest
 
 class LogInTest:XCTestCase{
 	var isCompleted:Bool?
@@ -16,7 +16,6 @@ class LogInTest:XCTestCase{
 	let testUser = User()
 	//let userDataBase = UserDataBase()
 	let postDataBase = PostDataBase()
-	let preferenceDataBase = PreferenceDataBase()
 	let photoDataBase = PhotoDataBase()
 	let restaurantDataBase = RestaurantDataBase()
 	
@@ -55,6 +54,7 @@ class LogInTest:XCTestCase{
 	
 	func completed(notification:NSNotification){
 		isCompleted = true;
+		testUser.addFriend("hicharliehowareyou?")
 		print("\n**********\(notification.description)**********\n")
 	}
 	
@@ -73,11 +73,12 @@ class LogInTest:XCTestCase{
 		// This is an example of a functional test case.
 		XCTAssert(true, "Pass")
 	}
-	
+	/*
 	func testPerformanceExample() {
 		// This is an example of a performance test case.
 		self.measureBlock() {
 			// Put the code you want to measure the time of here.
 		}
 	}
+*/
 }
