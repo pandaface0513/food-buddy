@@ -14,7 +14,7 @@ class FeaturePostDataBase:DataBase{
 		dataBaseName="FeaturePostDataBase"
 	}
 	
-	func findFeaturePost(args:Dictionary<String,AnyObject>)->Void {
+	func findFeaturePostCloud(args:Dictionary<String,AnyObject>)->Void {
 		PFCloud.callFunctionInBackground("findFeaturePost", withParameters: args){
 			(result:AnyObject!, error: NSError!)-> Void in
 			if (error==nil){

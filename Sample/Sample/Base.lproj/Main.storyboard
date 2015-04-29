@@ -5,6 +5,24 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="riy-gb-81M">
+            <objects>
+                <viewController id="Iue-ZG-h5f" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5ng-wW-GF8"/>
+                        <viewControllerLayoutGuide type="bottom" id="8tR-P0-z0b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8dT-ex-agn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Np-N2-K8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2209" y="-2165"/>
+        </scene>
         <!--Add Feed View Controller-->
         <scene sceneID="i58-jL-p3o">
             <objects>
@@ -209,7 +227,7 @@
                                             <outlet property="FeedUsername" destination="JrN-mZ-XJr" id="Tje-Iq-89D"/>
                                             <outlet property="commentCounts" destination="uJn-gT-apu" id="Z9f-8F-8s1"/>
                                             <outlet property="likeCounts" destination="elz-4T-wQg" id="299-gn-Id7"/>
-                                            <segue destination="7kn-H2-550" kind="push" identifier="socialDetail" id="MRc-qD-9gy"/>
+                                            <segue destination="Iue-ZG-h5f" kind="modal" id="C0L-mM-hhj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

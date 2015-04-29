@@ -14,7 +14,7 @@ class PostDataBase:DataBase{
         dataBaseName="PostDataBase"
     }
 	
-	func findPost(args:Dictionary<String,AnyObject>)->Void {
+	func findPostCloud(args:Dictionary<String,AnyObject>)->Void {
 		PFCloud.callFunctionInBackground("findPost", withParameters: args){
 			(objects:AnyObject!, error: NSError!)-> Void in
 			if (error==nil){
@@ -30,7 +30,7 @@ class PostDataBase:DataBase{
 		}
 	}
 	
-    func findAllPost()->Void {
+    func findAllPostCloud()->Void {
         PFCloud.callFunctionInBackground("findAllPost", withParameters: [:]){
             (result:AnyObject!, error: NSError!)-> Void in
             if (error==nil){
@@ -43,7 +43,7 @@ class PostDataBase:DataBase{
         }
     }
 	
-	func findFriendPost(userId:String)->Void {
+	func findFriendPostCloud(userId:String)->Void {
 		PFCloud.callFunctionInBackground("findFriendPost", withParameters: ["userId":userId]){
 			(result:AnyObject!, error: NSError!)-> Void in
 			if (error==nil){
@@ -55,4 +55,54 @@ class PostDataBase:DataBase{
 			}
 		}
 	}
+    
+    var lastPositionDate = NSDate()
+    var needToLoad : Bool = false
+    
+    func findFriendFeed(userId:String, loadMore: Bool) -> Void {
+        var userQuery = PFUser.query()
+        userQuery.whereKey("objectId", equalTo: userId)
+        userQuery.getFirstObjectInBackgroundWithBlock { (object: PFObject?, error: NSError?) -> Void in
+            if (error == nil){
+                var friendList : [String] = object?.objectForKey("friends") as! [String]
+                
+                println(object)
+                println("postDataBase")
+                
+                var query = PFQuery(className: "PostDataBase")
+                query.whereKey("userid", containedIn: friendList)
+                query.orderByDescending("createdAt")
+                query.limit = 10
+                if (loadMore){
+                    query.whereKey("createdAt", lessThan: self.lastPositionDate)
+                }
+                query.findObjectsInBackgroundWithBlock({ (objects:[AnyObject]!, error:NSError!) -> Void in
+                    if (error == nil){
+                        println("testing")
+                        println(objects)
+                        self.lastPositionDate = objects[objects.count - 1].createdAt
+						
+						//this change [PFObject] to [Dictionary]
+						let objectList = self.changePFObjectsToDictionary(objects as! [PFObject])
+						
+                        if (loadMore && self.needToLoad){
+                            self.needToLoad = false
+							NSNotificationCenter.defaultCenter().postNotificationName("addFriendFeed done", object: friendList)
+                        }
+                        else {
+                        NSNotificationCenter.defaultCenter().postNotificationName("findFriendFeed done", object: friendList)
+                        }
+                    }
+                    else {
+                        println("shit")
+                    }
+                })
+                
+            }
+            else {
+                NSNotificationCenter.defaultCenter().postNotificationName("findFriendFeed failed", object: nil)
+                println("get first object in bg failed")
+            }
+        }
+    }
 }

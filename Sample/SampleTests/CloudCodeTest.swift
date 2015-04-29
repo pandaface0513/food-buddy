@@ -14,7 +14,7 @@ class CloudCodeTest: XCTestCase {
 	let postDataBase = PostDataBase()
 	
     override func setUp() {
-		postDataBase.findFriendPost("ZAFd9t4C2m")
+		postDataBase.findFriendPostCloud("ZAFd9t4C2m")
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     

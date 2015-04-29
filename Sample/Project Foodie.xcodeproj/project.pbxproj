@@ -12,6 +12,7 @@
 		09070FE31AB0185700432845 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09070FE21AB0185700432845 /* SignUpViewController.swift */; };
 		0920F77D1AB0076A0037C88D /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 0920F77C1AB0076A0037C88D /* like.png */; };
 		097437BD1AB1606800C173BF /* SocialDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097437BC1AB1606800C173BF /* SocialDetailTableViewCell.swift */; };
+		0980E3D21AF09A05000C6D7C /* FirstTimeSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0980E3D11AF09A05000C6D7C /* FirstTimeSetupViewController.swift */; };
 		0984A2051ABE0D58007DE238 /* FeaturePostDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984A2041ABE0D58007DE238 /* FeaturePostDataBase.swift */; };
 		09CE025D1A9E4780003EC91E /* SlideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CE025C1A9E4780003EC91E /* SlideBarTableViewController.swift */; };
 		09E1F2821AD99FFA000FFCB2 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1F2811AD99FFA000FFCB2 /* ProfileTableViewController.swift */; };
@@ -80,7 +81,6 @@
 		BA2B71531ABE3B540058862E /* AddFreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B71521ABE3B540058862E /* AddFreeViewController.swift */; };
 		BB598A561AE2F489009F5997 /* CommentDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A541AE2F489009F5997 /* CommentDataBase.swift */; };
 		BB598A571AE2F489009F5997 /* LikeDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A551AE2F489009F5997 /* LikeDataBase.swift */; };
-		BB598A611AE2F49E009F5997 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB598A591AE2F49E009F5997 /* Info.plist */; };
 		BB598A621AE2F49E009F5997 /* LogInTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5A1AE2F49E009F5997 /* LogInTest.swift */; };
 		BB598A631AE2F49E009F5997 /* RelationalTestingDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5B1AE2F49E009F5997 /* RelationalTestingDataBase.swift */; };
 		BB598A641AE2F49E009F5997 /* SampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5C1AE2F49E009F5997 /* SampleTests.swift */; };
@@ -107,6 +107,7 @@
 		09070FE21AB0185700432845 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0920F77C1AB0076A0037C88D /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like.png; path = ../../like.png; sourceTree = "<group>"; };
 		097437BC1AB1606800C173BF /* SocialDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialDetailTableViewCell.swift; sourceTree = "<group>"; };
+		0980E3D11AF09A05000C6D7C /* FirstTimeSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeSetupViewController.swift; sourceTree = "<group>"; };
 		0984A2041ABE0D58007DE238 /* FeaturePostDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturePostDataBase.swift; sourceTree = "<group>"; };
 		09CE025C1A9E4780003EC91E /* SlideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideBarTableViewController.swift; sourceTree = "<group>"; };
 		09E1F2811AD99FFA000FFCB2 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
@@ -262,6 +263,7 @@
 				17562DAA1A8C208A00327F26 /* SocialDetailViewController.swift */,
 				097437BC1AB1606800C173BF /* SocialDetailTableViewCell.swift */,
 				17BE0B591A8BE5700025AFC4 /* Person.swift */,
+				0980E3D11AF09A05000C6D7C /* FirstTimeSetupViewController.swift */,
 				17D725131A91403C00252120 /* NearMe.swift */,
 				17BE0B351A8BD36A0025AFC4 /* NearMeViewController.swift */,
 				BA2B71521ABE3B540058862E /* AddFreeViewController.swift */,
@@ -388,7 +390,7 @@
 		17BE0B241A8BD36A0025AFC4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Victor;
 				TargetAttributes = {
 					17BE0B2B1A8BD36A0025AFC4 = {
@@ -438,7 +440,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB598A611AE2F49E009F5997 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0980E3D21AF09A05000C6D7C /* FirstTimeSetupViewController.swift in Sources */,
 				17562DAB1A8C208A00327F26 /* SocialDetailViewController.swift in Sources */,
 				09E8DB8B1AB4BFA4000CCE8C /* Comment.swift in Sources */,
 				17562DA91A8C120700327F26 /* LoginViewController.swift in Sources */,

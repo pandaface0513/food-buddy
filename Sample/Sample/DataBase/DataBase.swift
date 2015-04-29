@@ -212,6 +212,7 @@ class DataBase{
 			}
 			dictionary.updateValue(object.objectId, forKey:"objectId")
 			dictionary.updateValue(object.createdAt, forKey: "createdAt")
+			dictionary.updateValue(object.createdAt, forKey: "updatedAt")
 			data.append(dictionary)
 		}
 		
@@ -235,6 +236,7 @@ class DataBase{
 			}
 			dictionary.updateValue(object.objectId, forKey: "objectId")
 			dictionary.updateValue(object.createdAt, forKey: "createdAt")
+			dictionary.updateValue(object.createdAt, forKey: "updatedAt")
 			data.append(dictionary)
 		}
 		return data

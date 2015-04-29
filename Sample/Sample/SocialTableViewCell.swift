@@ -19,6 +19,11 @@ class SocialTableViewCell: UITableViewCell {
     var likeCount = 0
     var commentCount = 0
     
+    var postId:String = ""
+    var userId = PFUser.currentUser().objectId
+    
+    var likeDatabase = LikeDataBase()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         likeCounts.text = String(likeCount)
@@ -27,7 +32,23 @@ class SocialTableViewCell: UITableViewCell {
     }
 
     @IBAction func likeAction(sender: AnyObject) {
-        likeCount += 1
+        //check if its liked or not
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotlike:", name: "didLike Done", object: nil)
+        likeDatabase.didLike(postId, userId: userId)
+    }
+    
+    func gotlike(notification:NSNotification){
+        //toggle like to the database
+        var islike:String = notification.object as! String
+        if(islike == "true"){
+            likeDatabase.likeToggle(postId, userId: userId, isExisted: true)
+            likeCount--
+        }else{
+            likeDatabase.likeToggle(postId, userId: userId, isExisted: false)
+            likeCount++
+        }
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "didLike Done", object: nil)
+        //println(islike)
         likeCounts.text = String(likeCount)
     }
     
@@ -40,6 +61,15 @@ class SocialTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setPostID(id:String){
+        postId = id
+    }
+    
+    func setLikeNumber(like:Int){
+        likeCount = like
+        likeCounts.text = String(likeCount)
     }
     
     func loadItem(feedusername: String, feedphoto: String, description: String){
