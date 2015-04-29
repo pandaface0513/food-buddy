@@ -106,6 +106,10 @@ class DataBase{
 		
 	}
 	
+	func downloadWithLocationRange(rangeKiloRadius:Double?){
+		downloadWithLocationRange(nil, containedIn: nil, containString: nil, greaterThanOrEqualTo: nil, lessThanOrEqualTo: nil, dataBase: nil, parentId: nil, rangeKiloRadius: rangeKiloRadius)
+	}
+	
 	func downloadWithLocationRange(equalTo:Dictionary<String,AnyObject>?, containedIn:Dictionary<String,[String]>?, containString:Dictionary<String,String>?, greaterThanOrEqualTo:Dictionary<String,Float>?, lessThanOrEqualTo:Dictionary<String,Float>?, dataBase:DataBase?, parentId:String?, rangeKiloRadius:Double?){
 		
 		PFGeoPoint.geoPointForCurrentLocationInBackground{
