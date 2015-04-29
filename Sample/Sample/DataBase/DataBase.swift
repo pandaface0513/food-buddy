@@ -17,7 +17,7 @@ class DataBase{
 			(geoPoint:PFGeoPoint!, error:NSError!)->Void in
 			if error == nil{
 				var newData = child
-				newData.updateValue(geoPoint, forKey: "location")
+				newData.updateValue(geoPoint, forKey: "geoLocation")
 				self.uploadRelational(dataBase, parentId: parentId, child: newData)
 			}
 			else{
@@ -62,7 +62,7 @@ class DataBase{
 			(geoPoint:PFGeoPoint!, error:NSError!)->Void in
 			if error == nil{
 				var newData = data
-				newData.updateValue(geoPoint, forKey: "location")
+				newData.updateValue(geoPoint, forKey: "geoLocation")
 				self.upload(newData)
 			}
 			else{
@@ -180,7 +180,7 @@ class DataBase{
 			}
 		}
 			
-		orQuery.orderByAscending("updatedAt")
+		orQuery.orderByDescending("updatedAt")
 		orQuery.findObjectsInBackgroundWithBlock{
 			(objects:[AnyObject]!,error:NSError!) -> Void in
 			if (error==nil){
