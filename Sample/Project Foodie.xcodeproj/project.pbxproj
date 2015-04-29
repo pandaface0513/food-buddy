@@ -80,7 +80,6 @@
 		BA2B71531ABE3B540058862E /* AddFreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B71521ABE3B540058862E /* AddFreeViewController.swift */; };
 		BB598A561AE2F489009F5997 /* CommentDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A541AE2F489009F5997 /* CommentDataBase.swift */; };
 		BB598A571AE2F489009F5997 /* LikeDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A551AE2F489009F5997 /* LikeDataBase.swift */; };
-		BB598A611AE2F49E009F5997 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB598A591AE2F49E009F5997 /* Info.plist */; };
 		BB598A621AE2F49E009F5997 /* LogInTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5A1AE2F49E009F5997 /* LogInTest.swift */; };
 		BB598A631AE2F49E009F5997 /* RelationalTestingDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5B1AE2F49E009F5997 /* RelationalTestingDataBase.swift */; };
 		BB598A641AE2F49E009F5997 /* SampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5C1AE2F49E009F5997 /* SampleTests.swift */; };
@@ -388,7 +387,7 @@
 		17BE0B241A8BD36A0025AFC4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Victor;
 				TargetAttributes = {
 					17BE0B2B1A8BD36A0025AFC4 = {
@@ -438,7 +437,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB598A611AE2F49E009F5997 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

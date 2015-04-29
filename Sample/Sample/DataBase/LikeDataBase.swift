@@ -57,7 +57,35 @@ class LikeDataBase:DataBase{
 			}
 		}
 	}
-	
+    
+    func didLike(postId:String,userId:String){
+        let userRelation = PFObject(withoutDataWithClassName: "User", objectId: userId)
+        let postRelation = PFObject(withoutDataWithClassName: "PostDataBase", objectId: postId)
+        
+        var query = PFQuery(className:dataBaseName)
+        query.whereKey("user", equalTo: userRelation)
+        query.whereKey("post", equalTo: postRelation)
+        
+        query.countObjectsInBackgroundWithBlock{
+            (count:Int32,error:NSError!)->Void in
+            if (error == nil) {
+                if (count == 0 ){
+//                    let objectContainer = LikeObjectContainer(postId: postId, userId: userId, isExisted: false)
+                    NSNotificationCenter.defaultCenter().postNotificationName("didLike Done", object: "false")
+                }else{
+//                    let objectContainer = LikeObjectContainer(postId: postId, userId: userId, isExisted: true)
+                    NSNotificationCenter.defaultCenter().postNotificationName("didLike Done", object: "true")
+                }
+            } else {
+                let errorString = error.userInfo?["error"] as! NSString
+                // Show the errorString somewhere and let the user try again.
+                
+                NSNotificationCenter.defaultCenter().postNotificationName("didLike Failed", object: errorString)
+            }
+        }
+    }
+    
+    
 	func likeToggle(postId:String, userId:String,isExisted:Bool){
 		let userRelation = PFObject(withoutDataWithClassName: "User", objectId: userId)
 		let postRelation = PFObject(withoutDataWithClassName: "PostDataBase", objectId: postId)
@@ -127,6 +155,7 @@ class LikeDataBase:DataBase{
 			}
 		}
 	}
+    
 	class LikeObjectContainer{
 		var postId:String = ""
 		var userId:String = ""

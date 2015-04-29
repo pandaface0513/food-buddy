@@ -108,6 +108,8 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         let post:Dictionary<String,AnyObject> = postArr[indexPath.row] as Dictionary
         
         cell.loadItem(post["user"] as! String, feedphoto: post["imagefile"] as! String, description: post["description"] as! String)
+        cell.setPostID(post["objectId"] as! String)
+        cell.setLikeNumber(post["likeCount"] as! Int)
 //        cell.textLabel?.text = personArr[indexPath.row].nameF
         
 //        var imageURL = NSURL(string: personArr[indexPath.row].img)
