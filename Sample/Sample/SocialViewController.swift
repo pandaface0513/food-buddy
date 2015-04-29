@@ -16,6 +16,7 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
     var postArr:[Dictionary<String, AnyObject>] = [Dictionary]()
     var user = User()
     var postDatabase = PostDataBase()
+    var feedArr : Array<Dictionary<String, AnyObject>> = []
     
     var refreshControl:UIRefreshControl!
     
@@ -34,7 +35,11 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "upLoadPostDone:", name: "upload Done", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "upLoadPostFail:", name: "upload Done", object: nil)
         
-        postDatabase.findAllPost()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "testFeedLoad:", name: "findFriendFeed done", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "testFeedLoadFailed:", name: "findFriendFeed failed", object: nil)
+        
+        //postDatabase.findAllPost()
+        postDatabase.findFriendFeed(user.getObjectId(), loadMore: false)
         
         //postDatabase.downloadContainedIn([:])
         
@@ -42,6 +47,30 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    func testAddFeed(notification: NSNotification){
+        println("add feed")
+        var feedArr : Array<Dictionary<String, AnyObject>> = notification.object as! Array
+        for feed in feedArr {
+            postArr.append(feed)
+        }
+    }
+    
+    func testFeedLoad(notification: NSNotification){
+        println("got it")
+        feedArr = notification.object as! Array
+        postArr = [Dictionary]()
+        for feed in feedArr {
+            println(feed)
+            postArr.append(feed)
+        }
+        //reload that shit
+        socialTable.reloadData()
+    }
+    
+    func testFeedLoadFailed(notification: NSNotification){
+        println("shit")
     }
     
     //function for upload done
@@ -57,7 +86,8 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
     
     //function to reload
     func reload(sender:AnyObject){
-        postDatabase.findAllPost()
+        //postDatabase.findAllPost()
+        postDatabase.findFriendFeed(user.getObjectId(), loadMore: false)
         println("reloading")
         self.refreshControl.endRefreshing()
     }
@@ -90,7 +120,7 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
 //            var desc = "Lorem ipsum dolor sit amet"
 //            
 //            var p = Person(nameF: nameF, nameL : nameL, age: age, image: "http://lorempixel.com/400/400/food/"+String(x), desc: desc)
-//            personArr.append(p)
+//            personArr.append(p)lo9
 //        }
 //    }
     
@@ -110,6 +140,13 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         cell.loadItem(post["user"] as! String, feedphoto: post["imagefile"] as! String, description: post["description"] as! String)
         cell.setPostID(post["objectId"] as! String)
         cell.setLikeNumber(post["likeCount"] as! Int)
+        
+        if (indexPath.row == postArr.count){
+            println("bottom")
+            postDatabase.needToLoad = true
+            postDatabase.findFriendFeed(user.getObjectId(), loadMore: true)
+        }
+        
 //        cell.textLabel?.text = personArr[indexPath.row].nameF
         
 //        var imageURL = NSURL(string: personArr[indexPath.row].img)

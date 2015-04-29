@@ -55,4 +55,50 @@ class PostDataBase:DataBase{
 			}
 		}
 	}
+    
+    var lastPositionDate = NSDate()
+    var needToLoad : Bool = false
+    
+    func findFriendFeed(userId:String, loadMore: Bool) -> Void {
+        var userQuery = PFUser.query()
+        userQuery.whereKey("objectId", equalTo: userId)
+        userQuery.getFirstObjectInBackgroundWithBlock { (object: PFObject?, error: NSError?) -> Void in
+            if (error == nil){
+                var friendList : [String] = object?.objectForKey("friends") as! [String]
+                
+                println(object)
+                println("postDataBase")
+                
+                var query = PFQuery(className: "PostDataBase")
+                query.whereKey("userid", containedIn: friendList)
+                query.orderByDescending("createdAt")
+                query.limit = 10
+                if (loadMore){
+                    query.whereKey("createdAt", lessThan: self.lastPositionDate)
+                }
+                query.findObjectsInBackgroundWithBlock({ (objects:[AnyObject]!, error:NSError!) -> Void in
+                    if (error == nil){
+                        println("testing")
+                        println(objects)
+                        self.lastPositionDate = objects[objects.count - 1].objectForKey("createdAt") as! NSDate
+                        if (loadMore && self.needToLoad){
+                            self.needToLoad = false
+                        NSNotificationCenter.defaultCenter().postNotificationName("addFriendFeed done", object: friendList)
+                        }
+                        else {
+                        NSNotificationCenter.defaultCenter().postNotificationName("findFriendFeed done", object: friendList)
+                        }
+                    }
+                    else {
+                        println("shit")
+                    }
+                })
+                
+            }
+            else {
+                NSNotificationCenter.defaultCenter().postNotificationName("findFriendFeed failed", object: nil)
+                println("get first object in bg failed")
+            }
+        }
+    }
 }
