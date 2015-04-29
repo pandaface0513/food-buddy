@@ -75,7 +75,7 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
     
     //function for upload done
     func upLoadPostDone(notifcation: NSNotification){
-        postDatabase.findAllPost()
+        postDatabase.findAllPostCloud()
         println("got notification")
     }
     

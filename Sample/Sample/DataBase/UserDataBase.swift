@@ -14,7 +14,7 @@ class UserDataBase:DataBase{
         dataBaseName = "Users"
     }
 	
-	func findUser(args:Dictionary<String,AnyObject>)->Void {
+	func findUserCloud (args:Dictionary<String,AnyObject>)->Void {
 		PFCloud.callFunctionInBackground("findUser", withParameters: args){
 			(objects:AnyObject!, error: NSError!)-> Void in
 			if (error==nil){

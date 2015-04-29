@@ -15,7 +15,7 @@ class PhotoDataBase:DataBase{
         dataBaseName="PhotoDataBase"
     }
 	
-	func findPostPhoto(args:Dictionary<String,AnyObject>)->Void {
+	func findPostPhotoCloud (args:Dictionary<String,AnyObject>)->Void {
 		PFCloud.callFunctionInBackground("findPostPhoto", withParameters: args){
 			(objects:AnyObject!, error: NSError!)-> Void in
 			if (error==nil){
