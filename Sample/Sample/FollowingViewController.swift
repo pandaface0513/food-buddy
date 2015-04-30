@@ -13,15 +13,15 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var followingTable: UITableView!
     
     let identifier = "followCell"
-    var followerArr : Array<String> = []
+    var friendArr : Array<String> = []
     var user = User()
     var userdb = UserDataBase()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotFriends:", name: "download Done", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotNoFriends:", name: "download Failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotFriends:", name: "getFriends Done", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotNoFriends:", name: "getFriends Failed", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotFriendError:", name: "getFriends Failed", object: nil)
         
         userdb.getFriends(user.getObjectId())
@@ -35,8 +35,14 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func gotFriends(notification: NSNotification){
-        var friends: Array<String> = notification.object as! Array<String>
-        println(friends)
+        println("got friends")
+        var friends: Array<Dictionary<String, AnyObject>> = notification.object as! Array<Dictionary<String, AnyObject>>
+        for friend in friends {
+            friendArr.append(friend["username"] as! String)
+        }
+        println("done sorting friends")
+        println(friendArr)
+        self.followingTable.reloadData()
     }
     
     func gotNoFriends(notification: NSNotification){
@@ -54,16 +60,24 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.followerArr.count
+        return self.friendArr.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell : FollowersTableViewCell = tableView.dequeueReusableCellWithIdentifier(self.identifier) as! FollowersTableViewCell
         
+        var friendItem = friendArr[indexPath.row]
+        println("Showing Friend: " + friendItem)
         
+        cell.loadItem("http://www.punchbrand.com/blog/wp-content/uploads/2012/04/PIN-MEGUSTA.jpg", name: friendItem)
         
         return cell
     }
+    
+    @IBAction func cancel(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
 
     /*
     // MARK: - Navigation

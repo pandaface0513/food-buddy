@@ -15,28 +15,28 @@ class UserDataBase:DataBase{
     }
     
     func getFriends(userId:String)->Void{
-        var query = PFQuery(className: "User")
+        var query = PFUser.query()
         query.whereKey("objectId", equalTo: userId)
         query.getFirstObjectInBackgroundWithBlock {
             (object:PFObject!, error:NSError!) -> Void in
             if (error==nil){
                 let friendsList = object.objectForKey("friends") as! Array<String>
-                NSNotificationCenter.defaultCenter().addObserver(self, selector: "getFriendsNotificationHelper:", name: "download Done", object: nil)
-                NSNotificationCenter.defaultCenter().addObserver(self, selector: "getFriendsNotificationHelper:", name: "download Failed", object: nil)
-                self.downloadContainedIn(["objectId":friendsList])
+                var query = PFUser.query()
+                query.whereKey("objectId", containedIn: friendsList)
+                query.findObjectsInBackgroundWithBlock({ (objects:[AnyObject]!, error:NSError!) -> Void in
+                    if (error==nil){
+                        var data:Array<Dictionary<String,AnyObject>> = Array()
+                        data = self.changePFObjectsToDictionary(objects as! [PFObject])
+                        println(data)
+                        NSNotificationCenter.defaultCenter().postNotificationName("getFriends Done", object: data)
+                    }else{
+                        NSNotificationCenter.defaultCenter().postNotificationName("getFriends Failed", object: error.description)
+                    }
+                })
+                
             }else{
                 NSNotificationCenter.defaultCenter().postNotificationName("getFriends Failed", object: error.description)
             }
-        }
-    }
-    
-    func getFriendsNotificationHelper(notification:NSNotification){
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "download Done", object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "download Failed", object: nil)
-        if (notification.name == "download Done"){
-            NSNotificationCenter.defaultCenter().postNotificationName("getFriends Done", object: notification.object)
-        }else{
-            NSNotificationCenter.defaultCenter().postNotificationName("getFriends Failed", object: notification.object)
         }
     }
     

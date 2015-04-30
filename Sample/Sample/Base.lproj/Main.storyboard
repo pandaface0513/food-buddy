@@ -903,7 +903,7 @@
                                             </state>
                                             <connections>
                                                 <action selector="followingList:" destination="J7C-Qx-2x6" eventType="touchUpInside" id="Mdt-D6-LjH"/>
-                                                <segue destination="kxs-iP-XJ1" kind="modal" id="0nE-nA-uvr"/>
+                                                <segue destination="D2t-0M-1P8" kind="push" id="hz3-dy-HWF"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8YJ-9s-22H">
@@ -981,58 +981,74 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HmX-t4-Yre" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1770" y="1238"/>
+            <point key="canvasLocation" x="1754" y="1267"/>
         </scene>
         <!--Following View Controller-->
-        <scene sceneID="llX-3Y-m1T">
+        <scene sceneID="6uG-1Z-jcc">
             <objects>
-                <viewController id="kxs-iP-XJ1" customClass="FollowingViewController" customModule="Project_Foodie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="D2t-0M-1P8" customClass="FollowingViewController" customModule="Project_Foodie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vL4-Fa-VqE"/>
-                        <viewControllerLayoutGuide type="bottom" id="hcv-v4-l7q"/>
+                        <viewControllerLayoutGuide type="top" id="Yej-29-6Uo"/>
+                        <viewControllerLayoutGuide type="bottom" id="gtZ-Oc-stP"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eFY-VB-uVU">
+                    <view key="view" contentMode="scaleToFill" id="oMj-7f-zjz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="feK-Aa-GG9">
-                                <rect key="frame" x="0.0" y="20" width="320" height="568"/>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HAH-jO-iDa">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="gzq-bq-PoS">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AwE-bD-5mA">
+                                            <connections>
+                                                <action selector="cancel:" destination="D2t-0M-1P8" id="oSE-Nv-wSK"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RcK-AD-lQW">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="followCell" rowHeight="70" id="jY3-gd-RWN" customClass="FollowersTableViewCell" customModule="Project_Foodie" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="followCell" rowHeight="90" id="dKj-Sa-KcH" customClass="FollowersTableViewCell" customModule="Project_Foodie" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jY3-gd-RWN" id="pcG-sc-0CA">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dKj-Sa-KcH" id="igc-Xn-6O6">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tRL-IX-LKT">
-                                                    <rect key="frame" x="26" y="5" width="60" height="60"/>
+                                                    <rect key="frame" x="33" y="13" width="60" height="60"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohO-zC-QRf">
-                                                    <rect key="frame" x="137" y="24" width="143" height="21"/>
+                                                    <rect key="frame" x="144" y="32" width="143" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="friendImage" destination="tRL-IX-LKT" id="EQf-Xq-CaL"/>
+                                            <outlet property="friendName" destination="ohO-zC-QRf" id="Mvs-G4-jck"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="kxs-iP-XJ1" id="4PN-gE-O8p"/>
-                                    <outlet property="delegate" destination="kxs-iP-XJ1" id="O3t-90-WEz"/>
+                                    <outlet property="dataSource" destination="D2t-0M-1P8" id="dni-eh-Rvr"/>
+                                    <outlet property="delegate" destination="D2t-0M-1P8" id="nL3-se-G7H"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="x6o-1g-0La"/>
+                    <navigationItem key="navigationItem" id="fvt-V8-fc4"/>
                     <connections>
-                        <outlet property="followingTable" destination="feK-Aa-GG9" id="PA7-Dt-JoB"/>
+                        <outlet property="followingTable" destination="RcK-AD-lQW" id="DLo-SV-2A0"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Oov-dO-PBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9fB-rj-hVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2237" y="1238"/>
+            <point key="canvasLocation" x="2218" y="1267"/>
         </scene>
         <!--Profile-->
         <scene sceneID="k1e-Rn-xTP">
