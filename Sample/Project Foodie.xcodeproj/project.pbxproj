@@ -14,6 +14,8 @@
 		097437BD1AB1606800C173BF /* SocialDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097437BC1AB1606800C173BF /* SocialDetailTableViewCell.swift */; };
 		0980E3D21AF09A05000C6D7C /* FirstTimeSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0980E3D11AF09A05000C6D7C /* FirstTimeSetupViewController.swift */; };
 		0984A2051ABE0D58007DE238 /* FeaturePostDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984A2041ABE0D58007DE238 /* FeaturePostDataBase.swift */; };
+		09B715301AF1A46E009BA2DE /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B7152F1AF1A46E009BA2DE /* FollowingViewController.swift */; };
+		09B715321AF1B35D009BA2DE /* FollowersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B715311AF1B35D009BA2DE /* FollowersTableViewCell.swift */; };
 		09CE025D1A9E4780003EC91E /* SlideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CE025C1A9E4780003EC91E /* SlideBarTableViewController.swift */; };
 		09E1F2821AD99FFA000FFCB2 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1F2811AD99FFA000FFCB2 /* ProfileTableViewController.swift */; };
 		09E1F2861AD9A748000FFCB2 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1F2851AD9A748000FFCB2 /* ProfileTableViewCell.swift */; };
@@ -109,6 +111,8 @@
 		097437BC1AB1606800C173BF /* SocialDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialDetailTableViewCell.swift; sourceTree = "<group>"; };
 		0980E3D11AF09A05000C6D7C /* FirstTimeSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeSetupViewController.swift; sourceTree = "<group>"; };
 		0984A2041ABE0D58007DE238 /* FeaturePostDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturePostDataBase.swift; sourceTree = "<group>"; };
+		09B7152F1AF1A46E009BA2DE /* FollowingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
+		09B715311AF1B35D009BA2DE /* FollowersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersTableViewCell.swift; sourceTree = "<group>"; };
 		09CE025C1A9E4780003EC91E /* SlideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideBarTableViewController.swift; sourceTree = "<group>"; };
 		09E1F2811AD99FFA000FFCB2 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		09E1F2851AD9A748000FFCB2 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -272,6 +276,8 @@
 				17BE0B551A8BD5700025AFC4 /* BumpViewController.swift */,
 				09E1F2811AD99FFA000FFCB2 /* ProfileTableViewController.swift */,
 				09E1F2851AD9A748000FFCB2 /* ProfileTableViewCell.swift */,
+				09B7152F1AF1A46E009BA2DE /* FollowingViewController.swift */,
+				09B715311AF1B35D009BA2DE /* FollowersTableViewCell.swift */,
 				17BE0B311A8BD36A0025AFC4 /* AppDelegate.swift */,
 				9477AE781A9F050400A2DCEF /* ParseHeader.m */,
 				9477AE761A9F050300A2DCEF /* Project Foodie-Bridging-Header.h */,
@@ -466,6 +472,7 @@
 				097437BD1AB1606800C173BF /* SocialDetailTableViewCell.swift in Sources */,
 				9477AE791A9F050400A2DCEF /* ParseHeader.m in Sources */,
 				BB598A571AE2F489009F5997 /* LikeDataBase.swift in Sources */,
+				09B715301AF1A46E009BA2DE /* FollowingViewController.swift in Sources */,
 				17D725161A9141CD00252120 /* NearMeDetailViewController.swift in Sources */,
 				17BE0B321A8BD36A0025AFC4 /* AppDelegate.swift in Sources */,
 				9477AE631A9F032000A2DCEF /* RestaurantDataBase.swift in Sources */,
@@ -475,6 +482,7 @@
 				09070FE31AB0185700432845 /* SignUpViewController.swift in Sources */,
 				9477AE641A9F032000A2DCEF /* User.swift in Sources */,
 				0984A2051ABE0D58007DE238 /* FeaturePostDataBase.swift in Sources */,
+				09B715321AF1B35D009BA2DE /* FollowersTableViewCell.swift in Sources */,
 				17BE0B5A1A8BE5700025AFC4 /* Person.swift in Sources */,
 				1761AD8A1A9952D10090598D /* NearMeTableViewCell.swift in Sources */,
 				9477AE651A9F032000A2DCEF /* UserDataBase.swift in Sources */,
