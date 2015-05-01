@@ -14,7 +14,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var usernameInput: UITextField!
     @IBOutlet weak var passInput: UITextField!
     @IBOutlet weak var retypePassInput: UITextField!
-    @IBOutlet weak var warning: UILabel!
     
     var warningMsg = ""
     
@@ -32,11 +31,11 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signupBtn(sender: UIButton) {
-        if (emailInput.text == ""){
+        if (emailInput.text == "" || !isValidEmail(emailInput.text)){
             warningMsg = "Email"
             alertPopup("Check your \(warningMsg)")
         }
-        else if (usernameInput.text == ""){
+        else if (usernameInput.text == "" && count(usernameInput.text) < 12){
             warningMsg = "Username"
             alertPopup("Check your \(warningMsg)")
         }
@@ -75,6 +74,14 @@ class SignUpViewController: UIViewController {
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true);
 
+    }
+    
+    func isValidEmail(testStr:String) -> Bool {
+        // println("validate calendar: \(testStr)")
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluateWithObject(testStr)
     }
 
     /*

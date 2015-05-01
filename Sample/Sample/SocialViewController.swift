@@ -147,7 +147,7 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "socialDetail" {
+        if (segue.identifier == "socialDetail") {
             let index = socialTable?.indexPathForSelectedRow()
             
             var socialDetail : SocialDetailViewController = segue.destinationViewController as! SocialDetailViewController
@@ -156,11 +156,16 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
             socialDetail.age = 1
             socialDetail.imageURL = "www.google.com"
             
-        }else if segue.identifier == "loginScreen" {
-            PFUser.logOut()
         }
+//        else if (segue.identifier == "loginScreen") {
+//            PFUser.logOut()
+//        }
     }
 
+    @IBAction func logoff(sender: AnyObject) {
+        PFUser.logOut()
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
