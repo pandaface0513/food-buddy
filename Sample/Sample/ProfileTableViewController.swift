@@ -40,6 +40,7 @@ class ProfileTableViewController: UITableViewController {
 //            println(dick["user"])
             postArr.append(dick)
         }
+        println("profile table loading post")
         println(postArr)
         //reload that shit
         self.tableView.reloadData()

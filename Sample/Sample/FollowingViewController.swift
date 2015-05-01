@@ -78,6 +78,13 @@ class FollowingViewController: UIViewController, UITableViewDataSource, UITableV
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "moreAboutPerson"){
+            var peopleView : PeopleProfileViewController = segue.destinationViewController as! PeopleProfileViewController
+            var indexpath = followingTable.indexPathForSelectedRow()
+            peopleView.username = friendArr[indexpath!.row]
+        }
+    }
 
     /*
     // MARK: - Navigation

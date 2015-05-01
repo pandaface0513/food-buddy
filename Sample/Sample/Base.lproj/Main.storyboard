@@ -981,7 +981,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HmX-t4-Yre" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1754" y="1267"/>
+            <point key="canvasLocation" x="1748" y="1238"/>
         </scene>
         <!--Following View Controller-->
         <scene sceneID="6uG-1Z-jcc">
@@ -1007,7 +1007,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RcK-AD-lQW">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RcK-AD-lQW">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1030,6 +1030,7 @@
                                         <connections>
                                             <outlet property="friendImage" destination="tRL-IX-LKT" id="EQf-Xq-CaL"/>
                                             <outlet property="friendName" destination="ohO-zC-QRf" id="Mvs-G4-jck"/>
+                                            <segue destination="jtM-jI-x2M" kind="modal" identifier="moreAboutPerson" id="3Cq-yW-5QJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1040,6 +1041,9 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="RcK-AD-lQW" secondAttribute="width" id="IeS-PR-xYa"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fvt-V8-fc4"/>
                     <connections>
@@ -1048,7 +1052,109 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fB-rj-hVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2218" y="1267"/>
+            <point key="canvasLocation" x="2223" y="1238"/>
+        </scene>
+        <!--People Profile View Controller-->
+        <scene sceneID="syU-Z1-7wP">
+            <objects>
+                <viewController id="jtM-jI-x2M" customClass="PeopleProfileViewController" customModule="Project_Foodie" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cXB-zr-oxD"/>
+                        <viewControllerLayoutGuide type="bottom" id="FVL-2g-UFQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zs5-Zv-pyY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="94l-rm-6Zh">
+                                <rect key="frame" x="0.0" y="72" width="320" height="496"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PeopleProfileInfo" rowHeight="91" id="0RF-QK-lpX" customClass="PeopleProfileTableViewCell" customModule="Project_Foodie" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0RF-QK-lpX" id="4Qg-gd-DtJ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x82-RL-x6p">
+                                                    <rect key="frame" x="47" y="5" width="80" height="80"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJO-9u-w5f">
+                                                    <rect key="frame" x="194" y="8" width="118" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="profileImage" destination="x82-RL-x6p" id="DQg-1u-LS0"/>
+                                            <outlet property="username" destination="kJO-9u-w5f" id="Efq-0j-6Qo"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PeoplePerviousPost" rowHeight="386" id="S8W-c5-EGC" customClass="PeopleProfileTableViewCell" customModule="Project_Foodie" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S8W-c5-EGC" id="I7a-fG-Suz">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hS9-EO-ihE">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="postText" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toc-rv-b3k">
+                                                    <rect key="frame" x="8" y="322" width="304" height="37"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hS9-EO-ihE" firstAttribute="top" secondItem="I7a-fG-Suz" secondAttribute="top" id="882-sS-Kbp"/>
+                                                <constraint firstItem="toc-rv-b3k" firstAttribute="top" secondItem="hS9-EO-ihE" secondAttribute="top" constant="322" id="LJ3-ZP-ltV"/>
+                                                <constraint firstItem="hS9-EO-ihE" firstAttribute="leading" secondItem="I7a-fG-Suz" secondAttribute="leading" id="Ppm-c9-UlL"/>
+                                                <constraint firstItem="toc-rv-b3k" firstAttribute="top" secondItem="hS9-EO-ihE" secondAttribute="bottom" id="TjT-j6-4JK"/>
+                                                <constraint firstAttribute="trailing" secondItem="hS9-EO-ihE" secondAttribute="trailing" id="Yuo-Yc-VDn"/>
+                                                <constraint firstItem="hS9-EO-ihE" firstAttribute="centerX" secondItem="toc-rv-b3k" secondAttribute="centerX" id="cEd-ei-QpX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="postImage" destination="hS9-EO-ihE" id="JSV-q0-S7L"/>
+                                            <outlet property="postText" destination="toc-rv-b3k" id="IEV-ry-6Ll"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="jtM-jI-x2M" id="PHq-Ee-CLF"/>
+                                    <outlet property="delegate" destination="jtM-jI-x2M" id="iSg-uH-kh6"/>
+                                </connections>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ojd-aA-2Uj">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="Xb9-m3-ark">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="X8j-XM-qok">
+                                            <connections>
+                                                <action selector="cencel:" destination="jtM-jI-x2M" id="v5j-D4-MHm"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="94l-rm-6Zh" secondAttribute="centerX" id="85u-Ba-wfe"/>
+                            <constraint firstItem="94l-rm-6Zh" firstAttribute="leading" secondItem="Zs5-Zv-pyY" secondAttribute="leadingMargin" constant="-16" id="VwH-Dz-pXs"/>
+                            <constraint firstAttribute="width" secondItem="94l-rm-6Zh" secondAttribute="width" id="eU0-f1-00l"/>
+                            <constraint firstItem="94l-rm-6Zh" firstAttribute="top" secondItem="cXB-zr-oxD" secondAttribute="bottom" constant="52" id="edi-bu-4Zh"/>
+                            <constraint firstAttribute="height" secondItem="94l-rm-6Zh" secondAttribute="height" id="kUr-hw-F00"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="PeopleProfileTable" destination="94l-rm-6Zh" id="ydW-2G-00q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o3W-vF-X18" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2741" y="1238"/>
         </scene>
         <!--Profile-->
         <scene sceneID="k1e-Rn-xTP">
