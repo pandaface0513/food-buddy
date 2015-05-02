@@ -15,7 +15,7 @@ class UserDataBase:DataBase{
     }
 	
 	func getFriends(userId:String)->Void{
-		var query = PFQuery(className: "User")
+		var query = PFUser.query()
 		query.whereKey("objectId", equalTo: userId)
 		query.getFirstObjectInBackgroundWithBlock {
 			(object:PFObject!, error:NSError!) -> Void in
@@ -23,7 +23,19 @@ class UserDataBase:DataBase{
 				let friendsList = object.objectForKey("friends") as! Array<String>
 				NSNotificationCenter.defaultCenter().addObserver(self, selector: "getFriendsNotificationHelper:", name: "download Done", object: nil)
 				NSNotificationCenter.defaultCenter().addObserver(self, selector: "getFriendsNotificationHelper:", name: "download Failed", object: nil)
-				self.downloadContainedIn(["objectId":friendsList])
+				
+                var innerquery = PFUser.query()
+                innerquery.whereKey("objectId", containedIn: friendsList)
+                innerquery.findObjectsInBackgroundWithBlock({
+                    (objects:[AnyObject]!, error:NSError!) -> Void in
+                    if (error==nil){
+                        var data:Array<Dictionary<String,AnyObject>>
+                        data = changePFObjectsToDictionary(objects as! [PFObject])
+                        NSNotificationCenter.defaultCenter().postNotificationName("getFriends Done", object: data)
+                    }else{
+                        NSNotificationCenter.defaultCenter().postNotificationName("getFriends Failed", object: error.description)
+                    }
+                })
 			}else{
 				NSNotificationCenter.defaultCenter().postNotificationName("getFriends Failed", object: error.description)
 			}

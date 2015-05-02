@@ -12,6 +12,7 @@ class TableResultTableViewCell: UITableViewCell {
 
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var restaurantScore: UILabel!
+    @IBOutlet weak var restaurantDist: UILabel!
     
     
     
@@ -26,8 +27,10 @@ class TableResultTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func loadItem(name: String, score: Int){
-        
+    func loadItem(name: String, score: Double, dist: Double){
+        restaurantName.text = name
+        restaurantScore.text = String(format:"%.1f", score)
+        restaurantDist.text = String(format:"%.1f", dist) + " km"
     }
 
 }

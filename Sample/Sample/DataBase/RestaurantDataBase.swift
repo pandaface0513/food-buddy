@@ -14,7 +14,20 @@ class RestaurantDataBase:DataBase{
         dataBaseName="RestaurantDataBase"
     }
 	
-	func findBestSuitedRestaurantsCloud(geoLocation:PFGeoPoint,userIds:[String],rangeKiloRadius:Double){
+    func findBestSuitedRestaurantsCloud(userIds:[String],rangeKiloRadius:Double){
+        PFGeoPoint.geoPointForCurrentLocationInBackground{
+            (geoPoint:PFGeoPoint!, error:NSError!)->Void in
+            if error == nil{
+                self.findBestSuitedRestaurantsCloudHelper(geoPoint, userIds: userIds, rangeKiloRadius: rangeKiloRadius)
+            }
+            else{
+                let errorString = error.userInfo?["error"] as! NSString
+                NSNotificationCenter.defaultCenter().postNotificationName("findBestSuitedRestaurantsCloud Failed", object: errorString)
+            }
+        }
+    }
+    
+	func findBestSuitedRestaurantsCloudHelper(geoLocation:PFGeoPoint,userIds:[String],rangeKiloRadius:Double){
 		PFCloud.callFunctionInBackground("findBestSuitedRestaurants", withParameters: ["geoLocation":geoLocation,"userIds":userIds,"rangeKiloRadius":rangeKiloRadius]){
 			(objects:AnyObject!, error: NSError!)-> Void in
 			if (error==nil){
@@ -41,7 +54,8 @@ class RestaurantDataBase:DataBase{
 				var dictionary:Dictionary<String,AnyObject> = changePFObjectToDictionaru(object)
 				NSNotificationCenter.defaultCenter().postNotificationName("findRestaurantWithId Done", object: dictionary)
 			}else{
-				NSNotificationCenter.defaultCenter().postNotificationName("findRestaurantWithId Failed", object: error.description)
+                let errorString = error.userInfo?["error"] as! NSString
+				NSNotificationCenter.defaultCenter().postNotificationName("findRestaurantWithId Failed", object: errorString)
 			}
 		}
 	}

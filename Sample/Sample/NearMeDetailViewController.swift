@@ -9,10 +9,11 @@
 import UIKit
 
 class NearMeDetailViewController: UIViewController {
-
+    
     @IBOutlet weak var picture: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var distLabel: UILabel!
+    
     
     var imageURL : String?
     var name : String?
@@ -20,11 +21,18 @@ class NearMeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.nameLabel.text = ""
+        self.distLabel.text = "0"
+        // Do any additional setup after loading the view.
+    }
+    
+    func loadItem(imageurl: String, restName: String, dist: Double){
+        println(restName)
+        //self.nameLabel.text = restName
+        //self.distLabel.text = String(format:"%.1f", dist)
+        self.imageURL = imageurl
+        
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        
-        nameLabel.text = name
-        distLabel.text = String(dist!)
-        
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
             var nURL = NSURL(string: self.imageURL!)
             var imageData = NSData(contentsOfURL: nURL!)
@@ -32,8 +40,6 @@ class NearMeDetailViewController: UIViewController {
                 self.picture.image = UIImage(data: imageData!)
             }
         }
-        
-        // Do any additional setup after loading the view.
     }
 
 
