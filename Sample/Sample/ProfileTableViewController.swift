@@ -22,13 +22,18 @@ class ProfileTableViewController: UITableViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadMyPost:", name: "download Done", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadMyPostError:", name: "download Failed", object: nil)
         
-        postDatabase.downloadEqualTo(["user": user.getUsername()])
+        //postDatabase.downloadEqualTo(["user": user.getUsername()])
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        //println("Hello " + PFUser.currentUser().username + " again")
+        postDatabase.downloadEqualTo(["user": user.getUsername()])
     }
     
     func loadMyPost(notification:NSNotification){
@@ -40,6 +45,7 @@ class ProfileTableViewController: UITableViewController {
 //            println(dick["user"])
             postArr.append(dick)
         }
+        println("profile table loading post")
         println(postArr)
         //reload that shit
         self.tableView.reloadData()

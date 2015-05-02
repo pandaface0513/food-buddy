@@ -31,12 +31,12 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         var screenSize: CGRect = UIScreen.mainScreen().bounds
         println(PFUser.currentUser().username)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "testLoad:", name: "findAllPost Done", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "upLoadPostDone:", name: "upload Done", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "upLoadPostFail:", name: "upload Done", object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "testFeedLoad:", name: "findFriendFeed done", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "testFeedLoadFailed:", name: "findFriendFeed failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "FeedLoad:", name: "findFriendFeed done", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "FeedLoadFailed:", name: "findFriendFeed failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "AddFeed:", name: "addFriendFeed done", object: nil)
         
         //postDatabase.findAllPost()
         postDatabase.findFriendFeed(user.getObjectId(), loadMore: false)
@@ -49,15 +49,17 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         // Do any additional setup after loading the view.
     }
     
-    func testAddFeed(notification: NSNotification){
+    func AddFeed(notification: NSNotification){
         println("add feed")
         var feedArr : Array<Dictionary<String, AnyObject>> = notification.object as! Array
         for feed in feedArr {
             postArr.append(feed)
         }
+        println(String(postArr.count))
+        socialTable.reloadData()
     }
     
-    func testFeedLoad(notification: NSNotification){
+    func FeedLoad(notification: NSNotification){
         println("got it")
         feedArr = notification.object as! Array
         postArr = [Dictionary]()
@@ -69,7 +71,7 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         socialTable.reloadData()
     }
     
-    func testFeedLoadFailed(notification: NSNotification){
+    func FeedLoadFailed(notification: NSNotification){
         println("shit")
     }
     
@@ -90,19 +92,6 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         postDatabase.findFriendFeed(user.getObjectId(), loadMore: false)
         println("reloading")
         self.refreshControl.endRefreshing()
-    }
-    
-    
-    func testLoad(notification : NSNotification){
-        var arr : Array<Dictionary<String, AnyObject>> = notification.object as! Array
-        postArr = [Dictionary]()
-        for dick in arr {
-            println(dick)
-            println(dick["user"])
-            postArr.append(dick)
-        }
-        //reload that shit
-        socialTable.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -141,7 +130,9 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         cell.setPostID(post["objectId"] as! String)
         cell.setLikeNumber(post["likeCount"] as! Int)
         
-        if (indexPath.row == postArr.count){
+        println(String(indexPath.row))
+
+        if (indexPath.row == postArr.count - 1){
             println("bottom")
             postDatabase.needToLoad = true
             postDatabase.findFriendFeed(user.getObjectId(), loadMore: true)
@@ -156,7 +147,7 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "socialDetail" {
+        if (segue.identifier == "socialDetail") {
             let index = socialTable?.indexPathForSelectedRow()
             
             var socialDetail : SocialDetailViewController = segue.destinationViewController as! SocialDetailViewController
@@ -165,11 +156,16 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
             socialDetail.age = 1
             socialDetail.imageURL = "www.google.com"
             
-        }else if segue.identifier == "loginScreen" {
-            PFUser.logOut()
         }
+//        else if (segue.identifier == "loginScreen") {
+//            PFUser.logOut()
+//        }
     }
 
+    @IBAction func logoff(sender: AnyObject) {
+        PFUser.logOut()
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
