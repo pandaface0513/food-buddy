@@ -19,6 +19,10 @@
 		09B715301AF1A46E009BA2DE /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B7152F1AF1A46E009BA2DE /* FollowingViewController.swift */; };
 		09B715321AF1B35D009BA2DE /* FollowersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B715311AF1B35D009BA2DE /* FollowersTableViewCell.swift */; };
 		09CE025D1A9E4780003EC91E /* SlideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CE025C1A9E4780003EC91E /* SlideBarTableViewController.swift */; };
+		09D4AB321AF4390D000A1362 /* TableFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4AB311AF4390D000A1362 /* TableFriendsTableViewCell.swift */; };
+		09D4AB341AF44BE4000A1362 /* TableBumpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4AB331AF44BE4000A1362 /* TableBumpViewController.swift */; };
+		09D4AB361AF45087000A1362 /* TableResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4AB351AF45087000A1362 /* TableResultViewController.swift */; };
+		09D4AB381AF450AE000A1362 /* TableResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4AB371AF450AE000A1362 /* TableResultTableViewCell.swift */; };
 		09E1F2821AD99FFA000FFCB2 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1F2811AD99FFA000FFCB2 /* ProfileTableViewController.swift */; };
 		09E1F2861AD9A748000FFCB2 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1F2851AD9A748000FFCB2 /* ProfileTableViewCell.swift */; };
 		09E8DB8B1AB4BFA4000CCE8C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E8DB8A1AB4BFA4000CCE8C /* Comment.swift */; };
@@ -31,7 +35,6 @@
 		17BE0B391A8BD36A0025AFC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17BE0B371A8BD36A0025AFC4 /* Main.storyboard */; };
 		17BE0B3B1A8BD36A0025AFC4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17BE0B3A1A8BD36A0025AFC4 /* Images.xcassets */; };
 		17BE0B3E1A8BD36A0025AFC4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BE0B3C1A8BD36A0025AFC4 /* LaunchScreen.xib */; };
-		17BE0B561A8BD5700025AFC4 /* BumpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BE0B551A8BD5700025AFC4 /* BumpViewController.swift */; };
 		17BE0B5A1A8BE5700025AFC4 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BE0B591A8BE5700025AFC4 /* Person.swift */; };
 		17D725141A91403C00252120 /* NearMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D725131A91403C00252120 /* NearMe.swift */; };
 		17D725161A9141CD00252120 /* NearMeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D725151A9141CD00252120 /* NearMeDetailViewController.swift */; };
@@ -118,6 +121,10 @@
 		09B7152F1AF1A46E009BA2DE /* FollowingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
 		09B715311AF1B35D009BA2DE /* FollowersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersTableViewCell.swift; sourceTree = "<group>"; };
 		09CE025C1A9E4780003EC91E /* SlideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideBarTableViewController.swift; sourceTree = "<group>"; };
+		09D4AB311AF4390D000A1362 /* TableFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableFriendsTableViewCell.swift; sourceTree = "<group>"; };
+		09D4AB331AF44BE4000A1362 /* TableBumpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableBumpViewController.swift; sourceTree = "<group>"; };
+		09D4AB351AF45087000A1362 /* TableResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableResultViewController.swift; sourceTree = "<group>"; };
+		09D4AB371AF450AE000A1362 /* TableResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableResultTableViewCell.swift; sourceTree = "<group>"; };
 		09E1F2811AD99FFA000FFCB2 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		09E1F2851AD9A748000FFCB2 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		09E8DB8A1AB4BFA4000CCE8C /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -133,7 +140,6 @@
 		17BE0B3A1A8BD36A0025AFC4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		17BE0B3D1A8BD36A0025AFC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		17BE0B431A8BD36A0025AFC4 /* Project FoodieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Project FoodieTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		17BE0B551A8BD5700025AFC4 /* BumpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BumpViewController.swift; sourceTree = "<group>"; };
 		17BE0B591A8BE5700025AFC4 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		17D725131A91403C00252120 /* NearMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMe.swift; sourceTree = "<group>"; };
 		17D725151A9141CD00252120 /* NearMeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMeDetailViewController.swift; sourceTree = "<group>"; };
@@ -277,9 +283,12 @@
 				BA2B71521ABE3B540058862E /* AddFreeViewController.swift */,
 				17D725151A9141CD00252120 /* NearMeDetailViewController.swift */,
 				1761AD891A9952D10090598D /* NearMeTableViewCell.swift */,
-				17BE0B551A8BD5700025AFC4 /* BumpViewController.swift */,
+				09D4AB331AF44BE4000A1362 /* TableBumpViewController.swift */,
+				09D4AB311AF4390D000A1362 /* TableFriendsTableViewCell.swift */,
 				09E1F2811AD99FFA000FFCB2 /* ProfileTableViewController.swift */,
 				09E1F2851AD9A748000FFCB2 /* ProfileTableViewCell.swift */,
+				09D4AB351AF45087000A1362 /* TableResultViewController.swift */,
+				09D4AB371AF450AE000A1362 /* TableResultTableViewCell.swift */,
 				09B7152F1AF1A46E009BA2DE /* FollowingViewController.swift */,
 				09B715311AF1B35D009BA2DE /* FollowersTableViewCell.swift */,
 				09980BA31AF2AF44007A1C41 /* PeopleProfileViewController.swift */,
@@ -464,6 +473,7 @@
 			files = (
 				09980BA61AF2B73D007A1C41 /* PeopleProfileTableViewCell.swift in Sources */,
 				0980E3D21AF09A05000C6D7C /* FirstTimeSetupViewController.swift in Sources */,
+				09D4AB321AF4390D000A1362 /* TableFriendsTableViewCell.swift in Sources */,
 				17562DAB1A8C208A00327F26 /* SocialDetailViewController.swift in Sources */,
 				09E8DB8B1AB4BFA4000CCE8C /* Comment.swift in Sources */,
 				17562DA91A8C120700327F26 /* LoginViewController.swift in Sources */,
@@ -471,14 +481,16 @@
 				BB598A561AE2F489009F5997 /* CommentDataBase.swift in Sources */,
 				9477AE5F1A9F032000A2DCEF /* DataBase.swift in Sources */,
 				1761AD881A9924D40090598D /* SocialTableViewCell.swift in Sources */,
+				09D4AB341AF44BE4000A1362 /* TableBumpViewController.swift in Sources */,
 				17BE0B361A8BD36A0025AFC4 /* NearMeViewController.swift in Sources */,
 				BA2B71531ABE3B540058862E /* AddFreeViewController.swift in Sources */,
-				17BE0B561A8BD5700025AFC4 /* BumpViewController.swift in Sources */,
 				09E1F2821AD99FFA000FFCB2 /* ProfileTableViewController.swift in Sources */,
 				9477AE611A9F032000A2DCEF /* PostDataBase.swift in Sources */,
+				09D4AB361AF45087000A1362 /* TableResultViewController.swift in Sources */,
 				097437BD1AB1606800C173BF /* SocialDetailTableViewCell.swift in Sources */,
 				9477AE791A9F050400A2DCEF /* ParseHeader.m in Sources */,
 				BB598A571AE2F489009F5997 /* LikeDataBase.swift in Sources */,
+				09D4AB381AF450AE000A1362 /* TableResultTableViewCell.swift in Sources */,
 				09B715301AF1A46E009BA2DE /* FollowingViewController.swift in Sources */,
 				17D725161A9141CD00252120 /* NearMeDetailViewController.swift in Sources */,
 				17BE0B321A8BD36A0025AFC4 /* AppDelegate.swift in Sources */,

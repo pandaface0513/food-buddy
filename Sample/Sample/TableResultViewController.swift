@@ -1,14 +1,16 @@
 //
-//  charlieViewController.swift
-//  Sample
+//  TableResultViewController.swift
+//  Project Foodie
 //
-//  Created by Victor on 2015-02-11.
+//  Created by Stardustxx on 2015-05-01.
 //  Copyright (c) 2015 Victor. All rights reserved.
 //
 
 import UIKit
 
-class BumpViewController: UIViewController {
+class TableResultViewController: UIViewController {
+    
+    var selectedFriends : Array<String> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
