@@ -10,6 +10,11 @@ import UIKit
 
 class TableResultTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var restaurantName: UILabel!
+    @IBOutlet weak var restaurantScore: UILabel!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +24,10 @@ class TableResultTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func loadItem(name: String, score: Int){
+        
     }
 
 }

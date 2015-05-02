@@ -8,13 +8,16 @@
 
 import UIKit
 
-class TableResultViewController: UIViewController {
+class TableResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var TableResult: UITableView!
     
     var selectedFriends : Array<String> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        println("data received")
+        println(selectedFriends)
         // Do any additional setup after loading the view.
     }
 
@@ -23,6 +26,22 @@ class TableResultViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.selectedFriends.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var identifier = "TableResultCellInfo"
+        var cell : TableResultTableViewCell = tableView.dequeueReusableCellWithIdentifier(identifier) as! TableResultTableViewCell
+        
+        
+        
+        return cell
+    }
 
     /*
     // MARK: - Navigation

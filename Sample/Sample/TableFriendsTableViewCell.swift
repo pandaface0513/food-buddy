@@ -51,4 +51,8 @@ class TableFriendsTableViewCell: UITableViewCell {
         }
         return onOrOff
     }
+    
+    func getUserName() -> String{
+        return username.text!
+    }
 }

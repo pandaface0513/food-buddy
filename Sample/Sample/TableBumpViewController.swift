@@ -70,23 +70,39 @@ class TableBumpViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-    @IBAction func sup(sender: AnyObject) {
-
-        println("Table result")
-        println(testarr)
-    }
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if (segue.identifier == "TableResult"){
-//            var tableResultView : TableResultViewController = segue.destinationViewController as! TableResultViewController
-//            var selectedFriends : Array<String> = []
-//            for i in (friendArr.count) {
-//                if (cell.getSwitchState()){
-//                    println("cell switch state true")
-//                }
+//    @IBAction func sup(sender: AnyObject) { //the NEXT button
+//        println("Table result")
+//        
+//        testarr = []
+//        
+//        for cell in self.friendsView.visibleCells() as! [TableFriendsTableViewCell]{
+//            let checked = cell.getSwitchState()
+//            if(checked){
+//                testarr.append(cell.getUserName())
 //            }
 //        }
+//        println(testarr)
 //    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "TableResult"){
+            var tableResultView : TableResultViewController = segue.destinationViewController as! TableResultViewController
+            var selectedFriendsArr : Array<String> = []
+    
+            for cell in self.friendsView.visibleCells() as! [TableFriendsTableViewCell]{
+                let checked = cell.getSwitchState()
+                if(checked){
+                    selectedFriendsArr.append(cell.getUserName())
+                }
+            }
+            
+            println("selectedFriends")
+            println(selectedFriendsArr)
+            
+            //pass to tableResultView
+            tableResultView.selectedFriends = selectedFriendsArr
+        }
+    }
     
     /*
     // MARK: - Navigation
