@@ -15,7 +15,7 @@ class TableBumpViewController: UIViewController, UITableViewDelegate, UITableVie
     var user = User()
     var userdb = UserDataBase()
     
-    var friendArr : Array<String> = []
+    var friendArr : Array<Dictionary<String, AnyObject>> = []
     var testarr : Array<String> = []
     
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ class TableBumpViewController: UIViewController, UITableViewDelegate, UITableVie
         println("Table got friends")
         var friends : Array<Dictionary<String, AnyObject>> = notification.object as! Array<Dictionary<String, AnyObject>>
         for friend in friends {
-            friendArr.append(friend["username"] as! String)
+            friendArr.append(friend)
         }
         self.friendsView.reloadData()
     }
@@ -65,7 +65,7 @@ class TableBumpViewController: UIViewController, UITableViewDelegate, UITableVie
         let identifier = "TableFriends"
         
         var cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! TableFriendsTableViewCell
-        cell.loadItem("http://www.punchbrand.com/blog/wp-content/uploads/2012/04/PIN-MEGUSTA.jpg",friend: friendArr[indexPath.row])
+        cell.loadItem("http://www.punchbrand.com/blog/wp-content/uploads/2012/04/PIN-MEGUSTA.jpg",friend: friendArr[indexPath.row]["username"] as! String, userID: friendArr[indexPath.row]["objectId"] as! String)
         
         return cell
     }
@@ -95,6 +95,8 @@ class TableBumpViewController: UIViewController, UITableViewDelegate, UITableVie
                     selectedFriendsArr.append(cell.getUserName())
                 }
             }
+            
+            selectedFriendsArr.append(PFUser.currentUser().objectId)
             
             println("selectedFriends")
             println(selectedFriendsArr)

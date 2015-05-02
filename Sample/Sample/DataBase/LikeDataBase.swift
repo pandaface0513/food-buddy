@@ -92,11 +92,15 @@ class LikeDataBase:DataBase{
 		
 		if (isExisted){
 			var query = PFQuery(className: dataBaseName)
-			query.whereKey("user", equalTo: userRelation)
-			query.whereKey("post", equalTo: postRelation)
+			query.whereKey("userId", equalTo: userRelation)
+			query.whereKey("postId", equalTo: postRelation)
 			
 			query.findObjectsInBackgroundWithBlock{
 				(objects:[AnyObject]!, error:NSError!) -> Void in
+				
+				postRelation.incrementKey("likeCount",byAmount: -1);
+				postRelation.save()
+				
 				for object in objects as! [PFObject]{
 					var errorPointer = NSErrorPointer()
 					object.delete(errorPointer)
@@ -112,8 +116,8 @@ class LikeDataBase:DataBase{
 			}
 		}else{
 			var dataRow = PFObject(className: dataBaseName)
-			dataRow["user"] = userRelation
-			dataRow["post"] = postRelation
+			dataRow["userId"] = userRelation
+			dataRow["postId"] = postRelation
 			
 			dataRow.saveInBackgroundWithBlock{
 				(success:Bool, error:NSError!) -> Void in
@@ -135,7 +139,7 @@ class LikeDataBase:DataBase{
 		let postRelation = PFObject(withoutDataWithClassName: "postDataBase", objectId: postId)
 		
 		var query = PFQuery(className: "likeDataBase")
-		query.whereKey("post", equalTo: postRelation)
+		query.whereKey("postId", equalTo: postRelation)
 		query.countObjectsInBackgroundWithBlock {
 			(count:Int32, error:NSError!) -> Void in
 			if error == nil {
@@ -155,7 +159,7 @@ class LikeDataBase:DataBase{
 			}
 		}
 	}
-    
+
 	class LikeObjectContainer{
 		var postId:String = ""
 		var userId:String = ""

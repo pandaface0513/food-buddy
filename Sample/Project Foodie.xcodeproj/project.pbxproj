@@ -96,6 +96,9 @@
 		BB598A671AE2F49E009F5997 /* TestingDownloadTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A5F1AE2F49E009F5997 /* TestingDownloadTest.swift */; };
 		BB598A681AE2F49E009F5997 /* TestingUploadTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598A601AE2F49E009F5997 /* TestingUploadTest.swift */; };
 		BB8E475F1AF041B20076151C /* CloudCodeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E475E1AF041B20076151C /* CloudCodeTest.swift */; };
+		BBE042721AF5561D00D32AC4 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE042711AF5561D00D32AC4 /* Util.swift */; };
+		BBE042731AF5561D00D32AC4 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE042711AF5561D00D32AC4 /* Util.swift */; };
+		BBE319AD1AF4376E0054122E /* TestingBestSuitedRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE319AC1AF4376E0054122E /* TestingBestSuitedRestaurant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +184,8 @@
 		BB598A5F1AE2F49E009F5997 /* TestingDownloadTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingDownloadTest.swift; sourceTree = "<group>"; };
 		BB598A601AE2F49E009F5997 /* TestingUploadTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingUploadTest.swift; sourceTree = "<group>"; };
 		BB8E475E1AF041B20076151C /* CloudCodeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudCodeTest.swift; sourceTree = "<group>"; };
+		BBE042711AF5561D00D32AC4 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		BBE319AC1AF4376E0054122E /* TestingBestSuitedRestaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingBestSuitedRestaurant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +329,7 @@
 				9477AE5C1A9F032000A2DCEF /* RestaurantDataBase.swift */,
 				9477AE5D1A9F032000A2DCEF /* User.swift */,
 				9477AE5E1A9F032000A2DCEF /* UserDataBase.swift */,
+				BBE042711AF5561D00D32AC4 /* Util.swift */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -363,6 +369,7 @@
 				BB598A5F1AE2F49E009F5997 /* TestingDownloadTest.swift */,
 				BB598A601AE2F49E009F5997 /* TestingUploadTest.swift */,
 				BB8E475E1AF041B20076151C /* CloudCodeTest.swift */,
+				BBE319AC1AF4376E0054122E /* TestingBestSuitedRestaurant.swift */,
 			);
 			path = SampleTests;
 			sourceTree = "<group>";
@@ -476,6 +483,7 @@
 				09D4AB321AF4390D000A1362 /* TableFriendsTableViewCell.swift in Sources */,
 				17562DAB1A8C208A00327F26 /* SocialDetailViewController.swift in Sources */,
 				09E8DB8B1AB4BFA4000CCE8C /* Comment.swift in Sources */,
+				BBE042721AF5561D00D32AC4 /* Util.swift in Sources */,
 				17562DA91A8C120700327F26 /* LoginViewController.swift in Sources */,
 				09E1F2861AD9A748000FFCB2 /* ProfileTableViewCell.swift in Sources */,
 				BB598A561AE2F489009F5997 /* CommentDataBase.swift in Sources */,
@@ -517,6 +525,7 @@
 				BB598A661AE2F49E009F5997 /* TestingDataBase.swift in Sources */,
 				BB598A621AE2F49E009F5997 /* LogInTest.swift in Sources */,
 				BB598A671AE2F49E009F5997 /* TestingDownloadTest.swift in Sources */,
+				BBE042731AF5561D00D32AC4 /* Util.swift in Sources */,
 				9477AE701A9F037900A2DCEF /* PostDataBase.swift in Sources */,
 				BB598A631AE2F49E009F5997 /* RelationalTestingDataBase.swift in Sources */,
 				9477AE741A9F037900A2DCEF /* UserDataBase.swift in Sources */,
@@ -527,6 +536,7 @@
 				BB598A681AE2F49E009F5997 /* TestingUploadTest.swift in Sources */,
 				BB598A641AE2F49E009F5997 /* SampleTests.swift in Sources */,
 				9477AE731A9F037900A2DCEF /* User.swift in Sources */,
+				BBE319AD1AF4376E0054122E /* TestingBestSuitedRestaurant.swift in Sources */,
 				BB8E475F1AF041B20076151C /* CloudCodeTest.swift in Sources */,
 				9477AE7A1A9F050400A2DCEF /* ParseHeader.m in Sources */,
 			);
@@ -596,7 +606,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -632,7 +642,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

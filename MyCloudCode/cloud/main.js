@@ -89,6 +89,7 @@ Parse.Cloud.define("findAllPost123", function(request, response) {
   //   }
   // });
 });
+ 
 //need to be tested
 Parse.Cloud.define("findTime123", function(request, response) {
   var query = new Parse.Query("TestingDataBase");
@@ -112,7 +113,7 @@ Parse.Cloud.define("findTime123", function(request, response) {
   });
  
 });
- 
+//need test
 Parse.Cloud.define("findPost", function(request, response) {
   var query = new Parse.Query("PostDataBase");
   //query.equalTo("name", request.params.username);
@@ -150,8 +151,9 @@ Parse.Cloud.define("findPost", function(request, response) {
   });
 });
  
+//working
 Parse.Cloud.define("findUser", function(request, response) {
-  var query = new Parse.Query("UserDataBase");
+  var query = new Parse.Query("User");
   query.equalTo("username", request.params.username);
   //query.descending("updatedAt");
   //query.limit(10);
@@ -169,6 +171,7 @@ Parse.Cloud.define("findUser", function(request, response) {
   });
 });
  
+//should work...verify database name before using
 Parse.Cloud.define("findPostPhoto", function(request, response) {
   var query = new Parse.Query("PhotoDataBase");
   query.equalTo("PostId", request.params.PostId);
@@ -187,6 +190,8 @@ Parse.Cloud.define("findPostPhoto", function(request, response) {
     }
   });
 });
+ 
+//need test
 Parse.Cloud.define("findFeaturePost", function(request, response) {
   var query = new Parse.Query("RestaurantDataBase");
   query.equalTo("name", request.params.username);
@@ -206,46 +211,50 @@ Parse.Cloud.define("findFeaturePost", function(request, response) {
   });
 });
  
-Parse.Cloud.define("findFriendsPost", function(request, response) {
+//working
+Parse.Cloud.define("findFriends", function(request, response) {
   var query = new Parse.Query("User");
-  // query.get(request.params.username).then(function(result){
-  //    var findResult = result.get("friends");
-  //    Parse.Cloud.run("getFriendPost",{ friend:findResult[0]},{
-  //     success :function(output){
-  //       response.success(output);
-  //     },
-  //     error: function(error){
-  //       response.error("empty");
-  //     }
-  //    });
-  // });
-   
+  query.get(request.params.username).then(function(result){
  
-    query.get(request.params.username).then(function(result){
+    //test with string
+ 
+     // var findResult = result.get("friendsList");
+     // var find = findResult.split(",");
+     // Parse.Cloud.run("getFriendPost",{ friend:find},{
+     //  success :function(output){
+     //    response.success(output);
+     //  },
+     //  error: function(error){
+     //    response.error("hi");
+     //  }
+     // });
+     //response.success(find);
+ 
+     //test with array
+ 
      var findResult = result.get("friends");
-     var find = findResult.split(",");
-     Parse.Cloud.run("getFriendPost",{ friend:find},{
+      
+     Parse.Cloud.run("getFriendPost",{ friend:findResult},{
       success :function(output){
         response.success(output);
       },
       error: function(error){
-        response.error("empty");
+        response.error("hi");
       }
      });
-    //response.success(find[0]);
-    });
-   
-     
-  //response.success(friendList);
-   
+ 
+     //response.success(findResult);
+ 
+  });
    
 });
  
+//not yet constructed
 Parse.Cloud.define("findPreference", function(request, response) {
-  var query = new Parse.Query("PreferenceDataBase");
+  var query = new Parse.Query("RestaurantDataBase");
   query.equalTo("name", request.params.username);
-  query.descending("updatedAt");
-  query.limit(10);
+  //query.descending("updatedAt");
+  //query.limit(10);
   query.find({
     success: function(results) {
      var findResult = [];
@@ -260,6 +269,56 @@ Parse.Cloud.define("findPreference", function(request, response) {
   });
 });
  
+//need test
+Parse.Cloud.define("getLocation", function(request, response) {
+  var query = new Parse.Query("RestaurantDataBase");
+   
+    //response.success(result.get("geoLocation"))
+ 
+  query.equalTo("name", request.params.username);
+  // // // query.descending("updatedAt");
+  // // // query.limit(10);
+  // query.find({
+  //   success: function(results) {
+  //     var location = results[0].get("geoLocation");
+  //     response.success(location);
+  //   },
+  //   error: function() {
+  //     response.error("username lookup failed");
+  //   }
+  // });
+ 
+  query.find().then(function(result){
+    var location = result[0].get("geoLocation");
+    Parse.Cloud.run("findNearestLocation",{ restaurantLoc:location},{
+      success :function(output){
+        response.success(output);
+      },
+      error: function(error){
+        response.error("hi");
+      }
+    });
+    //response.success(location);
+  });
+   
+});
+//need test
+Parse.Cloud.define("findNearestLocation", function(request,response) {
+  var query = new Parse.query(RestaurantDataBase);
+  // query.near("geoLocation", request.params.restaurantLoc)
+  // query.limit(10);
+  // query.find({
+  //   success :function(output){
+  //       response.success(output);
+  //     },
+  //     error: function(error){
+  //       response.error("hi");
+  //     }
+  // });
+    response.success(request.params.restaurantLoc);
+});
+ 
+//need test
 Parse.Cloud.define("addFollowing", function(request, response) {
   var query = new Parse.Query("FriendDataBase");
   query.equalTo("name", request.params.username);
@@ -279,6 +338,7 @@ Parse.Cloud.define("addFollowing", function(request, response) {
   });
 });
  
+//working..need to change database name
 Parse.Cloud.define("findPostComments", function(request, response) {
   var query = new Parse.Query("CommentsDataBase");
   query.equalTo("PostId", request.params.PostId);
@@ -297,17 +357,11 @@ Parse.Cloud.define("findPostComments", function(request, response) {
     }
   });
 });
- 
+//working
 Parse.Cloud.define("getFriendPost", function(request,response) {
   var query = new Parse.Query("User");
-  // var result = [];
-  // for(var i = 0; i < 2; ++i){
-     
-  //   result.push(query.include(request.params.friend));
-  // }
-   
- 
-  query.containsAll("objectId", request.params.friend);
+  
+  query.containedIn("objectId", request.params.friend);
    query.find({
     success: function(results) {
       response.success(results);
@@ -317,12 +371,111 @@ Parse.Cloud.define("getFriendPost", function(request,response) {
     }
   });
    
-  //response.success(request.params.friend[0]);
+  //response.success(request.params.friend);
 });
-
+ 
   
 Parse.Cloud.define("sample", function(request, response) {
   var arr = ["a", "b", "C"];
   response.success(arr[0]);
   
 });
+
+
+
+
+//****************************************************************************************************
+
+
+Parse.Cloud.define("findBestSuitedRestaurants",function(request,response){
+  //get all prefreference for every user here
+  var a = ""
+  var preferenceCount = {}
+  var restaurantList = []
+  var rangeKiloRadius = 40;
+  var preferencequery = new Parse.Query(Parse.User);
+  preferencequery.containedIn("objectId", request.params.userIds)
+  preferencequery.find().then(
+    function(results){
+      var preferenceCount = {};
+      for (var i = 0; i < results.length; i++){
+        //for (var j = 0; j<results[i]["preference"].length;j++)
+        for (preference in results[i]["preference"]){
+          if (preferenceCount[preference]==null)
+            preferenceCount[preference] = 1;
+          else
+            preferenceCount[preference] += 1;
+        }
+      }
+      a = a + "preferenceCount complete   "
+      return preferenceCount;
+    },function(error){
+      response.error("error finding preferenceCount")
+    }
+  ).then(function(results){
+
+  //get all restaurants thats near
+    var restaurantquery = new Parse.Query("RestaurantDataBase");
+    var geoLocation = request.params.geoLocation;
+    rangeKiloRadius = request.params.rangeKiloRadius;
+    if (rangeKiloRadius==null)
+      rangeKiloRadius=40;
+    restaurantquery.withinKilometers("geoLocation",geoLocation,rangeKiloRadius)
+    return restaurantquery.find().then(
+      function(results){
+        a = a + "restaurantList complete     "
+        restaurantList = results;
+        return results;
+      },function(error){
+        response.error("error finding restaurantList");
+      }
+    )
+  }).then(function(results){
+    var userLocation = request.params.geoLocation;
+    var resultList = []
+    for (var i =0;i<restaurantList.length;i++){
+    //for (var restaurant in restaurantList){
+      var restaurant = restaurantList[i];
+      var distance = userLocation.kilometersTo(restaurant.get("geoLocation"));
+      var score = scoreCalculator(restaurant,preferenceCount,distance,rangeKiloRadius);
+      var name = restaurant.get("name");
+      var objectId = restaurant.id;
+
+      var result = {
+        "objectId":objectId,
+        "name":name,
+        "distance":distance,
+        "score":score,
+      };
+
+      resultList.push(result);
+    }
+    //conclude analysis
+    response.success(resultList);
+  },function(error){
+    response.error("not able to perform analysis")
+  })
+})
+
+function scoreCalculator(restaurant, preferenceCount,distance,range){
+  var preference;
+  var preferenceMatch=0;
+  var userRating=0;
+  var randomness = Math.random()*10;
+  var score=0;
+  if(!preferenceCount){
+    if (restaurant.hasOwnProperty("preference")){
+      preference = restaurant["preference"];
+      preferenceMatch=0;
+      for (var key in preferenceCount){
+        if (preferenceCount.hasOwnProperty(key)){
+          preferenceMatch=preferenceMatch+preferenceCount[key];
+        }
+      }
+    }
+  }
+  if (restaurant.hasOwnProperty("rating"))
+    userRating=restaurant["rating"];
+  score = preferenceMatch * 5 + (range-distance) / 5 + userRating * 5 + randomness * 3;
+  return score;
+}

@@ -33,7 +33,8 @@ class TestingUploadTest:XCTestCase{
 			NSNotificationCenter.defaultCenter().addObserver(self, selector: "failed:", name: "upload Failed", object: nil)
 			
 			//testRelationalTestingDataBase()
-			testTestingDataBase()
+			// testTestingDataBase()
+			restaurantDataPopulate()
 			
 			//timeout control
 			isCompleted = false
@@ -54,6 +55,19 @@ class TestingUploadTest:XCTestCase{
 			if isTimeout{
 				return
 			}
+		}
+	}
+	
+	func restaurantDataPopulate(){
+		for count in 1...15{
+			let imageData = NSData(contentsOfURL: NSURL(string:"http://www.graftoninnvermont.com/wp-content/uploads/2011/09/Woodard-House-kitchen.jpg")!)
+			let geopoint = PFGeoPoint(
+				latitude: Double((Float(arc4random())/Float(UINT32_MAX))*180-90),
+				longitude: Double((Float(arc4random())/Float(UINT32_MAX))*360-180)
+			)
+			let restaurant:Dictionary<String,AnyObject!> = ["name":"henry's kitchen \(count)","description":"henry's home made good stuff","menu":"any home made stuff","imagePFFile":imageData,"geoLocation":geopoint]
+			let restaurantDataBase = RestaurantDataBase()
+			restaurantDataBase.upload(restaurant)
 		}
 	}
 	

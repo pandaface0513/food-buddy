@@ -14,6 +14,7 @@ class TableFriendsTableViewCell: UITableViewCell {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var friendSwitch: UISwitch!
     
+    var userid : String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,8 +27,9 @@ class TableFriendsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func loadItem(image:String, friend : String){
+    func loadItem(image:String, friend : String, userID : String){
         username.text = friend
+        self.userid = userID
         friendSwitch.setOn(false, animated: true)
         
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
@@ -53,6 +55,6 @@ class TableFriendsTableViewCell: UITableViewCell {
     }
     
     func getUserName() -> String{
-        return username.text!
+        return userid
     }
 }
