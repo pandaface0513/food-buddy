@@ -14,18 +14,34 @@ class RestaurantDataBase:DataBase{
         dataBaseName="RestaurantDataBase"
     }
 	
-	func findBestSuitedRestaurants(userIds:[String]){
-		PFCloud.callFunctionInBackground("findBestSuitedRestaurants", withParameters: ["userIds":userIds]){
+	func findBestSuitedRestaurantsCloud(geoLocation:PFGeoPoint,userIds:[String],rangeKiloRadius:Double){
+		PFCloud.callFunctionInBackground("findBestSuitedRestaurants", withParameters: ["geoLocation":geoLocation,"userIds":userIds,"rangeKiloRadius":rangeKiloRadius]){
 			(objects:AnyObject!, error: NSError!)-> Void in
 			if (error==nil){
-				var data:Array<Dictionary<String,AnyObject>> = Array()
-				data = self.changePFObjectsToDictionary(objects as! [PFObject])
-				NSNotificationCenter.defaultCenter().postNotificationName("findBestSuitedRestaurants Done", object: data)
+				//var data:Array<Dictionary<String,AnyObject>> = Array()
+				//var data = changeArrayDictionaryToArrayDictionary(objects as! [Dictionary<String,AnyObject>])
+				//println(data[0]["objectId"])
+				//data = changePFObjectsToDictionary(objects as! [PFObject])
+				NSNotificationCenter.defaultCenter().postNotificationName("findBestSuitedRestaurantsCloud Done", object: objects as! [Dictionary<String,AnyObject>])
 			}else{
 				let errorString = error.userInfo?["error"] as! NSString
 				// Show the errorString somewhere and let the user try again.
 				
-				NSNotificationCenter.defaultCenter().postNotificationName("findBestSuitedRestaurants Failed", object: errorString)
+				NSNotificationCenter.defaultCenter().postNotificationName("findBestSuitedRestaurantsCloud Failed", object: errorString)
+			}
+		}
+	}
+	
+	func findRestaurantWithID(objectId:String){
+		var query = PFQuery(className: dataBaseName)
+		query.whereKey("objectId", equalTo: objectId);
+		query.getFirstObjectInBackgroundWithBlock {
+			(object:PFObject!, error:NSError!) -> Void in
+			if (error==nil){
+				var dictionary:Dictionary<String,AnyObject> = changePFObjectToDictionaru(object)
+				NSNotificationCenter.defaultCenter().postNotificationName("findRestaurantWithId Done", object: dictionary)
+			}else{
+				NSNotificationCenter.defaultCenter().postNotificationName("findRestaurantWithId Failed", object: error.description)
 			}
 		}
 	}
@@ -67,7 +83,7 @@ class RestaurantDataBase:DataBase{
 			(objects:AnyObject!, error: NSError!)-> Void in
 			if (error==nil){
 				var data:Array<Dictionary<String,AnyObject>> = Array()
-				data = self.changePFObjectsToDictionary(objects as! [PFObject])
+				data = changePFObjectsToDictionary(objects as! [PFObject])
 				NSNotificationCenter.defaultCenter().postNotificationName("findRestaurantName Done", object: data)
 			}else{
 				let errorString = error.userInfo?["error"] as! NSString

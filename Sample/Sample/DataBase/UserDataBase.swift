@@ -46,7 +46,7 @@ class UserDataBase:DataBase{
 			(objects:AnyObject!, error: NSError!)-> Void in
 			if (error==nil){
 				var data:Array<Dictionary<String,AnyObject>> = Array()
-				data = self.changePFObjectsToDictionary(objects as! [PFObject])
+				data = changePFObjectsToDictionary(objects as! [PFObject])
 				NSNotificationCenter.defaultCenter().postNotificationName("findUser Done", object: objects)
 			}else{
 				let errorString = error.userInfo?["error"] as! NSString

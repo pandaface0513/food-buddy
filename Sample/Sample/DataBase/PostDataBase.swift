@@ -19,7 +19,7 @@ class PostDataBase:DataBase{
 			(objects:AnyObject!, error: NSError!)-> Void in
 			if (error==nil){
 				var data: Array<Dictionary<String,AnyObject>> = Array()
-				data = self.changePFObjectsToDictionary(objects as! [PFObject])
+				data = changePFObjectsToDictionary(objects as! [PFObject])
 				NSNotificationCenter.defaultCenter().postNotificationName("findPost Done", object: data)
 			}else{
 				let errorString = error.userInfo?["error"] as! NSString
@@ -35,7 +35,7 @@ class PostDataBase:DataBase{
             (result:AnyObject!, error: NSError!)-> Void in
             if (error==nil){
                 var data:Array<Dictionary<String,AnyObject>> = Array()
-				data = self.changeNSArrayToDictionary(result as! NSArray)
+				data = changeNSArrayToDictionary(result as! NSArray)
                 NSNotificationCenter.defaultCenter().postNotificationName("findAllPost Done", object: data)
             }else{
                 NSNotificationCenter.defaultCenter().postNotificationName("findAllPost Failed", object: error)
@@ -48,7 +48,7 @@ class PostDataBase:DataBase{
 			(result:AnyObject!, error: NSError!)-> Void in
 			if (error==nil){
 				var data:Array<Dictionary<String,AnyObject>> = Array()
-				data=self.changeNSArrayToDictionary(result as!NSArray)
+				data=changeNSArrayToDictionary(result as!NSArray)
 				NSNotificationCenter.defaultCenter().postNotificationName("findFriendPost Done", object: data)
 			}else{
 				NSNotificationCenter.defaultCenter().postNotificationName("findFriendPost Failed", object: error)
@@ -83,7 +83,7 @@ class PostDataBase:DataBase{
                         self.lastPositionDate = objects[objects.count - 1].createdAt
 						
 						//this change [PFObject] to [Dictionary]
-						let objectList = self.changePFObjectsToDictionary(objects as! [PFObject])
+						let objectList = changePFObjectsToDictionary(objects as! [PFObject])
 						
                         if (loadMore && self.needToLoad){
                             self.needToLoad = false

@@ -188,7 +188,7 @@ class DataBase{
 		orQuery.findObjectsInBackgroundWithBlock{
 			(objects:[AnyObject]!,error:NSError!) -> Void in
 			if (error==nil){
-				data = self.changePFObjectsToDictionary(objects as! [PFObject])
+				data = changePFObjectsToDictionary(objects as! [PFObject])
 				NSNotificationCenter.defaultCenter().postNotificationName("download Done", object: data)
 			} else{
 				let errorString = error.userInfo?["error"] as! NSString
@@ -199,65 +199,4 @@ class DataBase{
 			
 		}
 	}
-	
-	func changePFObjectsToDictionary(objects: [PFObject]) -> Array<Dictionary<String,AnyObject>>{
-		var data:Array<Dictionary<String,AnyObject>> = Array()
-		
-		for object in objects{
-			var dictionary:Dictionary<String,AnyObject> = Dictionary()
-			var keys = object.allKeys()!
-			for key in keys{
-				let dictionaryKey = key as! String
-				var value: AnyObject! = object.objectForKey(dictionaryKey) as AnyObject!
-				if (value is PFFile){
-					value = value.url
-				}
-				dictionary.updateValue(value, forKey: dictionaryKey)
-			}
-			dictionary.updateValue(object.objectId, forKey:"objectId")
-			dictionary.updateValue(object.createdAt, forKey: "createdAt")
-			dictionary.updateValue(object.createdAt, forKey: "updatedAt")
-			data.append(dictionary)
-		}
-		
-		return data
-	}
-	
-	func changeNSArrayToDictionary(nsArray: NSArray)->Array<Dictionary<String,AnyObject>>{
-		var data:Array<Dictionary<String,AnyObject>>=Array()
-		
-		for objects in nsArray{
-			var dictionary:Dictionary<String,AnyObject> = Dictionary()
-			var object = objects as! PFObject
-			var keys = object.allKeys()!
-			for key in keys{
-				let dictionaryKey = key as! String
-				var value: AnyObject! = object.objectForKey(dictionaryKey) as AnyObject!
-				if (value is PFFile){
-					value = value.url
-				}
-				dictionary.updateValue(value, forKey: dictionaryKey)
-			}
-			dictionary.updateValue(object.objectId, forKey: "objectId")
-			dictionary.updateValue(object.createdAt, forKey: "createdAt")
-			dictionary.updateValue(object.createdAt, forKey: "updatedAt")
-			data.append(dictionary)
-		}
-		return data
-	}
-	
-}
-
-func printDictionary(dictionary:Dictionary<String,AnyObject>){
-    for (key,value) in dictionary{
-        println("\(key) is \(value)")
-    }
-}
-
-func printDictionaries(dictionaries:Array<Dictionary<String,AnyObject>>){
-    for dictionary in dictionaries{
-        for (key, value) in dictionary{
-            println("\(key) is \(value)")
-        }
-    }
 }
