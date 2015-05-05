@@ -31,7 +31,7 @@ class NearMeViewController: UIViewController, UITableViewDataSource, UITableView
         for (var x = 0; x < 10; x++){
             var name = "Bad Restaurant" + String(x)
             var type = "Taste Bad"
-            var distance = Int(arc4random_uniform(40))
+            var distance = Double(arc4random_uniform(40))
             var n = NearMe(name: name, type: type, distance: distance, image: "http://lorempixel.com/400/400/nightlife/"+String(x))
             arr.append(n)
         }
@@ -62,8 +62,8 @@ class NearMeViewController: UIViewController, UITableViewDataSource, UITableView
             
             var nearDetail : NearMeDetailViewController = segue.destinationViewController as!NearMeDetailViewController
             
-            nearDetail.name = arr[index!.row].name + " " + arr[index!.row].type
-            nearDetail.dist = arr[index!.row].distance
+            nearDetail.restNameL = arr[index!.row].name + " " + arr[index!.row].type
+            nearDetail.distL = arr[index!.row].distance
             nearDetail.imageURL = arr[index!.row].img
             
         }

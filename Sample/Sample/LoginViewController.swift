@@ -13,14 +13,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameInput: UITextField!
     @IBOutlet weak var passInput: UITextField!
     
-    @IBOutlet weak var warning: UILabel!
-    
     var user = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        warning.text = ""
-        
+        self.navigationController?.navigationBar.hidden = true
 //        checkUser()
         if (PFUser.currentUser() != nil){
             self.performSegueWithIdentifier("loginSuccess", sender: nil)

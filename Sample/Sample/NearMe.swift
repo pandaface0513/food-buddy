@@ -10,9 +10,9 @@ import Foundation
 
 class NearMe {
     
-    var name : String, type : String, distance : Int, img : String
+    var name : String, type : String, distance : Double, img : String
     
-    init(name: String, type: String, distance: Int, image : String) {
+    init(name: String, type: String, distance: Double, image : String) {
         self.name = name
         self.type = type
         self.distance = distance

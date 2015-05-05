@@ -26,11 +26,11 @@ class NearMeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func loadItem(placename: String, placephoto: String, placedist: Int, placetype: String){
+    func loadItem(placename: String, placephoto: String, placedist: Double, placetype: String){
         
         PlaceName.text = placename
         PlaceType.text = placetype
-        PlaceDist.text = String(placedist) + " km"
+        PlaceDist.text = String(format:"%.1f", placedist) + " km"
         
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         
