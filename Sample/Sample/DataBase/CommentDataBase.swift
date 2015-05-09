@@ -50,14 +50,14 @@ class CommentDataBase:DataBase{
 	
 	func downloadComment(postId:String, userId:String){
 		let post = PFObject(withoutDataWithClassName: postDataBase.dataBaseName, objectId:postId)
-		let user = PFObject(withoutDataWithClassName: userDataBase.dataBaseName, objectId:userId)
+		//let user = PFObject(withoutDataWithClassName: userDataBase.dataBaseName, objectId:userId)
 		
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "downloadCommentNotificationHelper:", name: "download Done", object: nil)
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "downloadCommentNotificationHelper:", name: "download Failed", object: nil)
-		downloadEqualTo(["postId":post,"userId":user])
+		downloadEqualTo(["postId":post])
 	}
 	
-	func downloadCommentNotificationHelper(notification:NSNotification){
+	@objc func downloadCommentNotificationHelper(notification:NSNotification){
 		NSNotificationCenter.defaultCenter().removeObserver(self, name: "download Done", object: nil)
 		NSNotificationCenter.defaultCenter().removeObserver(self, name: "download Failed", object: nil)
 		

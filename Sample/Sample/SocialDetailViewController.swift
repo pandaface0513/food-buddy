@@ -33,7 +33,7 @@ class SocialDetailViewController: UIViewController, UITableViewDataSource, UITab
             //uploadComments
             println("trying to upload - " + commentField.text)
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "uploadDone:", name: "uploadComment Done", object: nil)
-            commentDB.uploadComment(postID!, userId: PFUser.currentUser().objectId, comment: ["comment": commentField.text as String])
+            commentDB.uploadComment(postID!, userId: PFUser.currentUser().objectId, comment: ["userName": userName, "comment": commentField.text as String])
             self.view.endEditing(true)
             commentField.text = nil
         }
@@ -42,16 +42,24 @@ class SocialDetailViewController: UIViewController, UITableViewDataSource, UITab
     func uploadDone(notification:NSNotification){
         println("upload completed")
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "uploadComment Done", object: nil)
+        downloadComments()
     }
     
     func downloadComments(){
+        commentArr = [Comment]()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadComments:", name: "downloadComment Done", object: nil)
         commentDB.downloadComment(postID!, userId: PFUser.currentUser().objectId)
     }
     
     func loadComments(notification:NSNotification){
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "downloadComment Done", object: nil)
-        println(notification.object as! String)
+        var arr : Array<Dictionary<String, AnyObject>> = notification.object as! Array
+        for comment in arr{
+            println(comment["comment"])
+            commentArr.append(Comment(name: comment["userName"] as! String, comment: comment["comment"] as! String))
+         }
+        println(String(arr.count))
+        tableView.reloadData()
         //        for(var i = 0; i < 5; i++){
         //            var name = "henry " + String(i)
         //            var comment = "stuff " + String(i)
@@ -94,7 +102,7 @@ class SocialDetailViewController: UIViewController, UITableViewDataSource, UITab
             return 360
         }
         else {
-            return 50
+            return 100
         }
     }
     
