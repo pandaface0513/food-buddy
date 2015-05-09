@@ -14,10 +14,25 @@
 		097437BD1AB1606800C173BF /* SocialDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097437BC1AB1606800C173BF /* SocialDetailTableViewCell.swift */; };
 		0980E3D21AF09A05000C6D7C /* FirstTimeSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0980E3D11AF09A05000C6D7C /* FirstTimeSetupViewController.swift */; };
 		0984A2051ABE0D58007DE238 /* FeaturePostDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0984A2041ABE0D58007DE238 /* FeaturePostDataBase.swift */; };
+		09980BA41AF2AF44007A1C41 /* PeopleProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09980BA31AF2AF44007A1C41 /* PeopleProfileViewController.swift */; };
+		09980BA61AF2B73D007A1C41 /* PeopleProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09980BA51AF2B73D007A1C41 /* PeopleProfileTableViewCell.swift */; };
+		09B715301AF1A46E009BA2DE /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B7152F1AF1A46E009BA2DE /* FollowingViewController.swift */; };
+		09B715321AF1B35D009BA2DE /* FollowersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B715311AF1B35D009BA2DE /* FollowersTableViewCell.swift */; };
 		09CE025D1A9E4780003EC91E /* SlideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CE025C1A9E4780003EC91E /* SlideBarTableViewController.swift */; };
+		09D4AB321AF4390D000A1362 /* TableFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4AB311AF4390D000A1362 /* TableFriendsTableViewCell.swift */; };
+		09D4AB341AF44BE4000A1362 /* TableBumpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4AB331AF44BE4000A1362 /* TableBumpViewController.swift */; };
+		09D4AB361AF45087000A1362 /* TableResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4AB351AF45087000A1362 /* TableResultViewController.swift */; };
+		09D4AB381AF450AE000A1362 /* TableResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4AB371AF450AE000A1362 /* TableResultTableViewCell.swift */; };
 		09E1F2821AD99FFA000FFCB2 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1F2811AD99FFA000FFCB2 /* ProfileTableViewController.swift */; };
 		09E1F2861AD9A748000FFCB2 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1F2851AD9A748000FFCB2 /* ProfileTableViewCell.swift */; };
 		09E8DB8B1AB4BFA4000CCE8C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E8DB8A1AB4BFA4000CCE8C /* Comment.swift */; };
+		09F9BB421AF87C2E00D51E68 /* button sign up.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F9BB3B1AF87C2E00D51E68 /* button sign up.png */; };
+		09F9BB431AF87C2E00D51E68 /* log in button active state.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F9BB3C1AF87C2E00D51E68 /* log in button active state.png */; };
+		09F9BB441AF87C2E00D51E68 /* log in button.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F9BB3D1AF87C2E00D51E68 /* log in button.png */; };
+		09F9BB451AF87C2E00D51E68 /* mock welcome page.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F9BB3E1AF87C2E00D51E68 /* mock welcome page.png */; };
+		09F9BB461AF87C2E00D51E68 /* sign up button active state.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F9BB3F1AF87C2E00D51E68 /* sign up button active state.png */; };
+		09F9BB471AF87C2E00D51E68 /* welcome page background.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F9BB401AF87C2E00D51E68 /* welcome page background.png */; };
+		09F9BB481AF87C2E00D51E68 /* welcome_page_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F9BB411AF87C2E00D51E68 /* welcome_page_logo.png */; };
 		17562DA91A8C120700327F26 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17562DA81A8C120700327F26 /* LoginViewController.swift */; };
 		17562DAB1A8C208A00327F26 /* SocialDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17562DAA1A8C208A00327F26 /* SocialDetailViewController.swift */; };
 		1761AD881A9924D40090598D /* SocialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1761AD871A9924D40090598D /* SocialTableViewCell.swift */; };
@@ -27,7 +42,6 @@
 		17BE0B391A8BD36A0025AFC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17BE0B371A8BD36A0025AFC4 /* Main.storyboard */; };
 		17BE0B3B1A8BD36A0025AFC4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17BE0B3A1A8BD36A0025AFC4 /* Images.xcassets */; };
 		17BE0B3E1A8BD36A0025AFC4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BE0B3C1A8BD36A0025AFC4 /* LaunchScreen.xib */; };
-		17BE0B561A8BD5700025AFC4 /* BumpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BE0B551A8BD5700025AFC4 /* BumpViewController.swift */; };
 		17BE0B5A1A8BE5700025AFC4 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BE0B591A8BE5700025AFC4 /* Person.swift */; };
 		17D725141A91403C00252120 /* NearMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D725131A91403C00252120 /* NearMe.swift */; };
 		17D725161A9141CD00252120 /* NearMeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D725151A9141CD00252120 /* NearMeDetailViewController.swift */; };
@@ -112,10 +126,25 @@
 		097437BC1AB1606800C173BF /* SocialDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialDetailTableViewCell.swift; sourceTree = "<group>"; };
 		0980E3D11AF09A05000C6D7C /* FirstTimeSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeSetupViewController.swift; sourceTree = "<group>"; };
 		0984A2041ABE0D58007DE238 /* FeaturePostDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturePostDataBase.swift; sourceTree = "<group>"; };
+		09980BA31AF2AF44007A1C41 /* PeopleProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleProfileViewController.swift; sourceTree = "<group>"; };
+		09980BA51AF2B73D007A1C41 /* PeopleProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleProfileTableViewCell.swift; sourceTree = "<group>"; };
+		09B7152F1AF1A46E009BA2DE /* FollowingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
+		09B715311AF1B35D009BA2DE /* FollowersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersTableViewCell.swift; sourceTree = "<group>"; };
 		09CE025C1A9E4780003EC91E /* SlideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideBarTableViewController.swift; sourceTree = "<group>"; };
+		09D4AB311AF4390D000A1362 /* TableFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableFriendsTableViewCell.swift; sourceTree = "<group>"; };
+		09D4AB331AF44BE4000A1362 /* TableBumpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableBumpViewController.swift; sourceTree = "<group>"; };
+		09D4AB351AF45087000A1362 /* TableResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableResultViewController.swift; sourceTree = "<group>"; };
+		09D4AB371AF450AE000A1362 /* TableResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableResultTableViewCell.swift; sourceTree = "<group>"; };
 		09E1F2811AD99FFA000FFCB2 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		09E1F2851AD9A748000FFCB2 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		09E8DB8A1AB4BFA4000CCE8C /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		09F9BB3B1AF87C2E00D51E68 /* button sign up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button sign up.png"; sourceTree = "<group>"; };
+		09F9BB3C1AF87C2E00D51E68 /* log in button active state.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "log in button active state.png"; sourceTree = "<group>"; };
+		09F9BB3D1AF87C2E00D51E68 /* log in button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "log in button.png"; sourceTree = "<group>"; };
+		09F9BB3E1AF87C2E00D51E68 /* mock welcome page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mock welcome page.png"; sourceTree = "<group>"; };
+		09F9BB3F1AF87C2E00D51E68 /* sign up button active state.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign up button active state.png"; sourceTree = "<group>"; };
+		09F9BB401AF87C2E00D51E68 /* welcome page background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome page background.png"; sourceTree = "<group>"; };
+		09F9BB411AF87C2E00D51E68 /* welcome_page_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_page_logo.png; sourceTree = "<group>"; };
 		17562DA81A8C120700327F26 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		17562DAA1A8C208A00327F26 /* SocialDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialDetailViewController.swift; sourceTree = "<group>"; };
 		1761AD871A9924D40090598D /* SocialTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialTableViewCell.swift; sourceTree = "<group>"; };
@@ -128,7 +157,6 @@
 		17BE0B3A1A8BD36A0025AFC4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		17BE0B3D1A8BD36A0025AFC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		17BE0B431A8BD36A0025AFC4 /* Project FoodieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Project FoodieTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		17BE0B551A8BD5700025AFC4 /* BumpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BumpViewController.swift; sourceTree = "<group>"; };
 		17BE0B591A8BE5700025AFC4 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		17D725131A91403C00252120 /* NearMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMe.swift; sourceTree = "<group>"; };
 		17D725151A9141CD00252120 /* NearMeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMeDetailViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +262,21 @@
 			name = Pictures;
 			sourceTree = "<group>";
 		};
+		09F9BB3A1AF87C2E00D51E68 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				09F9BB3B1AF87C2E00D51E68 /* button sign up.png */,
+				09F9BB3C1AF87C2E00D51E68 /* log in button active state.png */,
+				09F9BB3D1AF87C2E00D51E68 /* log in button.png */,
+				09F9BB3E1AF87C2E00D51E68 /* mock welcome page.png */,
+				09F9BB3F1AF87C2E00D51E68 /* sign up button active state.png */,
+				09F9BB401AF87C2E00D51E68 /* welcome page background.png */,
+				09F9BB411AF87C2E00D51E68 /* welcome_page_logo.png */,
+			);
+			name = Asset;
+			path = ../../Asset;
+			sourceTree = "<group>";
+		};
 		17BE0B231A8BD36A0025AFC4 = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +299,7 @@
 		17BE0B2E1A8BD36A0025AFC4 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
+				09F9BB3A1AF87C2E00D51E68 /* Asset */,
 				9477AE571A9F032000A2DCEF /* DataBase */,
 				17BE0B371A8BD36A0025AFC4 /* Main.storyboard */,
 				17BE0B3A1A8BD36A0025AFC4 /* Images.xcassets */,
@@ -274,9 +318,16 @@
 				BA2B71521ABE3B540058862E /* AddFreeViewController.swift */,
 				17D725151A9141CD00252120 /* NearMeDetailViewController.swift */,
 				1761AD891A9952D10090598D /* NearMeTableViewCell.swift */,
-				17BE0B551A8BD5700025AFC4 /* BumpViewController.swift */,
+				09D4AB331AF44BE4000A1362 /* TableBumpViewController.swift */,
+				09D4AB311AF4390D000A1362 /* TableFriendsTableViewCell.swift */,
 				09E1F2811AD99FFA000FFCB2 /* ProfileTableViewController.swift */,
 				09E1F2851AD9A748000FFCB2 /* ProfileTableViewCell.swift */,
+				09D4AB351AF45087000A1362 /* TableResultViewController.swift */,
+				09D4AB371AF450AE000A1362 /* TableResultTableViewCell.swift */,
+				09B7152F1AF1A46E009BA2DE /* FollowingViewController.swift */,
+				09B715311AF1B35D009BA2DE /* FollowersTableViewCell.swift */,
+				09980BA31AF2AF44007A1C41 /* PeopleProfileViewController.swift */,
+				09980BA51AF2B73D007A1C41 /* PeopleProfileTableViewCell.swift */,
 				17BE0B311A8BD36A0025AFC4 /* AppDelegate.swift */,
 				9477AE781A9F050400A2DCEF /* ParseHeader.m */,
 				9477AE761A9F050300A2DCEF /* Project Foodie-Bridging-Header.h */,
@@ -435,11 +486,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				0920F77D1AB0076A0037C88D /* like.png in Resources */,
+				09F9BB451AF87C2E00D51E68 /* mock welcome page.png in Resources */,
 				09070FDF1AB014AB00432845 /* comment.png in Resources */,
+				09F9BB481AF87C2E00D51E68 /* welcome_page_logo.png in Resources */,
 				17BE0B391A8BD36A0025AFC4 /* Main.storyboard in Resources */,
+				09F9BB431AF87C2E00D51E68 /* log in button active state.png in Resources */,
+				09F9BB461AF87C2E00D51E68 /* sign up button active state.png in Resources */,
+				09F9BB421AF87C2E00D51E68 /* button sign up.png in Resources */,
 				17BE0B3E1A8BD36A0025AFC4 /* LaunchScreen.xib in Resources */,
+				09F9BB441AF87C2E00D51E68 /* log in button.png in Resources */,
 				09070FDD1AB0143900432845 /* smiley.png in Resources */,
 				17BE0B3B1A8BD36A0025AFC4 /* Images.xcassets in Resources */,
+				09F9BB471AF87C2E00D51E68 /* welcome page background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +515,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09980BA61AF2B73D007A1C41 /* PeopleProfileTableViewCell.swift in Sources */,
 				0980E3D21AF09A05000C6D7C /* FirstTimeSetupViewController.swift in Sources */,
+				09D4AB321AF4390D000A1362 /* TableFriendsTableViewCell.swift in Sources */,
 				17562DAB1A8C208A00327F26 /* SocialDetailViewController.swift in Sources */,
 				09E8DB8B1AB4BFA4000CCE8C /* Comment.swift in Sources */,
 				BBE042721AF5561D00D32AC4 /* Util.swift in Sources */,
@@ -466,16 +526,20 @@
 				BB598A561AE2F489009F5997 /* CommentDataBase.swift in Sources */,
 				9477AE5F1A9F032000A2DCEF /* DataBase.swift in Sources */,
 				1761AD881A9924D40090598D /* SocialTableViewCell.swift in Sources */,
+				09D4AB341AF44BE4000A1362 /* TableBumpViewController.swift in Sources */,
 				17BE0B361A8BD36A0025AFC4 /* NearMeViewController.swift in Sources */,
 				BA2B71531ABE3B540058862E /* AddFreeViewController.swift in Sources */,
-				17BE0B561A8BD5700025AFC4 /* BumpViewController.swift in Sources */,
 				09E1F2821AD99FFA000FFCB2 /* ProfileTableViewController.swift in Sources */,
 				9477AE611A9F032000A2DCEF /* PostDataBase.swift in Sources */,
+				09D4AB361AF45087000A1362 /* TableResultViewController.swift in Sources */,
 				097437BD1AB1606800C173BF /* SocialDetailTableViewCell.swift in Sources */,
 				9477AE791A9F050400A2DCEF /* ParseHeader.m in Sources */,
 				BB598A571AE2F489009F5997 /* LikeDataBase.swift in Sources */,
+				09D4AB381AF450AE000A1362 /* TableResultTableViewCell.swift in Sources */,
+				09B715301AF1A46E009BA2DE /* FollowingViewController.swift in Sources */,
 				17D725161A9141CD00252120 /* NearMeDetailViewController.swift in Sources */,
 				17BE0B321A8BD36A0025AFC4 /* AppDelegate.swift in Sources */,
+				09980BA41AF2AF44007A1C41 /* PeopleProfileViewController.swift in Sources */,
 				9477AE631A9F032000A2DCEF /* RestaurantDataBase.swift in Sources */,
 				09CE025D1A9E4780003EC91E /* SlideBarTableViewController.swift in Sources */,
 				9477AE601A9F032000A2DCEF /* PhotoDataBase.swift in Sources */,
@@ -483,6 +547,7 @@
 				09070FE31AB0185700432845 /* SignUpViewController.swift in Sources */,
 				9477AE641A9F032000A2DCEF /* User.swift in Sources */,
 				0984A2051ABE0D58007DE238 /* FeaturePostDataBase.swift in Sources */,
+				09B715321AF1B35D009BA2DE /* FollowersTableViewCell.swift in Sources */,
 				17BE0B5A1A8BE5700025AFC4 /* Person.swift in Sources */,
 				1761AD8A1A9952D10090598D /* NearMeTableViewCell.swift in Sources */,
 				9477AE651A9F032000A2DCEF /* UserDataBase.swift in Sources */,
@@ -578,7 +643,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -614,7 +679,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

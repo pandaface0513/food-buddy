@@ -62,7 +62,7 @@ class TestingBestSuitedRestaurant: XCTestCase {
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "testBestSuitedRestaurantCloudHelper:", name: "findBestSuitedRestaurantsCloud Failed", object: nil)
 		
 		
-		restaurantDataBase.findBestSuitedRestaurantsCloud(geoPoint,userIds: userIds,rangeKiloRadius: rangeKiloRadius)
+		restaurantDataBase.findBestSuitedRestaurantsCloudHelper(geoPoint,userIds: userIds,rangeKiloRadius: rangeKiloRadius)
 	}
 	
 	func testBestSuitedRestaurantCloudHelper(notification:NSNotification){

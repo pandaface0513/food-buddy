@@ -1,19 +1,17 @@
 //
-//  NearMeTableViewCell.swift
+//  FollowersTableViewCell.swift
 //  Project Foodie
 //
-//  Created by Victor on 2015-02-21.
+//  Created by Stardustxx on 2015-04-29.
 //  Copyright (c) 2015 Victor. All rights reserved.
 //
 
 import UIKit
 
-class NearMeTableViewCell: UITableViewCell {
+class FollowersTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var PlacePhoto: UIImageView!
-    @IBOutlet weak var PlaceName: UILabel!
-    @IBOutlet weak var PlaceType: UILabel!
-    @IBOutlet weak var PlaceDist: UILabel!
+    @IBOutlet weak var friendImage: UIImageView!
+    @IBOutlet weak var friendName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,21 +24,18 @@ class NearMeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func loadItem(placename: String, placephoto: String, placedist: Double, placetype: String){
-        
-        PlaceName.text = placename
-        PlaceType.text = placetype
-        PlaceDist.text = String(format:"%.1f", placedist) + " km"
-        
+    func loadItem(image: String, name: String){
+        friendName.text = name
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            var imageURL = NSURL(string: placephoto)
+            var imageURL = NSURL(string: image)
             var imageData = NSData(contentsOfURL: imageURL!)
             dispatch_async(dispatch_get_main_queue()){
-                self.PlacePhoto.image = UIImage(data: imageData!)
+                self.friendImage.image = UIImage(data: imageData!)
             }
         }
+        
     }
 
 }

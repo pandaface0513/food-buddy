@@ -63,8 +63,8 @@ class LikeDataBase:DataBase{
         let postRelation = PFObject(withoutDataWithClassName: "PostDataBase", objectId: postId)
         
         var query = PFQuery(className:dataBaseName)
-        query.whereKey("user", equalTo: userRelation)
-        query.whereKey("post", equalTo: postRelation)
+        query.whereKey("userId", equalTo: userRelation)
+        query.whereKey("postId", equalTo: postRelation)
         
         query.countObjectsInBackgroundWithBlock{
             (count:Int32,error:NSError!)->Void in

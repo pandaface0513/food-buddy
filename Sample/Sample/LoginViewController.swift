@@ -13,14 +13,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameInput: UITextField!
     @IBOutlet weak var passInput: UITextField!
     
-    @IBOutlet weak var warning: UILabel!
-    
     var user = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        warning.text = ""
-        
+        usernameInput.text = "stardustss"
+        passInput.text = "1234"
+        self.navigationController?.navigationBar.hidden = true
 //        checkUser()
         if (PFUser.currentUser() != nil){
             self.performSegueWithIdentifier("loginSuccess", sender: nil)
@@ -36,18 +35,20 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginBtn(sender: UIButton) {
         if (usernameInput.text == "" || passInput.text == ""){
-            warning.text = "Wrong"
+            alertPopup("Please double check your entry")
         }
         else {
-            user.logIn(usernameInput.text, passwd: passInput.text)
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "loginSuccessful:", name: "logIn Done", object: nil)
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "loginEr:", name: "logIn Failed", object: nil)
+            user.logIn(usernameInput.text, passwd: passInput.text)
         }
     }
     
     func loginSuccessful(notification: NSNotification){
         println("Login Done")
         NSNotificationCenter.defaultCenter().removeObserver(self)
+        usernameInput.text = ""
+        passInput.text = ""
         self.performSegueWithIdentifier("loginSuccess", sender: nil)
     }
     

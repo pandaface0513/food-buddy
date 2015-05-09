@@ -9,31 +9,38 @@
 import UIKit
 
 class NearMeDetailViewController: UIViewController {
-
+    
     @IBOutlet weak var picture: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var distLabel: UILabel!
     
-    var imageURL : String?
-    var name : String?
-    var dist : Int?
+    var imageURL : String = ""
+    var restNameL: String = ""
+    var distL : Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.nameLabel.text = restNameL
+        self.distLabel.text = String(format: "%.1f", self.distL)
+        // Do any additional setup after loading the view.
+    }
+    
+    func loadItem(imageurl: String, restName: String, dist: Double){
+        println(restName)
+//        self.nameLabel.text = restName
+        self.restNameL = restName
+        //self.distLabel.text = String(format:"%.1f", dist)
+        self.distL = dist
+        self.imageURL = imageurl
+        
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        
-        nameLabel.text = name
-        distLabel.text = String(dist!)
-        
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            var nURL = NSURL(string: self.imageURL!)
+            var nURL = NSURL(string: self.imageURL)
             var imageData = NSData(contentsOfURL: nURL!)
             dispatch_async(dispatch_get_main_queue()) {
                 self.picture.image = UIImage(data: imageData!)
             }
         }
-        
-        // Do any additional setup after loading the view.
     }
 
 
@@ -42,7 +49,11 @@ class NearMeDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func cancel(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     /*
     // MARK: - Navigation
 

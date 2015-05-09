@@ -87,10 +87,10 @@ class PostDataBase:DataBase{
 						
                         if (loadMore && self.needToLoad){
                             self.needToLoad = false
-							NSNotificationCenter.defaultCenter().postNotificationName("addFriendFeed done", object: friendList)
+                            NSNotificationCenter.defaultCenter().postNotificationName("addFriendFeed done", object: objectList)
                         }
                         else {
-                        NSNotificationCenter.defaultCenter().postNotificationName("findFriendFeed done", object: friendList)
+                        NSNotificationCenter.defaultCenter().postNotificationName("findFriendFeed done", object: objectList)
                         }
                     }
                     else {
