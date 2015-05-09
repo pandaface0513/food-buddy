@@ -17,6 +17,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        usernameInput.text = "stardustss"
+        passInput.text = "1234"
         self.navigationController?.navigationBar.hidden = true
 //        checkUser()
         if (PFUser.currentUser() != nil){

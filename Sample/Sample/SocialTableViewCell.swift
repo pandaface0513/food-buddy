@@ -48,7 +48,7 @@ class SocialTableViewCell: UITableViewCell {
             likeCount++
         }
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "didLike Done", object: nil)
-        //println(islike)
+        println(islike)
         likeCounts.text = String(likeCount)
     }
     
