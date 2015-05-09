@@ -22,6 +22,8 @@ class SocialTableViewCell: UITableViewCell {
     var postId:String = ""
     var userId = PFUser.currentUser().objectId
     
+    var imgURL:String = ""
+    
     var likeDatabase = LikeDataBase()
     
     override func awakeFromNib() {
@@ -67,6 +69,14 @@ class SocialTableViewCell: UITableViewCell {
         postId = id
     }
     
+    func getPostID() -> String{
+        return postId
+    }
+    
+    func getImgURL() -> String{
+        return imgURL
+    }
+    
     func setLikeNumber(like:Int){
         likeCount = like
         likeCounts.text = String(likeCount)
@@ -76,6 +86,7 @@ class SocialTableViewCell: UITableViewCell {
         FeedUsername.text = feedusername
         FeedDesc.text = description
         
+        imgURL = feedphoto
         
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         

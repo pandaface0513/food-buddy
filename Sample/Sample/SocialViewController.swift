@@ -148,13 +148,14 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "socialDetail") {
-            let index = socialTable?.indexPathForSelectedRow()
+            let index = socialTable?.indexPathForSelectedRow()  //find out the index of the cell selected
+            let cell = socialTable?.cellForRowAtIndexPath(index!) as! SocialTableViewCell //fetch the cell using the index
             
             var socialDetail : SocialDetailViewController = segue.destinationViewController as! SocialDetailViewController
             
-            socialDetail.name = "fk"
-            socialDetail.age = 1
-            socialDetail.imageURL = "www.google.com"
+            socialDetail.userName = PFUser.currentUser().username
+            socialDetail.postID = cell.getPostID()
+            socialDetail.imageURL = cell.getImgURL()
             
         }
 //        else if (segue.identifier == "loginScreen") {

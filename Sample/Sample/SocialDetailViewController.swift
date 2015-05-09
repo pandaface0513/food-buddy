@@ -13,36 +13,58 @@ class SocialDetailViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var tableView: UITableView!
     
     var imageURL : String?
-    var name : String?
-    var age : Int?
+    var postID : String?
+    var userName: String?
     
-    var personArr : [Person] = [Person]()
     var commentArr : [Comment] = [Comment]()
-//    let identifier : String = "commentCell"
     
-    var db:PostDataBase = PostDataBase()
+//    var db:PostDataBase = PostDataBase()
+    var commentDB:CommentDataBase = CommentDataBase()
     
     @IBOutlet weak var commentField: UITextField!
     @IBOutlet weak var toolbarConstraint: NSLayoutConstraint!
+    
+    @IBAction func backBtn(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBAction func submitBtn(sender: AnyObject) {
         if(!commentField.text.isEmpty){
             //uploadComments
             println("trying to upload - " + commentField.text)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "uploadDone:", name: "uploadComment Done", object: nil)
+            commentDB.uploadComment(postID!, userId: PFUser.currentUser().objectId, comment: ["comment": commentField.text as String])
             self.view.endEditing(true)
             commentField.text = nil
         }
     }
     
+    func uploadDone(notification:NSNotification){
+        println("upload completed")
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "uploadComment Done", object: nil)
+    }
+    
+    func downloadComments(){
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadComments:", name: "downloadComment Done", object: nil)
+        commentDB.downloadComment(postID!, userId: PFUser.currentUser().objectId)
+    }
+    
+    func loadComments(notification:NSNotification){
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "downloadComment Done", object: nil)
+        println(notification.object as! String)
+        //        for(var i = 0; i < 5; i++){
+        //            var name = "henry " + String(i)
+        //            var comment = "stuff " + String(i)
+        //            commentArr.append(Comment(name: name, comment: comment))
+        //        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        for(var i = 0; i < 20; i++){
-            var name = "henry " + String(i)
-            var comment = "stuff " + String(i)
-            commentArr.append(Comment(name: name, comment: comment))
-        }
         
         commentField.delegate = self
+        
+        downloadComments()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         
@@ -67,12 +89,22 @@ class SocialDetailViewController: UIViewController, UITableViewDataSource, UITab
         return self.commentArr.count + 1
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if (indexPath.row == 0){
+            return 360
+        }
+        else {
+            return 50
+        }
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: SocialDetailTableViewCell
         
         if (indexPath.row == 0) {
             cell = tableView.dequeueReusableCellWithIdentifier("imageCell") as! SocialDetailTableViewCell
             cell.loadItem(imageURL!)
+            cell.sizeToFit()
             //        cell.textLabel?.text = personArr[indexPath.row].nameF
             
             //        var imageURL = NSURL(string: personArr[indexPath.row].img)
@@ -85,6 +117,7 @@ class SocialDetailViewController: UIViewController, UITableViewDataSource, UITab
         else {
             cell = tableView.dequeueReusableCellWithIdentifier("commentCell")as! SocialDetailTableViewCell
             cell.loadItem(commentArr[indexPath.row - 1].name, comment: commentArr[indexPath.row - 1].comment)
+            cell.sizeToFit()
             //        cell.textLabel?.text = personArr[indexPath.row].nameF
             
             //        var imageURL = NSURL(string: personArr[indexPath.row].img)
