@@ -391,11 +391,11 @@ Parse.Cloud.define("findRandomRestaurant",function(request,response){
   var rangeKiloRadius = request.params.rangeKiloRadius;
   if (rangeKiloRadius==null)
       rangeKiloRadius=40;
-  restaurantquery.withinKilometers("geoLocation",geoLocation,rangeKiloRadius);
+  query.withinKilometers("geoLocation",geoLocation,rangeKiloRadius);
   query.find().then(
     function(results){
       var arrayLength = results.length;
-      var random = Math.floor(Math.random()*array.lenth);
+      var random = Math.floor(Math.random()*arrayLength);
       response.success(results[random]);
     },function(error){
       response.error("error getting randomr restaurant");

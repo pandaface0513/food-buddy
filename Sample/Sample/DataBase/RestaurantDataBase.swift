@@ -14,6 +14,30 @@ class RestaurantDataBase:DataBase{
         dataBaseName="RestaurantDataBase"
     }
 	
+	func findRandomRestaurantCloud(){
+		PFGeoPoint.geoPointForCurrentLocationInBackground { (geoPoint:PFGeoPoint!, error:NSError!) -> Void in
+			if(error==nil){
+				self.findRandomRestaurantCloudHelper(geoPoint)
+			}else{
+				let errorString = error.userInfo?["error"] as! NSString
+				NSNotificationCenter.defaultCenter().postNotificationName("findRandomRestaurantCloud Failed", object: errorString)
+			}
+		}
+	}
+	
+	func findRandomRestaurantCloudHelper(geoPoint:PFGeoPoint){
+		PFCloud.callFunctionInBackground("findRandomRestaurant", withParameters: ["geoLocation":geoPoint]) {
+			(object:AnyObject!, error:NSError!) -> Void in
+			if (error==nil){
+				var result = changePFObjectToDictionaru(object as! PFObject)
+				NSNotificationCenter.defaultCenter().postNotificationName("findRandomRestaurantCloud Done", object: result)
+			}else{
+				let errorString = error.userInfo?["error"] as! NSString
+				NSNotificationCenter.defaultCenter().postNotificationName("findRandomRestaurantCloud Failed", object: errorString)
+			}
+		}
+	}
+	
     func findBestSuitedRestaurantsCloud(userIds:[String],rangeKiloRadius:Double){
         PFGeoPoint.geoPointForCurrentLocationInBackground{
             (geoPoint:PFGeoPoint!, error:NSError!)->Void in
