@@ -80,22 +80,24 @@ class PostDataBase:DataBase{
                     if (error == nil){
                         println("testing")
                         println(objects)
-                        self.lastPositionDate = objects[objects.count - 1].createdAt
-						
-						//this change [PFObject] to [Dictionary]
-						let objectList = changePFObjectsToDictionary(objects as! [PFObject])
-						
-                        if (loadMore && self.needToLoad){
-                            self.needToLoad = false
-                            NSNotificationCenter.defaultCenter().postNotificationName("addFriendFeed done", object: objectList)
+                        if (objects.count != 0){
+                            self.lastPositionDate = objects[objects.count - 1].createdAt
+                            
+                            //this change [PFObject] to [Dictionary]
+                            let objectList = changePFObjectsToDictionary(objects as! [PFObject])
+                            
+                            if (loadMore && self.needToLoad){
+                                self.needToLoad = false
+                                NSNotificationCenter.defaultCenter().postNotificationName("addFriendFeed done", object: objectList)
+                            }
+                            else {
+                            NSNotificationCenter.defaultCenter().postNotificationName("findFriendFeed done", object: objectList)
+                            }
                         }
-                        else {
-                        NSNotificationCenter.defaultCenter().postNotificationName("findFriendFeed done", object: objectList)
+                            else {
+                                println("shit")
+                            }
                         }
-                    }
-                    else {
-                        println("shit")
-                    }
                 })
                 
             }
