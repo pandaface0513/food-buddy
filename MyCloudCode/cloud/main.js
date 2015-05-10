@@ -385,11 +385,26 @@ Parse.Cloud.define("sample", function(request, response) {
 
 
 //****************************************************************************************************
-
+Parse.Cloud.define("findRandomRestaurant",function(request,response){
+  var query = new Parse.Query("RestaurantDataBase");
+  var geoLocation = request.params.geoLocation;
+  var rangeKiloRadius = request.params.rangeKiloRadius;
+  if (rangeKiloRadius==null)
+      rangeKiloRadius=40;
+  query.withinKilometers("geoLocation",geoLocation,rangeKiloRadius);
+  query.find().then(
+    function(results){
+      var arrayLength = results.length;
+      var random = Math.floor(Math.random()*arrayLength);
+      response.success(results[random]);
+    },function(error){
+      response.error("error getting randomr restaurant");
+    }
+  )
+})
 
 Parse.Cloud.define("findBestSuitedRestaurants",function(request,response){
   //get all prefreference for every user here
-  var a = ""
   var preferenceCount = {}
   var restaurantList = []
   var rangeKiloRadius = 40;
@@ -407,10 +422,9 @@ Parse.Cloud.define("findBestSuitedRestaurants",function(request,response){
             preferenceCount[preference] += 1;
         }
       }
-      a = a + "preferenceCount complete   "
       return preferenceCount;
     },function(error){
-      response.error("error finding preferenceCount")
+      response.error("error finding preferenceCount");
     }
   ).then(function(results){
 
@@ -423,7 +437,6 @@ Parse.Cloud.define("findBestSuitedRestaurants",function(request,response){
     restaurantquery.withinKilometers("geoLocation",geoLocation,rangeKiloRadius)
     return restaurantquery.find().then(
       function(results){
-        a = a + "restaurantList complete     "
         restaurantList = results;
         return results;
       },function(error){
@@ -440,17 +453,21 @@ Parse.Cloud.define("findBestSuitedRestaurants",function(request,response){
       var score = scoreCalculator(restaurant,preferenceCount,distance,rangeKiloRadius);
       var name = restaurant.get("name");
       var objectId = restaurant.id;
+      var imageUrl = restaurant.get("imagePFFile").url();
 
       var result = {
         "objectId":objectId,
         "name":name,
         "distance":distance,
         "score":score,
+        "imageUrl":imageUrl
       };
 
       resultList.push(result);
     }
+
     //conclude analysis
+    resultList.sort(function(a,b) {return b["score"]-a["score"]});
     response.success(resultList);
   },function(error){
     response.error("not able to perform analysis")
@@ -461,7 +478,6 @@ function scoreCalculator(restaurant, preferenceCount,distance,range){
   var preference;
   var preferenceMatch=0;
   var userRating=0;
-  var randomness = Math.random()*10;
   var score=0;
   if(!preferenceCount){
     if (restaurant.hasOwnProperty("preference")){
@@ -476,6 +492,6 @@ function scoreCalculator(restaurant, preferenceCount,distance,range){
   }
   if (restaurant.hasOwnProperty("rating"))
     userRating=restaurant["rating"];
-  score = preferenceMatch * 5 + (range-distance) / 5 + userRating * 5 + randomness * 3;
+  score = preferenceMatch * 5 + (range-distance) / 5 + userRating * 5;
   return score;
 }
