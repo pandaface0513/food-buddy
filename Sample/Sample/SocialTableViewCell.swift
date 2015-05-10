@@ -54,11 +54,6 @@ class SocialTableViewCell: UITableViewCell {
         likeCounts.text = String(likeCount)
     }
     
-    @IBAction func commentAction(sender: AnyObject) {
-        commentCount += 1
-        commentCounts.text = String(commentCount)
-    }
-    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -97,11 +92,6 @@ class SocialTableViewCell: UITableViewCell {
                 self.FeedPhoto.image = UIImage(data: imageData!)
             }
         }
-        
-//        FeedDesc.numberOfLines = 0
-//        FeedDesc.preferredMaxLayoutWidth = 450
-//        FeedDesc.lineBreakMode = NSLineBreakMode.ByWordWrapping
-//        FeedDesc.sizeToFit()
     }
 
 }

@@ -16,6 +16,7 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
     var postArr:[Dictionary<String, AnyObject>] = [Dictionary]()
     var user = User()
     var postDatabase = PostDataBase()
+    var restdb = RestaurantDataBase()
     var feedArr : Array<Dictionary<String, AnyObject>> = []
     
     var refreshControl:UIRefreshControl!
@@ -37,16 +38,36 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "FeedLoad:", name: "findFriendFeed done", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "FeedLoadFailed:", name: "findFriendFeed failed", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "AddFeed:", name: "addFriendFeed done", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "findRanRest:", name: "findRandomRestaurantCloud Done", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "findNoRanRest:", name: "findRandomRestaurantCloud Failed", object: nil)
         
-        //postDatabase.findAllPost()
-        postDatabase.findFriendFeed(user.getObjectId(), loadMore: false)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "grabRanRest:", name: "done grabbing", object: nil)
         
-        //postDatabase.downloadContainedIn([:])
         
-
+//        postDatabase.findFriendFeed(user.getObjectId(), loadMore: false)
         
+        restdb.findRandomRestaurantCloud()
         
         // Do any additional setup after loading the view.
+    }
+    
+    func grabRanRest(notification:NSNotification){
+        var gpoint = PFGeoPoint(latitude: 49.249, longitude: -123.0196)
+        restdb.findRandomRestaurantCloudHelper(gpoint)
+    }
+    
+    func findRanRest(notification:NSNotification){
+        var restResult = notification.object as! Dictionary<String, AnyObject>
+        println("find random rest")
+        println(restResult)
+        postArr.append(restResult)
+        println("postArr + \(postArr.count)")
+        socialTable.reloadData()
+    }
+    
+    func findNoRanRest(notification:NSNotification){
+        println("find no ran rest")
+        println(notification.object as! String)
     }
     
     func AddFeed(notification: NSNotification){
@@ -69,6 +90,7 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         }
         //reload that shit
         socialTable.reloadData()
+        NSNotificationCenter.defaultCenter().postNotificationName("done grabbing", object: nil)
     }
     
     func FeedLoadFailed(notification: NSNotification){
@@ -126,10 +148,14 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         
         let post:Dictionary<String,AnyObject> = postArr[indexPath.row] as Dictionary
         
-        cell.loadItem(post["user"] as! String, feedphoto: post["imagefile"] as! String, description: post["description"] as! String)
-        cell.setPostID(post["objectId"] as! String)
-        cell.setLikeNumber(post["likeCount"] as! Int)
-        
+        if (indexPath.row == 10){
+            cell.loadItem(post["name"] as! String, feedphoto: post["imagePFFile"] as! String, description: post["description"] as! String)
+        }
+        else {
+            cell.loadItem(post["user"] as! String, feedphoto: post["imagefile"] as! String, description: post["description"] as! String)
+            cell.setPostID(post["objectId"] as! String)
+            cell.setLikeNumber(post["likeCount"] as! Int)
+        }
         println(String(indexPath.row))
 
         if (indexPath.row == postArr.count - 1){
