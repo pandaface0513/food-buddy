@@ -28,9 +28,9 @@ class TableResultViewController: UIViewController, UITableViewDelegate, UITableV
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "gotNoFood:", name: "findBestSuitedRestaurantsCloud Failed", object: nil)
         
         var geoPoint = PFGeoPoint(latitude: 49.249, longitude: -123.0196)
-//        restdb.findBestSuitedRestaurantsCloudHelper(geoPoint,userIds:selectedFriends, rangeKiloRadius: 40)
+        restdb.findBestSuitedRestaurantsCloudHelper(geoPoint,userIds:selectedFriends, rangeKiloRadius: 40)
         
-        restdb.findBestSuitedRestaurantsCloud(selectedFriends, rangeKiloRadius: 40)
+//        restdb.findBestSuitedRestaurantsCloud(selectedFriends, rangeKiloRadius: 40)
         
     }
     

@@ -44,7 +44,7 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "grabRanRest:", name: "done grabbing", object: nil)
         
         
-//        postDatabase.findFriendFeed(user.getObjectId(), loadMore: false)
+        postDatabase.findFriendFeed(user.getObjectId(), loadMore: false)
         
         restdb.findRandomRestaurantCloud()
         

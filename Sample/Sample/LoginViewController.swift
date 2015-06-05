@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 //        usernameInput.text = "hwlo"
 //        passInput.text = "4321"
-        self.navigationController?.navigationBar.hidden = true
+//        self.navigationController?.navigationBar.hidden = true
 //        checkUser()
         if (PFUser.currentUser() != nil){
             self.performSegueWithIdentifier("loginSuccess", sender: nil)
